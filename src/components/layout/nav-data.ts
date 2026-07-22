@@ -78,6 +78,7 @@ export const footerLinkGroups = [
       { label: "Calendar of Events", href: "/calendar" },
       { label: "Community Engagement", href: "/community-engagement" },
       { label: "Eligibility and Payment", href: "/eligibility-and-payment" },
+      { label: "Transit Assistance", href: "/transit-assistance" },
       { label: "Contact Us", href: "/contact" },
     ],
   },

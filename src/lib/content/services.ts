@@ -10,6 +10,7 @@ export type ServicePageContent = {
   facts?: { label: string; value: string }[];
   heroImage?: string;
   heroImageAlt?: string;
+  relatedLink?: { label: string; href: string };
 };
 
 export const programs = [
@@ -168,6 +169,10 @@ export const services: ServicePageContent[] = [
     ],
     heroImage: "/images/cta-support-team.jpg",
     heroImageAlt: "A support team member wearing a headset, ready to help",
+    relatedLink: {
+      label: "View PRP Resources",
+      href: "/services/psychiatric-rehabilitation/resources",
+    },
   },
   {
     slug: "community-resource-linkages",

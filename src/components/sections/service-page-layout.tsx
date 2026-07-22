@@ -93,6 +93,15 @@ export function ServicePageLayout({ service }: { service: ServicePageContent }) 
                   <Button render={<Link href="/referrals" />} variant="outline" className="w-full">
                     Make a Referral
                   </Button>
+                  {service.relatedLink ? (
+                    <Button
+                      render={<Link href={service.relatedLink.href} />}
+                      variant="outline"
+                      className="w-full"
+                    >
+                      {service.relatedLink.label}
+                    </Button>
+                  ) : null}
                 </div>
               </CardContent>
             </Card>
