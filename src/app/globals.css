@@ -49,41 +49,42 @@
 }
 
 :root {
-  /* King Health Systems brand palette: forest-sage + warm terracotta,
-     evolved from the original crown-and-KING mark's blue into a calmer,
-     more distinctly "mental health" warm-neutral direction. */
-  --background: #f8f5ee;
-  --foreground: #201f1b;
+  /* King Health Systems brand palette: a fuller, brighter blue system -
+     vivid royal blue primary, deep navy secondary, bright sky-blue accent,
+     on a crisp cool-white background. Premium healthcare-tech feel,
+     true to the original crown-and-KING mark's blue heritage. */
+  --background: #f4f7fc;
+  --foreground: #0f172a;
   --card: #ffffff;
-  --card-foreground: #201f1b;
+  --card-foreground: #0f172a;
   --popover: #ffffff;
-  --popover-foreground: #201f1b;
-  --primary: #3f5a4d;
+  --popover-foreground: #0f172a;
+  --primary: #1d4ed8;
   --primary-foreground: #ffffff;
-  --secondary: #223027;
+  --secondary: #0b1220;
   --secondary-foreground: #ffffff;
-  --muted: #efe9da;
-  --muted-foreground: #6b6459;
-  --accent: #c1623f;
+  --muted: #e8eef8;
+  --muted-foreground: #5b6b85;
+  --accent: #0284c7;
   --accent-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #e3dcc9;
-  --input: #e3dcc9;
-  --ring: #3f5a4d;
-  --chart-1: #3f5a4d;
-  --chart-2: #223027;
-  --chart-3: #c1623f;
-  --chart-4: #93ab9c;
-  --chart-5: #d9cbb0;
+  --border: #dbe4f3;
+  --input: #dbe4f3;
+  --ring: #1d4ed8;
+  --chart-1: #1d4ed8;
+  --chart-2: #0b1220;
+  --chart-3: #0284c7;
+  --chart-4: #7ea2f1;
+  --chart-5: #7dd3fc;
   --radius: 0.75rem;
-  --sidebar: #f8f5ee;
-  --sidebar-foreground: #201f1b;
-  --sidebar-primary: #3f5a4d;
+  --sidebar: #f4f7fc;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #1d4ed8;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #efe9da;
-  --sidebar-accent-foreground: #201f1b;
-  --sidebar-border: #e3dcc9;
-  --sidebar-ring: #3f5a4d;
+  --sidebar-accent: #e8eef8;
+  --sidebar-accent-foreground: #0f172a;
+  --sidebar-border: #dbe4f3;
+  --sidebar-ring: #1d4ed8;
 }
 
 .dark {
