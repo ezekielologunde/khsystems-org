@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Lora, Public_Sans } from "next/font/google";
+import { Caveat, Lora, Public_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
@@ -18,6 +18,12 @@ const headingFont = Lora({
 const bodyFont = Public_Sans({
   variable: "--font-body",
   subsets: ["latin"],
+});
+
+const scriptFont = Caveat({
+  variable: "--font-script",
+  subsets: ["latin"],
+  weight: ["600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -44,7 +50,7 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      className={`${headingFont.variable} ${bodyFont.variable} h-full antialiased`}
+      className={`${headingFont.variable} ${bodyFont.variable} ${scriptFont.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider>

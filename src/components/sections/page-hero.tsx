@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/container";
+import { Doodle } from "@/components/sections/doodle";
 
 export function PageHero({
   eyebrow,
@@ -29,8 +30,9 @@ export function PageHero({
               {eyebrow}
             </span>
           ) : null}
-          <h1 className="mt-4 max-w-3xl text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
+          <h1 className="mt-4 flex max-w-3xl items-start gap-3 text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
             {title}
+            <Doodle variant="spark" className="mt-2 size-7 shrink-0 text-accent" />
           </h1>
           {description ? (
             <p className="mt-5 max-w-2xl text-xl font-medium text-secondary-foreground/80">

@@ -10,6 +10,7 @@ export function PhotoTile({
   href,
   className,
   priority,
+  frameClassName,
 }: {
   src: string;
   alt: string;
@@ -17,12 +18,14 @@ export function PhotoTile({
   href?: string;
   className?: string;
   priority?: boolean;
+  frameClassName?: string;
 }) {
-  const content = (
+  const photo = (
     <div
       className={cn(
-        "group relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted",
-        className
+        "group relative aspect-[4/5] overflow-hidden bg-muted",
+        frameClassName ? "rounded-[1.1rem]" : "rounded-2xl",
+        !frameClassName && className
       )}
     >
       <Image
@@ -43,6 +46,12 @@ export function PhotoTile({
         ) : null}
       </div>
     </div>
+  );
+
+  const content = frameClassName ? (
+    <div className={cn("rounded-[1.5rem] p-2.5", frameClassName, className)}>{photo}</div>
+  ) : (
+    photo
   );
 
   if (href) {

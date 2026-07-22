@@ -20,6 +20,7 @@ import { PhotoTile } from "@/components/sections/photo-tile";
 import { AvatarStack } from "@/components/sections/avatar-stack";
 import { TiltCard } from "@/components/sections/tilt-card";
 import { Sticker } from "@/components/sections/sticker";
+import { Doodle } from "@/components/sections/doodle";
 import { company, careTeam } from "@/lib/content/company";
 import { programs } from "@/lib/content/services";
 import { testimonials } from "@/lib/content/testimonials";
@@ -59,7 +60,7 @@ export default async function HomePage() {
             </Sticker>
             <h1 className="mt-7 font-heading text-6xl font-bold leading-[1.02] tracking-tight sm:text-7xl lg:text-[5rem]">
               {t("heroTitlePrefix")}{" "}
-              <span className="highlight-mark text-primary">
+              <span className="script-underline script-accent text-6xl sm:text-7xl lg:text-8xl">
                 {t("heroTitleHighlight")}
               </span>{" "}
               {t("heroTitleSuffix")}
@@ -101,19 +102,63 @@ export default async function HomePage() {
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.1} className="relative">
-            <TiltCard className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] bg-muted shadow-soft-lg sm:aspect-[5/4] lg:aspect-[4/5]">
-              <Image
-                src="/images/hero-family.jpg"
-                alt="A family sitting together outdoors, supporting one another"
-                fill
-                priority
-                sizes="(max-width: 1024px) 90vw, 40vw"
-                className="object-cover"
-              />
-            </TiltCard>
+          <FadeIn delay={0.1} className="relative mx-auto w-full max-w-md">
+            <Doodle
+              variant="star"
+              className="absolute -top-8 left-8 size-7 text-accent-orange sm:-top-10 sm:left-4"
+            />
+            <Doodle
+              variant="scribble"
+              className="absolute top-1/2 -left-8 hidden size-10 -translate-y-1/2 text-accent-blue sm:block"
+            />
 
-            <div className="absolute -bottom-7 left-2 rounded-2xl border border-border bg-card px-6 py-5 shadow-soft sm:left-6">
+            <div className="grid grid-cols-2 gap-4">
+              <TiltCard className="col-span-2 rounded-[1.75rem] bg-accent p-3 shadow-soft">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[1.25rem]">
+                  <Image
+                    src="/images/hero-family.jpg"
+                    alt="A family sitting together outdoors, supporting one another"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 90vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+              </TiltCard>
+
+              <div className="rounded-[1.5rem] bg-accent-blue p-2.5 shadow-soft-sm">
+                <div className="relative aspect-square w-full overflow-hidden rounded-[1.1rem]">
+                  <Image
+                    src="/images/telehealth-video-call.jpg"
+                    alt="A person having a telehealth video call from home"
+                    fill
+                    sizes="(max-width: 1024px) 45vw, 20vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+
+              <div className="rounded-[1.5rem] bg-accent-orange/70 p-2.5 shadow-soft-sm">
+                <div className="relative aspect-square w-full overflow-hidden rounded-[1.1rem]">
+                  <Image
+                    src="/images/bento-compassionate-care.jpg"
+                    alt="Two people holding hands in a supportive gesture"
+                    fill
+                    sizes="(max-width: 1024px) 45vw, 20vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <span className="absolute top-4 -left-3 -rotate-3 rounded-full border border-border bg-card px-3 py-1 text-xs font-bold shadow-soft-sm sm:-left-6">
+              Compassionate
+            </span>
+            <span className="absolute right-2 bottom-24 rotate-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-bold shadow-soft-sm sm:right-0">
+              Supportive
+            </span>
+
+            <div className="mt-5 flex items-center justify-between rounded-2xl border border-border bg-card px-6 py-5 shadow-soft">
               <div className="flex items-center gap-3">
                 <span className="flex size-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
                   <MapPin className="size-6" />
@@ -125,17 +170,13 @@ export default async function HomePage() {
                   </p>
                 </div>
               </div>
+              <Link
+                href="/services"
+                className="group flex size-14 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105"
+              >
+                <ArrowUpRight className="size-6 transition-transform group-hover:rotate-45" />
+              </Link>
             </div>
-
-            <Link
-              href="/services"
-              className="group absolute -top-6 -right-6 flex size-24 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-soft transition-transform hover:scale-105 sm:size-28"
-            >
-              <span className="relative flex flex-col items-center text-center text-xs font-bold uppercase leading-tight">
-                {t("exploreServices")}
-              </span>
-              <ArrowUpRight className="absolute size-6 opacity-0 transition-opacity group-hover:opacity-100" />
-            </Link>
           </FadeIn>
         </Container>
       </section>
@@ -149,7 +190,8 @@ export default async function HomePage() {
               alt="Two people holding hands in a supportive gesture"
               label="Compassionate Care"
               href="/services/individual-therapy"
-              className="rounded-3xl shadow-soft-sm"
+              className="shadow-soft-sm"
+              frameClassName="bg-accent"
             />
           </FadeIn>
           <FadeIn delay={0.05}>
@@ -158,7 +200,8 @@ export default async function HomePage() {
               alt="A family silhouette together at sunset"
               label="Family Therapy"
               href="/services/family-therapy"
-              className="rounded-3xl shadow-soft-sm"
+              className="shadow-soft-sm"
+              frameClassName="bg-accent-blue"
             />
           </FadeIn>
           <FadeIn delay={0.1} className="col-span-2 sm:col-span-1">
@@ -184,7 +227,8 @@ export default async function HomePage() {
               alt="A diverse group of people stacking hands together in support"
               label="Group &amp; Community Support"
               href="/services/group-therapy"
-              className="rounded-3xl shadow-soft-sm"
+              className="shadow-soft-sm"
+              frameClassName="bg-accent-orange/70"
             />
           </FadeIn>
         </div>
@@ -197,8 +241,9 @@ export default async function HomePage() {
             <p className="text-sm font-bold uppercase tracking-wide text-primary">
               {t("programsEyebrow")}
             </p>
-            <h2 className="mt-2 font-heading text-5xl font-bold leading-[1.05]">
+            <h2 className="mt-2 flex items-center gap-3 font-heading text-5xl font-bold leading-[1.05]">
               {t("programsTitle")}
+              <Doodle variant="scribble" className="size-8 shrink-0 text-accent-orange" />
             </h2>
             <p className="mt-5 text-lg font-medium text-foreground/75">{t("programsDescription")}</p>
           </div>
@@ -232,7 +277,8 @@ export default async function HomePage() {
       <Section className="bg-muted">
         <FadeIn className="mx-auto max-w-2xl text-center">
           <Sticker className="text-primary">The People Behind Your Care</Sticker>
-          <h2 className="mt-6 font-heading text-5xl font-bold leading-[1.05]">
+          <h2 className="mt-6 flex items-center justify-center gap-3 font-heading text-5xl font-bold leading-[1.05]">
+            <Doodle variant="star" className="size-7 shrink-0 text-accent-orange" />
             A licensed, credentialed team
           </h2>
           <p className="mt-5 text-lg font-medium text-foreground/75">
@@ -334,7 +380,10 @@ export default async function HomePage() {
             <p className="text-sm font-bold uppercase tracking-wide text-primary">
               {t("telehealthEyebrow")}
             </p>
-            <h2 className="mt-2 font-heading text-5xl font-bold leading-[1.05]">{t("telehealthTitle")}</h2>
+            <h2 className="mt-2 flex items-center gap-3 font-heading text-5xl font-bold leading-[1.05]">
+              {t("telehealthTitle")}
+              <Doodle variant="spark" className="size-7 shrink-0 text-accent-blue" />
+            </h2>
             <p className="mt-4 text-muted-foreground">{t("telehealthDescription")}</p>
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
               {[
@@ -373,8 +422,9 @@ export default async function HomePage() {
         <div className="relative isolate overflow-hidden rounded-[2rem] bg-accent shadow-soft-lg">
           <div className="grid gap-8 p-10 sm:p-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-0">
             <FadeIn className="max-w-lg text-accent-foreground">
-              <h2 className="font-heading text-5xl font-bold leading-[1.05] sm:text-6xl">
+              <h2 className="flex items-start gap-3 font-heading text-5xl font-bold leading-[1.05] sm:text-6xl">
                 {t("ctaTitle")}
+                <Doodle variant="star" className="mt-2 size-8 shrink-0 text-accent-foreground/60" />
               </h2>
               <p className="mt-4 text-lg font-medium text-accent-foreground/80">
                 {t("ctaBody", { phone: company.phone })}
