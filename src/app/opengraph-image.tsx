@@ -19,7 +19,7 @@ export default function OpengraphImage() {
           justifyContent: "center",
           padding: "80px",
           background: "#f6fafd",
-          color: "#14161a",
+          color: "#0f172a",
           fontFamily: "sans-serif",
         }}
       >
@@ -31,7 +31,7 @@ export default function OpengraphImage() {
             width: 72,
             height: 72,
             borderRadius: "50%",
-            background: "#14161a",
+            background: "#1d4ed8",
             marginBottom: 32,
           }}
         >
@@ -43,7 +43,7 @@ export default function OpengraphImage() {
         <div style={{ fontSize: 56, fontWeight: 700, lineHeight: 1.15, display: "flex" }}>
           {company.name}
         </div>
-        <div style={{ fontSize: 28, marginTop: 20, color: "#4a4335", display: "flex" }}>
+        <div style={{ fontSize: 28, marginTop: 20, color: "#334155", display: "flex" }}>
           {company.tagline}
         </div>
         <div style={{ fontSize: 22, marginTop: 40, color: "#5b6572", display: "flex" }}>
