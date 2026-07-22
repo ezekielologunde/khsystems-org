@@ -120,7 +120,7 @@ export default async function HomePage() {
                     alt="A family sitting together outdoors, supporting one another"
                     fill
                     priority
-                    sizes="(max-width: 1024px) 90vw, 40vw"
+                    sizes="(max-width: 448px) 90vw, 448px"
                     className="object-cover"
                   />
                 </div>
@@ -132,7 +132,7 @@ export default async function HomePage() {
                     src="/images/telehealth-video-call.jpg"
                     alt="A person having a telehealth video call from home"
                     fill
-                    sizes="(max-width: 1024px) 45vw, 20vw"
+                    sizes="(max-width: 448px) 45vw, 216px"
                     className="object-cover"
                   />
                 </div>
@@ -144,7 +144,7 @@ export default async function HomePage() {
                     src="/images/bento-compassionate-care.jpg"
                     alt="Two people holding hands in a supportive gesture"
                     fill
-                    sizes="(max-width: 1024px) 45vw, 20vw"
+                    sizes="(max-width: 448px) 45vw, 216px"
                     className="object-cover"
                   />
                 </div>

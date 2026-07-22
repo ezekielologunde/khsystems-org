@@ -6,7 +6,7 @@ import { getLocale } from "next-intl/server";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { Toaster } from "@/components/ui/sonner";
+import { LazyToaster } from "@/components/ui/lazy-toaster";
 import { OrganizationStructuredData } from "@/components/structured-data";
 import { company } from "@/lib/content/company";
 
@@ -66,7 +66,7 @@ export default async function RootLayout({
             {children}
           </main>
           <Footer />
-          <Toaster />
+          <LazyToaster />
         </NextIntlClientProvider>
         <Analytics />
       </body>
