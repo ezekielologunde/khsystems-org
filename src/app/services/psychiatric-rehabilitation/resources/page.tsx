@@ -52,7 +52,7 @@ export default function PrpResourcesPage() {
         <div className="space-y-10">
           {prpResourceCategories.map((category, i) => (
             <FadeIn key={category.key} delay={i * 0.05}>
-              <h2 className="mb-4 text-xl font-bold">{category.title}</h2>
+              <h2 className="mb-4 text-xl font-extrabold">{category.title}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
                 {category.items.map((item) => (
                   <Card key={item.name}>

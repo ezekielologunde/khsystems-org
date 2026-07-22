@@ -30,13 +30,15 @@ export function PageHero({
       >
         <div>
           {eyebrow ? (
-            <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-accent">
+            <p className="mb-2 text-sm font-bold uppercase tracking-wide text-accent">
               {eyebrow}
             </p>
           ) : null}
-          <h1 className="max-w-3xl text-3xl font-bold sm:text-4xl">{title}</h1>
+          <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl">
+            {title}
+          </h1>
           {description ? (
-            <p className="mt-4 max-w-2xl text-secondary-foreground/85">
+            <p className="mt-4 max-w-2xl text-lg font-medium text-secondary-foreground/85">
               {description}
             </p>
           ) : null}

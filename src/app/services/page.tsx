@@ -44,7 +44,7 @@ export default function ServicesPage() {
           {categoryMeta.map((category, i) => (
             <FadeIn key={category.key} delay={i * 0.05}>
               <div className="mb-6">
-                <h2 className="text-2xl font-bold">{category.title}</h2>
+                <h2 className="text-2xl font-extrabold">{category.title}</h2>
                 <p className="mt-2 max-w-2xl text-muted-foreground">
                   {category.description}
                 </p>
@@ -66,7 +66,7 @@ export default function ServicesPage() {
 
       <Section className="bg-muted">
         <FadeIn>
-          <h2 className="text-2xl font-bold">Insurance We Accept</h2>
+          <h2 className="text-2xl font-extrabold">Insurance We Accept</h2>
           <p className="mt-2 max-w-2xl text-muted-foreground">
             We accept Maryland Medicaid at no cost to eligible clients through
             the following managed care organizations:

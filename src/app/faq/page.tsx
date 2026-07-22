@@ -28,7 +28,7 @@ export default function FaqPage() {
         <div className="mx-auto max-w-3xl space-y-12">
           {faqCategories.map((category, i) => (
             <FadeIn key={category.key} delay={i * 0.05}>
-              <h2 className="mb-3 text-xl font-bold">{category.title}</h2>
+              <h2 className="mb-3 text-xl font-extrabold">{category.title}</h2>
               <Accordion className="divide-y divide-border">
                 {category.items.map((item) => (
                   <AccordionItem key={item.question} value={item.question}>

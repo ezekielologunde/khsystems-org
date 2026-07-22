@@ -23,7 +23,7 @@ export default function ResourcesPage() {
         <div className="space-y-14">
           {resourceCategories.map((category, i) => (
             <FadeIn key={category.key} delay={i * 0.05}>
-              <h2 className="mb-5 text-2xl font-bold">{category.title}</h2>
+              <h2 className="mb-5 text-2xl font-extrabold">{category.title}</h2>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {category.items.map((item) => (
                   <Card key={item.name}>
