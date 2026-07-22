@@ -52,7 +52,7 @@ export function NewsletterSignup({
         {label}
       </p>
       {submitted ? (
-        <p className="mt-3 text-sm font-semibold text-accent">{successMessage}</p>
+        <p className="mt-3 text-sm font-semibold text-accent-blue">{successMessage}</p>
       ) : (
         <form
           onSubmit={handleSubmit(onSubmit)}

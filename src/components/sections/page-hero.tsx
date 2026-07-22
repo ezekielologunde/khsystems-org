@@ -26,13 +26,13 @@ export function PageHero({
       >
         <div>
           {eyebrow ? (
-            <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1 text-sm font-bold uppercase tracking-wide text-accent">
+            <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1 text-sm font-bold uppercase tracking-wide text-accent-blue">
               {eyebrow}
             </span>
           ) : null}
           <h1 className="mt-4 flex max-w-3xl items-start gap-3 text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
             {title}
-            <Doodle variant="spark" className="mt-2 size-7 shrink-0 text-accent" />
+            <Doodle variant="spark" className="mt-2 size-7 shrink-0 text-accent-blue" />
           </h1>
           {description ? (
             <p className="mt-5 max-w-2xl text-xl font-medium text-secondary-foreground/80">

@@ -33,13 +33,13 @@ export const metadata: Metadata = {
 
 const CARD_TINTS = [
   "bg-accent-blue/40",
-  "bg-accent/25",
+  "bg-accent-yellow/25",
   "bg-accent-orange/20",
 ];
 
 const TEAM_TINTS = [
   "bg-primary text-primary-foreground",
-  "bg-accent text-accent-foreground",
+  "bg-accent-yellow text-accent-yellow-foreground",
   "bg-accent-blue text-accent-blue-foreground",
   "bg-accent-orange text-accent-orange-foreground",
 ];
@@ -113,7 +113,7 @@ export default async function HomePage() {
             />
 
             <div className="grid grid-cols-2 gap-4">
-              <TiltCard className="col-span-2 rounded-[1.75rem] bg-accent p-3 shadow-soft">
+              <TiltCard className="col-span-2 rounded-[1.75rem] bg-accent-yellow p-3 shadow-soft">
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[1.25rem]">
                   <Image
                     src="/images/hero-family.jpg"
@@ -191,7 +191,7 @@ export default async function HomePage() {
               label="Compassionate Care"
               href="/services/individual-therapy"
               className="shadow-soft-sm"
-              frameClassName="bg-accent"
+              frameClassName="bg-accent-yellow"
             />
           </FadeIn>
           <FadeIn delay={0.05}>
@@ -206,7 +206,7 @@ export default async function HomePage() {
           </FadeIn>
           <FadeIn delay={0.1} className="col-span-2 sm:col-span-1">
             <div className="flex aspect-[4/5] flex-col justify-between rounded-3xl bg-secondary p-5 text-secondary-foreground shadow-soft-sm">
-              <p className="text-xs font-bold uppercase tracking-wide text-accent">
+              <p className="text-xs font-bold uppercase tracking-wide text-accent-yellow">
                 {t("testimonialsLabel")}
               </p>
               {testimonials.length > 0 ? (
@@ -317,7 +317,7 @@ export default async function HomePage() {
         <div className="grid gap-6 lg:grid-cols-2">
           <FadeIn className="flex flex-col justify-between gap-6 rounded-3xl bg-accent p-8 text-accent-foreground shadow-soft-sm sm:p-10">
             <div>
-              <Sticker className="border-none bg-accent-foreground/10 text-accent-foreground shadow-none">
+              <Sticker className="border-none bg-black/15 text-accent-foreground shadow-none">
                 <ShieldCheck className="size-3.5" /> {t("eligibilityBadge")}
               </Sticker>
               <p className="mt-6 font-heading text-4xl font-bold leading-snug sm:text-5xl">
@@ -398,7 +398,7 @@ export default async function HomePage() {
                   <span
                     className={`flex size-10 items-center justify-center rounded-full ${
                       i === 0
-                        ? "bg-accent text-accent-foreground"
+                        ? "bg-accent-yellow text-accent-yellow-foreground"
                         : i === 1
                           ? "bg-accent-blue text-accent-blue-foreground"
                           : "bg-accent-orange text-accent-orange-foreground"

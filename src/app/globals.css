@@ -30,6 +30,8 @@
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
+  --color-accent-yellow-foreground: var(--accent-yellow-foreground);
+  --color-accent-yellow: var(--accent-yellow);
   --color-accent-blue-foreground: var(--accent-blue-foreground);
   --color-accent-blue: var(--accent-blue);
   --color-accent-orange-foreground: var(--accent-orange-foreground);
@@ -70,8 +72,10 @@
   --secondary-foreground: #ffffff;
   --muted: #eaf3fa;
   --muted-foreground: #5b6572;
-  --accent: #f2c94c;
-  --accent-foreground: #0f172a;
+  --accent: #0369a1;
+  --accent-foreground: #ffffff;
+  --accent-yellow: #f2c94c;
+  --accent-yellow-foreground: #0f172a;
   --accent-blue: #bfe3f7;
   --accent-blue-foreground: #0f172a;
   --accent-orange: #f2994a;
