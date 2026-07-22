@@ -20,6 +20,9 @@ const staticRoutes = [
   "/calendar",
   "/transit-assistance",
   "/privacy-policy",
+  "/faq",
+  "/accessibility",
+  "/testimonials",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

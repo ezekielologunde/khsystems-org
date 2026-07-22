@@ -66,3 +66,41 @@ instead of a false success or a hard failure.
 To point `khsystems.org` at this deployment, add the domain in the Vercel
 project's Domains settings and update DNS at your registrar per Vercel's
 instructions.
+
+## Spanish language support
+
+A cookie-based language switcher (EN/ES, top-right of the header) is wired up
+via [next-intl](https://next-intl.dev) - see `messages/en.json`,
+`messages/es.json`, `src/i18n/`, and `src/lib/actions/locale.ts`.
+
+**Scope of this pass**: the site chrome (header nav, footer group titles,
+legal links) and the entire Home page are fully bilingual. Deep interior page
+content (About, individual service pages, Resources, legal text, form field
+labels) is still English-only - translating those is mechanical follow-up
+work using the same `useTranslations`/`getTranslations` pattern, just not
+done yet given the size of the site. The real client testimonial and company
+mission statement are intentionally left untranslated rather than
+paraphrased, to avoid misrepresenting a client's own words or legally-toned
+copy.
+
+**Known tradeoff**: because locale is read from a cookie (not the URL path),
+every route had to opt out of static generation - Next.js now server-renders
+every page on each request rather than serving pre-built static HTML. This
+keeps the implementation simple (no duplicated `/es/...` route tree, no
+doubled sitemap) but is worth revisiting if traffic grows enough that
+per-request rendering cost matters; the standard fix would be to move to
+path-based locale routing (`/en/...`, `/es/...`) via next-intl's routing
+middleware.
+
+## Content management
+
+There's no CMS yet - all copy lives in typed files under `src/lib/content/`.
+If KHS staff want to edit services, resources, or FAQ content without a
+developer, wiring in a headless CMS (e.g. Sanity) is a natural next step -
+it needs a live account with API credentials that only the client can create.
+
+## Analytics
+
+[Vercel Analytics](https://vercel.com/analytics) is enabled (`@vercel/analytics`
+in `src/app/layout.tsx`) - traffic data appears automatically in the Vercel
+project dashboard, no additional setup required.

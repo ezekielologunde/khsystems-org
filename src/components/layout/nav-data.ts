@@ -48,6 +48,7 @@ export const quickActionLinks = [
   { label: "Referrals", href: "/referrals" },
   { label: "Client Satisfaction Survey", href: "/satisfaction-survey" },
   { label: "Possible Medication Side Effects", href: "/medication-side-effects" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 export const footerLinkGroups = [
@@ -73,6 +74,7 @@ export const footerLinkGroups = [
     title: "Company",
     links: [
       { label: "About Us", href: "/about" },
+      { label: "Testimonials", href: "/testimonials" },
       { label: "Careers", href: "/careers" },
       { label: "Our Location", href: "/locations" },
       { label: "Calendar of Events", href: "/calendar" },

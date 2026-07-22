@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Menu, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -27,16 +28,33 @@ import {
 } from "@/components/ui/accordion";
 import { Container } from "@/components/layout/container";
 import { LogoMark } from "@/components/layout/logo-mark";
+import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { company } from "@/lib/content/company";
-import { primaryNav, serviceMenuGroups } from "@/components/layout/nav-data";
+import { serviceMenuGroups } from "@/components/layout/nav-data";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const t = useTranslations("nav");
+
+  const primaryNav = [
+    { label: t("home"), href: "/" },
+    { label: t("about"), href: "/about" },
+    { label: t("careers"), href: "/careers" },
+    { label: t("resources"), href: "/resources" },
+    { label: t("contact"), href: "/contact" },
+  ];
+
+  const groupTitleKey: Record<string, string> = {
+    Programs: t("programs"),
+    Therapy: t("therapy"),
+    "Assessments & Planning": t("assessments"),
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="bg-secondary text-secondary-foreground">
-        <Container className="flex h-9 items-center justify-end gap-4 text-sm">
+        <Container className="flex h-9 items-center justify-between gap-4 text-sm">
+          <LanguageSwitcher className="flex items-center gap-1.5" />
           <a
             href={company.phoneHref}
             className="flex items-center gap-1.5 hover:opacity-90"
@@ -71,13 +89,13 @@ export function Header() {
                 </NavigationMenuItem>
               ))}
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Our Services</NavigationMenuTrigger>
+                <NavigationMenuTrigger>{t("services")}</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid w-[600px] grid-cols-3 gap-6 p-6">
                     {serviceMenuGroups.map((group) => (
                       <div key={group.title}>
                         <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                          {group.title}
+                          {groupTitleKey[group.title] ?? group.title}
                         </p>
                         <ul className="space-y-1.5">
                           {group.links.map((link) => (
@@ -115,7 +133,7 @@ export function Header() {
             render={<Link href="/appointments" />}
             className="hidden sm:inline-flex bg-accent text-accent-foreground hover:bg-accent/90"
           >
-            Request an Appointment
+            {t("requestAppointment")}
           </Button>
 
           <Sheet open={open} onOpenChange={setOpen}>
@@ -143,14 +161,14 @@ export function Header() {
                 <Accordion>
                   <AccordionItem value="services" className="border-none">
                     <AccordionTrigger className="rounded-md px-3 py-2 text-sm font-medium hover:bg-muted hover:no-underline">
-                      Our Services
+                      {t("services")}
                     </AccordionTrigger>
                     <AccordionContent>
                       <div className="flex flex-col gap-3 px-3 pb-2">
                         {serviceMenuGroups.map((group) => (
                           <div key={group.title}>
                             <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                              {group.title}
+                              {groupTitleKey[group.title] ?? group.title}
                             </p>
                             <div className="flex flex-col gap-1">
                               {group.links.map((link) => (
@@ -184,7 +202,7 @@ export function Header() {
                   render={<Link href="/appointments" onClick={() => setOpen(false)} />}
                   className="mt-3 bg-accent text-accent-foreground hover:bg-accent/90"
                 >
-                  Request an Appointment
+                  {t("requestAppointment")}
                 </Button>
               </nav>
             </SheetContent>

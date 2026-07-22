@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Nosotros",
+    "services": "Nuestros Servicios",
+    "careers": "Empleos",
+    "resources": "Recursos",
+    "contact": "Contáctenos",
+    "requestAppointment": "Solicitar una Cita",
+    "servicesOverview": "Resumen de Nuestros Servicios",
+    "programs": "Programas",
+    "therapy": "Terapia",
+    "assessments": "Evaluaciones y Planificación",
+    "callUs": "Llámenos para más información"
+  },
+  "footer": {
+    "servicesTitle": "Servicios",
+    "getStartedTitle": "Comenzar",
+    "companyTitle": "Compañía",
+    "privacyPolicy": "Política de Privacidad",
+    "accessibility": "Accesibilidad",
+    "copyright": "King Health Systems, Inc."
+  },
+  "home": {
+    "eyebrow": "Atendiendo las Necesidades de Salud Mental",
+    "heroTitlePrefix": "Cuidamos de su",
+    "heroTitleHighlight": "salud mental",
+    "heroTitleSuffix": "todos los días",
+    "exploreServices": "Explore Nuestros Servicios",
+    "trustedBy": "La confianza de familias en",
+    "trustedSince": "desde 2015",
+    "twoLocations": "2 Ubicaciones",
+    "programsEyebrow": "Nuestros Programas",
+    "programsTitle": "El camino hacia el bienestar completo",
+    "programsDescription": "Enfermeras practicantes psiquiátricas certificadas, terapeutas licenciados y trabajadores sociales brindan atención en consultorio, a domicilio y por telesalud para niños (5+), adolescentes, adultos, parejas y familias.",
+    "viewAllServices": "Ver Todos los Servicios",
+    "eligibilityBadge": "Elegibilidad y Pago",
+    "eligibilityHeadline": "Aceptamos Medicaid de Maryland sin costo alguno, sin necesidad de referido de su médico de cabecera.",
+    "eligibilityBody": "Facturamos directamente a Medicaid en su nombre y gestionamos toda la autorización previa y el papeleo de facturación.",
+    "viewInsuranceDetails": "Ver Detalles del Seguro",
+    "itpHeadline": "Cada cliente recibe un Plan de Tratamiento Individualizado",
+    "learnHowItWorks": "Conozca cómo funciona",
+    "telehealthEyebrow": "Telesalud",
+    "telehealthTitle": "Apoyo en cualquier momento y lugar",
+    "telehealthDescription": "¿Prefiere reunirse desde casa? La mayoría de nuestros servicios están disponibles por telesalud, de lunes a viernes, para que la atención se adapte a su vida.",
+    "telehealthItem1": "Programación sencilla de citas",
+    "telehealthItem2": "Terapia virtual y manejo de medicamentos",
+    "telehealthItem3": "Visitas a domicilio para clientes elegibles",
+    "scheduleTelehealth": "Programar una Cita de Telesalud",
+    "testimonialsLabel": "Testimonios de Nuestros Clientes",
+    "ctaTitle": "Comuníquese hoy para recibir atención y apoyo experto",
+    "ctaBody": "Contacte a nuestro equipo dedicado para citas, preguntas o orientación - llámenos al {phone}, de lunes a viernes, de 9:00 a.m. a 5:00 p.m.",
+    "startYourJourney": "Comience su Camino",
+    "getInTouch": "Póngase en Contacto"
+  },
+  "common": {
+    "learnMore": "Más información"
+  }
+}

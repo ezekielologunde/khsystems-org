@@ -1,11 +1,20 @@
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { LogoMark } from "@/components/layout/logo-mark";
 import { company, offices, medicationDisclaimer } from "@/lib/content/company";
 import { footerLinkGroups } from "@/components/layout/nav-data";
 
-export function Footer() {
+export async function Footer() {
+  const t = await getTranslations("footer");
+
+  const groupTitleKey: Record<string, string> = {
+    Services: t("servicesTitle"),
+    "Get Started": t("getStartedTitle"),
+    Company: t("companyTitle"),
+  };
+
   return (
     <footer className="border-t border-border bg-secondary text-secondary-foreground">
       <Container className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-5">
@@ -46,7 +55,7 @@ export function Footer() {
         {footerLinkGroups.map((group) => (
           <div key={group.title}>
             <p className="text-xs font-semibold uppercase tracking-wide text-secondary-foreground/70">
-              {group.title}
+              {groupTitleKey[group.title] ?? group.title}
             </p>
             <ul className="mt-3 space-y-2 text-sm">
               {group.links.map((link) => (
@@ -65,9 +74,12 @@ export function Footer() {
         <Container className="flex flex-col gap-3 py-6 text-xs text-secondary-foreground/70 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-2xl">{medicationDisclaimer}</p>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-            <span>&copy; 2015&ndash;2026 {company.name}</span>
+            <span>&copy; 2015&ndash;2026 {t("copyright")}</span>
             <Link href="/privacy-policy" className="hover:underline">
-              Privacy Policy
+              {t("privacyPolicy")}
+            </Link>
+            <Link href="/accessibility" className="hover:underline">
+              {t("accessibility")}
             </Link>
           </div>
         </Container>

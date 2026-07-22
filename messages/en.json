@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Our Services",
+    "careers": "Careers",
+    "resources": "Resources",
+    "contact": "Contact Us",
+    "requestAppointment": "Request an Appointment",
+    "servicesOverview": "Our Services Overview",
+    "programs": "Programs",
+    "therapy": "Therapy",
+    "assessments": "Assessments & Planning",
+    "callUs": "Call us for more information"
+  },
+  "footer": {
+    "servicesTitle": "Services",
+    "getStartedTitle": "Get Started",
+    "companyTitle": "Company",
+    "privacyPolicy": "Privacy Policy",
+    "accessibility": "Accessibility",
+    "copyright": "King Health Systems, Inc."
+  },
+  "home": {
+    "eyebrow": "Serving the Mental Health Needs",
+    "heroTitlePrefix": "We care for your",
+    "heroTitleHighlight": "mental health",
+    "heroTitleSuffix": "every day",
+    "exploreServices": "Explore Our Services",
+    "trustedBy": "Trusted by families across",
+    "trustedSince": "since 2015",
+    "twoLocations": "2 Locations",
+    "programsEyebrow": "Our Programs",
+    "programsTitle": "The road to complete well-being",
+    "programsDescription": "Board-certified psychiatric nurse practitioners, licensed therapists, and social workers deliver in-office, at-home, and telehealth care for children (5+), adolescents, adults, couples, and families.",
+    "viewAllServices": "View All Services",
+    "eligibilityBadge": "Eligibility & Payment",
+    "eligibilityHeadline": "Maryland Medicaid accepted at no cost, with no PCP referral required.",
+    "eligibilityBody": "We bill Medicaid directly through all major managed care organizations and handle prior authorization on your behalf.",
+    "viewInsuranceDetails": "View Insurance Details",
+    "itpHeadline": "Every client gets an Individualized Treatment Plan",
+    "learnHowItWorks": "Learn how it works",
+    "telehealthEyebrow": "Telehealth",
+    "telehealthTitle": "Support anytime, anywhere",
+    "telehealthDescription": "Prefer to meet from home? Most of our services are available via telehealth, Monday through Friday, so care fits into your life - not the other way around.",
+    "telehealthItem1": "Simple appointment scheduling",
+    "telehealthItem2": "Virtual therapy & medication management",
+    "telehealthItem3": "In-home visits for eligible clients",
+    "scheduleTelehealth": "Schedule a Telehealth Visit",
+    "testimonialsLabel": "Hear From Our Clients",
+    "ctaTitle": "Reach out for expert care and support today",
+    "ctaBody": "Contact our dedicated team for appointments, inquiries, or guidance - call us at {phone}, Monday through Friday, 9:00 AM to 5:00 PM.",
+    "startYourJourney": "Start Your Journey",
+    "getInTouch": "Get in Touch"
+  },
+  "common": {
+    "learnMore": "Learn more"
+  }
+}

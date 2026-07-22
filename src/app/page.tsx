@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { ArrowRight, ArrowUpRight, MapPin, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/layout/section";
@@ -20,7 +21,10 @@ export const metadata: Metadata = {
     "King Health Systems, Inc. provides culturally sensitive, high-quality mental health services to children, adolescents, adults, and their families in Baltimore and Laurel, Maryland.",
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const t = await getTranslations("home");
+  const tNav = await getTranslations("nav");
+
   return (
     <>
       {/* Hero */}
@@ -33,11 +37,12 @@ export default function HomePage() {
         <Container className="grid gap-12 py-16 sm:py-20 lg:grid-cols-2 lg:items-center lg:py-24">
           <FadeIn>
             <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
-              {company.tagline}
+              {t("eyebrow")}
             </span>
             <h1 className="mt-5 font-heading text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.25rem]">
-              We care for your{" "}
-              <span className="text-primary">mental health</span> every day
+              {t("heroTitlePrefix")}{" "}
+              <span className="text-primary">{t("heroTitleHighlight")}</span>{" "}
+              {t("heroTitleSuffix")}
             </h1>
             <p className="mt-6 max-w-md text-muted-foreground">
               {company.mission}
@@ -48,24 +53,24 @@ export default function HomePage() {
                 size="lg"
                 className="bg-accent text-accent-foreground hover:bg-accent/90"
               >
-                Request an Appointment
+                {tNav("requestAppointment")}
               </Button>
               <Link
                 href="/services"
                 className="text-sm font-semibold underline underline-offset-4 hover:text-primary"
               >
-                Explore Our Services
+                {t("exploreServices")}
               </Link>
             </div>
 
             <div className="mt-10 flex items-center gap-4 border-t border-border pt-6">
               <AvatarStack />
               <p className="text-sm text-muted-foreground">
-                Trusted by families across{" "}
+                {t("trustedBy")}{" "}
                 <span className="font-semibold text-foreground">
                   Baltimore &amp; Laurel
                 </span>{" "}
-                since 2015
+                {t("trustedSince")}
               </p>
             </div>
           </FadeIn>
@@ -89,7 +94,7 @@ export default function HomePage() {
                   <MapPin className="size-5" />
                 </span>
                 <div>
-                  <p className="text-sm font-semibold leading-none">2 Locations</p>
+                  <p className="text-sm font-semibold leading-none">{t("twoLocations")}</p>
                   <p className="mt-1 text-xs text-muted-foreground">
                     Baltimore &amp; Laurel, MD
                   </p>
@@ -102,9 +107,7 @@ export default function HomePage() {
               className="group absolute -top-4 -right-4 flex size-20 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-lg shadow-accent/30 sm:size-24"
             >
               <span className="flex flex-col items-center text-center text-[0.65rem] font-semibold uppercase leading-tight">
-                Explore
-                <br />
-                Services
+                {t("exploreServices")}
               </span>
               <ArrowUpRight className="absolute size-5 opacity-0 transition-opacity group-hover:opacity-100" />
             </Link>
@@ -134,7 +137,7 @@ export default function HomePage() {
           <FadeIn delay={0.1} className="col-span-2 sm:col-span-1">
             <div className="flex aspect-[4/5] flex-col justify-between rounded-2xl bg-secondary p-5 text-secondary-foreground">
               <p className="text-xs font-semibold uppercase tracking-wide text-accent">
-                Hear From Our Clients
+                {t("testimonialsLabel")}
               </p>
               {testimonials.length > 0 ? (
                 <p className="font-heading text-base leading-snug">
@@ -164,20 +167,15 @@ export default function HomePage() {
         <FadeIn className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
             <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-              Our Programs
+              {t("programsEyebrow")}
             </p>
             <h2 className="mt-2 font-heading text-3xl font-bold">
-              The road to complete well-being
+              {t("programsTitle")}
             </h2>
-            <p className="mt-4 text-muted-foreground">
-              Board-certified psychiatric nurse practitioners, licensed
-              therapists, and social workers deliver in-office, at-home, and
-              telehealth care for children (5+), adolescents, adults,
-              couples, and families.
-            </p>
+            <p className="mt-4 text-muted-foreground">{t("programsDescription")}</p>
           </div>
           <Button render={<Link href="/services" />} variant="outline" className="shrink-0">
-            View All Services
+            {t("viewAllServices")}
           </Button>
         </FadeIn>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -199,22 +197,18 @@ export default function HomePage() {
           <FadeIn className="flex flex-col justify-between gap-6 rounded-3xl bg-accent/10 p-8 sm:p-10">
             <div>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-accent">
-                <ShieldCheck className="size-3.5" /> Eligibility &amp; Payment
+                <ShieldCheck className="size-3.5" /> {t("eligibilityBadge")}
               </span>
               <p className="mt-6 font-heading text-2xl font-semibold leading-snug sm:text-3xl">
-                Maryland Medicaid accepted at no cost, with no PCP referral
-                required.
+                {t("eligibilityHeadline")}
               </p>
-              <p className="mt-4 text-muted-foreground">
-                We bill Medicaid directly through all major managed care
-                organizations and handle prior authorization on your behalf.
-              </p>
+              <p className="mt-4 text-muted-foreground">{t("eligibilityBody")}</p>
             </div>
             <Button
               render={<Link href="/eligibility-and-payment" />}
               className="w-fit bg-foreground text-background hover:bg-foreground/90"
             >
-              View Insurance Details
+              {t("viewInsuranceDetails")}
             </Button>
           </FadeIn>
 
@@ -230,13 +224,13 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-8 text-white sm:p-10">
                 <p className="font-heading text-xl font-semibold sm:text-2xl">
-                  Every client gets an Individualized Treatment Plan
+                  {t("itpHeadline")}
                 </p>
                 <Link
                   href="/services/individualized-treatment-plan"
                   className="mt-3 inline-flex items-center gap-1 text-sm font-medium underline underline-offset-4"
                 >
-                  Learn how it works <ArrowRight className="size-4" />
+                  {t("learnHowItWorks")} <ArrowRight className="size-4" />
                 </Link>
               </div>
             </div>
@@ -258,35 +252,27 @@ export default function HomePage() {
           </FadeIn>
           <FadeIn delay={0.1} className="order-1 lg:order-2">
             <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-              Telehealth
+              {t("telehealthEyebrow")}
             </p>
-            <h2 className="mt-2 font-heading text-3xl font-bold">
-              Support anytime, anywhere
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Prefer to meet from home? Most of our services are available
-              via telehealth, Monday through Friday, so care fits into your
-              life &mdash; not the other way around.
-            </p>
+            <h2 className="mt-2 font-heading text-3xl font-bold">{t("telehealthTitle")}</h2>
+            <p className="mt-4 text-muted-foreground">{t("telehealthDescription")}</p>
             <ul className="mt-6 space-y-3">
-              {[
-                "Simple appointment scheduling",
-                "Virtual therapy & medication management",
-                "In-home visits for eligible clients",
-              ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm">
-                  <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <ArrowRight className="size-3.5" />
-                  </span>
-                  {item}
-                </li>
-              ))}
+              {[t("telehealthItem1"), t("telehealthItem2"), t("telehealthItem3")].map(
+                (item) => (
+                  <li key={item} className="flex items-center gap-3 text-sm">
+                    <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <ArrowRight className="size-3.5" />
+                    </span>
+                    {item}
+                  </li>
+                )
+              )}
             </ul>
             <Button
               render={<Link href="/appointments" />}
               className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90"
             >
-              Schedule a Telehealth Visit
+              {t("scheduleTelehealth")}
             </Button>
           </FadeIn>
         </div>
@@ -309,12 +295,10 @@ export default function HomePage() {
             <Container>
               <FadeIn className="max-w-lg text-secondary-foreground">
                 <h2 className="font-heading text-3xl font-bold sm:text-4xl">
-                  Reach out for expert care and support today
+                  {t("ctaTitle")}
                 </h2>
                 <p className="mt-4 text-secondary-foreground/85">
-                  Contact our dedicated team for appointments, inquiries, or
-                  guidance &mdash; call us at {company.phone}, Monday through
-                  Friday, 9:00 AM to 5:00 PM.
+                  {t("ctaBody", { phone: company.phone })}
                 </p>
                 <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
                   <Button
@@ -322,13 +306,13 @@ export default function HomePage() {
                     size="lg"
                     className="bg-accent text-accent-foreground hover:bg-accent/90"
                   >
-                    Start Your Journey
+                    {t("startYourJourney")}
                   </Button>
                   <Link
                     href="/contact"
                     className="inline-flex items-center text-sm font-semibold text-secondary-foreground underline underline-offset-4"
                   >
-                    Get in Touch
+                    {t("getInTouch")}
                   </Link>
                 </div>
               </FadeIn>
