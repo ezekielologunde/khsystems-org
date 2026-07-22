@@ -3,7 +3,6 @@ import { cn } from "@/lib/utils";
 export function Sticker({
   children,
   className,
-  rotate = -3,
 }: {
   children: React.ReactNode;
   className?: string;
@@ -11,9 +10,8 @@ export function Sticker({
 }) {
   return (
     <span
-      style={{ transform: `rotate(${rotate}deg)` }}
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full border-[3px] border-foreground bg-card px-4 py-1.5 text-sm font-bold shadow-hard-sm",
+        "inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-1.5 text-sm font-bold shadow-soft-sm",
         className
       )}
     >

@@ -170,34 +170,29 @@
   animation: marquee 28s linear infinite;
 }
 
-/* Neubrutalist-editorial accents: hard offset shadows instead of soft blur */
-.shadow-hard-sm {
-  box-shadow: 6px 6px 0 0 var(--foreground);
+/* Editorial-soft accents: warm diffuse shadows, rounded forms, pill controls -
+   matches the MedTrust reference's soft healthcare-premium feel */
+.shadow-soft-sm {
+  box-shadow: 0 2px 10px 0 rgba(23, 20, 15, 0.06);
 }
-.shadow-hard {
-  box-shadow: 10px 10px 0 0 var(--foreground);
+.shadow-soft {
+  box-shadow: 0 12px 32px -8px rgba(23, 20, 15, 0.14);
 }
-.shadow-hard-lg {
-  box-shadow: 14px 14px 0 0 var(--foreground);
+.shadow-soft-lg {
+  box-shadow: 0 24px 60px -12px rgba(23, 20, 15, 0.18);
 }
-.shadow-hard-primary {
-  box-shadow: 10px 10px 0 0 var(--primary);
-}
-.shadow-hard-accent {
-  box-shadow: 10px 10px 0 0 var(--accent);
-}
-.press-hard {
+.press-soft {
   transition:
-    transform 150ms ease-out,
-    box-shadow 150ms ease-out;
+    transform 200ms ease-out,
+    box-shadow 200ms ease-out;
 }
-.press-hard:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 12px 12px 0 0 var(--foreground);
+.press-soft:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -10px rgba(23, 20, 15, 0.18);
 }
-.press-hard:active {
-  transform: translate(3px, 3px);
-  box-shadow: 3px 3px 0 0 var(--foreground);
+.press-soft:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 20px -6px rgba(23, 20, 15, 0.14);
 }
 
 .highlight-mark {
@@ -207,10 +202,9 @@
 .highlight-mark::before {
   content: "";
   position: absolute;
-  inset: 0.12em -0.1em 0.05em -0.1em;
+  inset: 0.14em -0.12em 0.05em -0.12em;
   background: var(--accent);
-  opacity: 0.35;
-  transform: skew(-8deg) rotate(-1deg);
+  opacity: 0.5;
   z-index: -1;
-  border-radius: 2px;
+  border-radius: 999px;
 }

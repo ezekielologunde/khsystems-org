@@ -12,7 +12,7 @@ export function ServiceCard({
   href: string;
 }) {
   return (
-    <Card className="press-hard group h-full">
+    <Card className="press-soft group h-full">
       <CardHeader>
         <CardTitle className="text-lg">{title}</CardTitle>
       </CardHeader>

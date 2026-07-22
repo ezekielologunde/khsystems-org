@@ -30,6 +30,12 @@ export const metadata: Metadata = {
     "King Health Systems, Inc. provides culturally sensitive, high-quality mental health services to children, adolescents, adults, and their families in Baltimore and Laurel, Maryland.",
 };
 
+const CARD_TINTS = [
+  "bg-card",
+  "bg-accent-mint/40",
+  "bg-accent/20",
+];
+
 export default async function HomePage() {
   const t = await getTranslations("home");
   const tNav = await getTranslations("nav");
@@ -38,32 +44,24 @@ export default async function HomePage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(var(--border)_1.5px,transparent_1.5px)] [background-size:28px_28px] opacity-40"
-        />
         <Container className="grid gap-14 py-20 sm:py-28 lg:grid-cols-2 lg:items-center lg:py-32">
           <FadeIn>
-            <Sticker rotate={-2} className="px-5 py-2 text-base text-primary">
+            <Sticker className="px-5 py-2 text-base text-primary">
               <Sparkles className="size-4" />
               {t("eyebrow")}
             </Sticker>
-            <h1 className="mt-7 font-heading text-6xl font-extrabold leading-[0.98] tracking-tight sm:text-7xl lg:text-[5.5rem]">
+            <h1 className="mt-7 font-heading text-6xl font-bold leading-[1.02] tracking-tight sm:text-7xl lg:text-[5rem]">
               {t("heroTitlePrefix")}{" "}
               <span className="highlight-mark text-primary">
                 {t("heroTitleHighlight")}
               </span>{" "}
               {t("heroTitleSuffix")}
             </h1>
-            <p className="mt-7 max-w-lg text-xl font-medium text-foreground/80">
+            <p className="mt-7 max-w-lg text-xl font-medium text-foreground/75">
               {company.mission}
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
-              <Button
-                render={<Link href="/appointments" />}
-                size="lg"
-                className="press-hard border-[3px] border-foreground bg-accent text-accent-foreground shadow-hard hover:bg-accent"
-              >
+              <Button render={<Link href="/appointments" />} size="lg">
                 {tNav("requestAppointment")}
               </Button>
               <Link
@@ -74,7 +72,7 @@ export default async function HomePage() {
               </Link>
             </div>
 
-            <div className="mt-11 flex flex-wrap items-center gap-8 border-t-2 border-dashed border-border pt-7">
+            <div className="mt-11 flex flex-wrap items-center gap-8 border-t border-border pt-7">
               <div className="flex items-center gap-4">
                 <AvatarStack />
                 <p className="text-sm text-muted-foreground">
@@ -86,7 +84,7 @@ export default async function HomePage() {
                 </p>
               </div>
               <div className="flex items-baseline gap-2">
-                <span className="font-heading text-4xl font-extrabold text-primary">
+                <span className="font-heading text-4xl font-bold text-primary">
                   {t("yearsBadge")}
                 </span>
                 <span className="max-w-[8rem] text-sm font-semibold leading-tight text-muted-foreground">
@@ -97,7 +95,7 @@ export default async function HomePage() {
           </FadeIn>
 
           <FadeIn delay={0.1} className="relative">
-            <TiltCard className="relative mx-auto aspect-[4/5] w-full max-w-md -rotate-2 overflow-hidden rounded-2xl border-[3px] border-foreground bg-muted shadow-hard sm:aspect-[5/4] lg:aspect-[4/5]">
+            <TiltCard className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] bg-muted shadow-soft-lg sm:aspect-[5/4] lg:aspect-[4/5]">
               <Image
                 src="/images/hero-family.jpg"
                 alt="A family sitting together outdoors, supporting one another"
@@ -108,9 +106,9 @@ export default async function HomePage() {
               />
             </TiltCard>
 
-            <div className="absolute -bottom-7 left-2 rotate-2 rounded-xl border-[3px] border-foreground bg-card px-6 py-5 shadow-hard sm:left-6">
+            <div className="absolute -bottom-7 left-2 rounded-2xl border border-border bg-card px-6 py-5 shadow-soft sm:left-6">
               <div className="flex items-center gap-3">
-                <span className="flex size-12 items-center justify-center rounded-full border-[3px] border-foreground bg-primary text-primary-foreground">
+                <span className="flex size-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
                   <MapPin className="size-6" />
                 </span>
                 <div>
@@ -124,7 +122,7 @@ export default async function HomePage() {
 
             <Link
               href="/services"
-              className="group absolute -top-7 -right-7 flex size-24 rotate-3 items-center justify-center rounded-full border-[3px] border-foreground bg-accent text-accent-foreground shadow-hard transition-transform hover:rotate-6 hover:scale-105 sm:size-28"
+              className="group absolute -top-6 -right-6 flex size-24 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-soft transition-transform hover:scale-105 sm:size-28"
             >
               <span className="relative flex flex-col items-center text-center text-xs font-bold uppercase leading-tight">
                 {t("exploreServices")}
@@ -144,7 +142,7 @@ export default async function HomePage() {
               alt="Two people holding hands in a supportive gesture"
               label="Compassionate Care"
               href="/services/individual-therapy"
-              className="rotate-1 border-[3px] border-foreground shadow-hard-sm"
+              className="rounded-3xl shadow-soft-sm"
             />
           </FadeIn>
           <FadeIn delay={0.05}>
@@ -153,11 +151,11 @@ export default async function HomePage() {
               alt="A family silhouette together at sunset"
               label="Family Therapy"
               href="/services/family-therapy"
-              className="-rotate-1 border-[3px] border-foreground shadow-hard-sm"
+              className="rounded-3xl shadow-soft-sm"
             />
           </FadeIn>
-          <FadeIn delay={0.1} className="col-span-2 rotate-1 sm:col-span-1">
-            <div className="flex aspect-[4/5] flex-col justify-between rounded-2xl border-[3px] border-foreground bg-secondary p-5 text-secondary-foreground shadow-hard-sm">
+          <FadeIn delay={0.1} className="col-span-2 sm:col-span-1">
+            <div className="flex aspect-[4/5] flex-col justify-between rounded-3xl bg-secondary p-5 text-secondary-foreground shadow-soft-sm">
               <p className="text-xs font-bold uppercase tracking-wide text-accent">
                 {t("testimonialsLabel")}
               </p>
@@ -173,13 +171,13 @@ export default async function HomePage() {
               ) : null}
             </div>
           </FadeIn>
-          <FadeIn delay={0.15} className="col-span-2 -rotate-1 sm:col-span-1">
+          <FadeIn delay={0.15} className="col-span-2 sm:col-span-1">
             <PhotoTile
               src="/images/bento-community-support.jpg"
               alt="A diverse group of people stacking hands together in support"
               label="Group &amp; Community Support"
               href="/services/group-therapy"
-              className="border-[3px] border-foreground shadow-hard-sm"
+              className="rounded-3xl shadow-soft-sm"
             />
           </FadeIn>
         </div>
@@ -192,16 +190,12 @@ export default async function HomePage() {
             <p className="text-sm font-bold uppercase tracking-wide text-primary">
               {t("programsEyebrow")}
             </p>
-            <h2 className="mt-2 font-heading text-5xl font-extrabold leading-[1.02]">
+            <h2 className="mt-2 font-heading text-5xl font-bold leading-[1.05]">
               {t("programsTitle")}
             </h2>
             <p className="mt-5 text-lg font-medium text-foreground/75">{t("programsDescription")}</p>
           </div>
-          <Button
-            render={<Link href="/services" />}
-            variant="outline"
-            className="press-hard shrink-0 border-[3px] border-foreground shadow-hard-sm"
-          >
+          <Button render={<Link href="/services" />} variant="outline" className="shrink-0">
             {t("viewAllServices")}
           </Button>
         </FadeIn>
@@ -210,9 +204,9 @@ export default async function HomePage() {
             <FadeIn key={program.key} delay={i * 0.08}>
               <Link
                 href="/services"
-                className="press-hard group relative block h-full rounded-2xl border-[3px] border-foreground bg-card p-7 shadow-hard-sm"
+                className={`group relative block h-full rounded-3xl p-7 shadow-soft-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-soft ${CARD_TINTS[i % CARD_TINTS.length]}`}
               >
-                <span className="font-heading text-6xl font-extrabold text-primary/20">
+                <span className="font-heading text-6xl font-bold text-primary/15">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-3 text-xl font-bold">{program.title}</h3>
@@ -230,10 +224,8 @@ export default async function HomePage() {
       {/* Care team */}
       <Section className="bg-muted">
         <FadeIn className="mx-auto max-w-2xl text-center">
-          <Sticker rotate={1} className="text-primary">
-            The People Behind Your Care
-          </Sticker>
-          <h2 className="mt-6 font-heading text-5xl font-extrabold leading-[1.02]">
+          <Sticker className="text-primary">The People Behind Your Care</Sticker>
+          <h2 className="mt-6 font-heading text-5xl font-bold leading-[1.05]">
             A licensed, credentialed team
           </h2>
           <p className="mt-5 text-lg font-medium text-foreground/75">
@@ -243,14 +235,10 @@ export default async function HomePage() {
         </FadeIn>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {careTeam.map((role, i) => (
-            <FadeIn
-              key={role.title}
-              delay={i * 0.06}
-              className={i % 2 === 0 ? "rotate-1" : "-rotate-1"}
-            >
-              <div className="press-hard flex h-full flex-col items-center rounded-2xl border-[3px] border-foreground bg-card p-6 text-center shadow-hard-sm">
+            <FadeIn key={role.title} delay={i * 0.06}>
+              <div className="flex h-full flex-col items-center rounded-3xl bg-card p-6 text-center shadow-soft-sm">
                 <span
-                  className={`flex size-16 items-center justify-center rounded-full border-[3px] border-foreground font-heading text-xl font-extrabold ${
+                  className={`flex size-16 items-center justify-center rounded-full font-heading text-xl font-bold ${
                     i % 3 === 0
                       ? "bg-primary text-primary-foreground"
                       : i % 3 === 1
@@ -278,21 +266,21 @@ export default async function HomePage() {
       </Section>
 
       {/* Important information split section */}
-      <Section className="bg-secondary text-secondary-foreground">
+      <Section>
         <div className="grid gap-6 lg:grid-cols-2">
-          <FadeIn className="flex flex-col justify-between gap-6">
+          <FadeIn className="flex flex-col justify-between gap-6 rounded-3xl bg-accent p-8 text-accent-foreground shadow-soft-sm sm:p-10">
             <div>
-              <Sticker rotate={2} className="text-accent">
+              <Sticker className="border-none bg-accent-foreground/10 text-accent-foreground shadow-none">
                 <ShieldCheck className="size-3.5" /> {t("eligibilityBadge")}
               </Sticker>
-              <p className="mt-6 font-heading text-4xl font-extrabold leading-snug sm:text-5xl">
+              <p className="mt-6 font-heading text-4xl font-bold leading-snug sm:text-5xl">
                 {t("eligibilityHeadline")}
               </p>
-              <p className="mt-5 text-lg text-secondary-foreground/75">{t("eligibilityBody")}</p>
+              <p className="mt-5 text-lg text-accent-foreground/80">{t("eligibilityBody")}</p>
             </div>
             <Button
               render={<Link href="/eligibility-and-payment" />}
-              className="press-hard w-fit border-[3px] border-white bg-accent text-accent-foreground shadow-[6px_6px_0_0_white]"
+              className="w-fit bg-primary text-primary-foreground hover:bg-primary/80"
             >
               {t("viewInsuranceDetails")}
             </Button>
@@ -300,7 +288,7 @@ export default async function HomePage() {
 
           <FadeIn
             delay={0.1}
-            className="relative -rotate-1 overflow-hidden rounded-2xl border-[3px] border-white/40 bg-muted shadow-[6px_6px_0_0_rgba(255,255,255,0.2)]"
+            className="relative overflow-hidden rounded-3xl bg-muted shadow-soft-sm"
           >
             <div className="relative aspect-[4/3] w-full sm:aspect-auto sm:h-full">
               <Image
@@ -330,7 +318,7 @@ export default async function HomePage() {
       {/* Telehealth section */}
       <Section>
         <div className="grid items-center gap-10 lg:grid-cols-2">
-          <FadeIn className="relative order-2 rotate-1 overflow-hidden rounded-2xl border-[3px] border-foreground shadow-hard-sm lg:order-1">
+          <FadeIn className="relative order-2 overflow-hidden rounded-3xl shadow-soft-sm lg:order-1">
             <div className="relative aspect-[4/3]">
               <Image
                 src="/images/telehealth-video-call.jpg"
@@ -345,7 +333,7 @@ export default async function HomePage() {
             <p className="text-sm font-bold uppercase tracking-wide text-primary">
               {t("telehealthEyebrow")}
             </p>
-            <h2 className="mt-2 font-heading text-5xl font-extrabold leading-[1.02]">{t("telehealthTitle")}</h2>
+            <h2 className="mt-2 font-heading text-5xl font-bold leading-[1.05]">{t("telehealthTitle")}</h2>
             <p className="mt-4 text-muted-foreground">{t("telehealthDescription")}</p>
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
               {[
@@ -355,10 +343,10 @@ export default async function HomePage() {
               ].map(({ icon: Icon, label }, i) => (
                 <div
                   key={label}
-                  className={`press-hard flex flex-col items-center gap-2 rounded-xl border-[3px] border-foreground bg-card p-4 text-center shadow-hard-sm ${i === 1 ? "-rotate-1" : "rotate-1"}`}
+                  className="flex flex-col items-center gap-2 rounded-2xl bg-card p-4 text-center shadow-soft-sm transition-transform duration-200 hover:-translate-y-1"
                 >
                   <span
-                    className={`flex size-10 items-center justify-center rounded-full border-[3px] border-foreground ${i === 1 ? "bg-accent-mint text-accent-mint-foreground" : "bg-accent/40 text-foreground"}`}
+                    className={`flex size-10 items-center justify-center rounded-full ${i === 1 ? "bg-accent-mint text-accent-mint-foreground" : "bg-accent/40 text-foreground"}`}
                   >
                     <Icon className="size-5" />
                   </span>
@@ -366,10 +354,7 @@ export default async function HomePage() {
                 </div>
               ))}
             </div>
-            <Button
-              render={<Link href="/appointments" />}
-              className="press-hard mt-8 border-[3px] border-foreground bg-accent text-accent-foreground shadow-hard"
-            >
+            <Button render={<Link href="/appointments" />} className="mt-8">
               {t("scheduleTelehealth")}
             </Button>
           </FadeIn>
@@ -378,43 +363,40 @@ export default async function HomePage() {
 
       {/* CTA banner */}
       <Section className="pt-0">
-        <div className="relative isolate overflow-hidden rounded-[2rem] border-[3px] border-foreground shadow-hard">
-          <div className="relative aspect-[16/10] w-full sm:aspect-[21/9]">
-            <Image
-              src="/images/cta-support-team.jpg"
-              alt="A support team member wearing a headset, ready to help"
-              fill
-              sizes="100vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/20" />
-          </div>
-          <div className="absolute inset-0 flex items-center">
-            <Container>
-              <FadeIn className="max-w-lg text-secondary-foreground">
-                <h2 className="font-heading text-5xl font-extrabold leading-[1.02] sm:text-6xl">
-                  {t("ctaTitle")}
-                </h2>
-                <p className="mt-4 text-lg font-medium text-secondary-foreground/85">
-                  {t("ctaBody", { phone: company.phone })}
-                </p>
-                <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
-                  <Button
-                    render={<Link href="/appointments" />}
-                    size="lg"
-                    className="press-hard border-[3px] border-white bg-accent text-accent-foreground shadow-[6px_6px_0_0_white]"
-                  >
-                    {t("startYourJourney")}
-                  </Button>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center text-sm font-bold text-secondary-foreground underline decoration-2 underline-offset-4"
-                  >
-                    {t("getInTouch")}
-                  </Link>
-                </div>
-              </FadeIn>
-            </Container>
+        <div className="relative isolate overflow-hidden rounded-[2rem] bg-accent shadow-soft-lg">
+          <div className="grid gap-8 p-10 sm:p-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-0">
+            <FadeIn className="max-w-lg text-accent-foreground">
+              <h2 className="font-heading text-5xl font-bold leading-[1.05] sm:text-6xl">
+                {t("ctaTitle")}
+              </h2>
+              <p className="mt-4 text-lg font-medium text-accent-foreground/80">
+                {t("ctaBody", { phone: company.phone })}
+              </p>
+              <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
+                <Button
+                  render={<Link href="/appointments" />}
+                  size="lg"
+                  className="bg-primary text-primary-foreground hover:bg-primary/80"
+                >
+                  {t("startYourJourney")}
+                </Button>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center text-sm font-bold text-accent-foreground underline decoration-2 underline-offset-4"
+                >
+                  {t("getInTouch")}
+                </Link>
+              </div>
+            </FadeIn>
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-[1.5rem] shadow-soft lg:mx-0 lg:ml-auto">
+              <Image
+                src="/images/cta-support-team.jpg"
+                alt="A support team member wearing a headset, ready to help"
+                fill
+                sizes="(max-width: 1024px) 60vw, 20vw"
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </Section>

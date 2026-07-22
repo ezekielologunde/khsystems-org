@@ -71,7 +71,7 @@ export function NewsletterSignup({
             type="submit"
             disabled={isSubmitting}
             size="icon"
-            className="press-hard shrink-0 border-2 border-white bg-accent text-accent-foreground shadow-[4px_4px_0_0_white]"
+            className="shrink-0 bg-accent text-accent-foreground hover:bg-accent/90"
             aria-label={buttonLabel}
           >
             <Send className="size-4" />
