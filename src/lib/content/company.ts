@@ -71,3 +71,35 @@ export const clinicianCredentials = [
   "LCSW-C",
   "LCPC",
 ] as const;
+
+export type CareTeamRole = {
+  title: string;
+  credentials?: string;
+  description: string;
+};
+
+// Real roles/credentials described across the site's service pages - not
+// fabricated individual staff (we don't have real staff photos/bios to
+// display, so this is deliberately role-based rather than named headshots).
+export const careTeam: CareTeamRole[] = [
+  {
+    title: company.medicalDirector.name,
+    credentials: `${company.medicalDirector.credentials} — ${company.medicalDirector.title}`,
+    description: "Oversees psychiatric evaluations and medication management across both offices.",
+  },
+  {
+    title: "Psychiatric Nurse Practitioners",
+    credentials: "CRNP-PMH",
+    description: "Conduct evaluations and manage ongoing medication care, in person or via telehealth.",
+  },
+  {
+    title: "Licensed Therapists",
+    credentials: clinicianCredentials.join(" · "),
+    description: "Provide individual, family, and group therapy tailored to each client's treatment plan.",
+  },
+  {
+    title: "Rehabilitation Counselors",
+    credentials: "PRP",
+    description: "Deliver hands-on psychiatric rehabilitation support in-office, at home, or in the community.",
+  },
+];

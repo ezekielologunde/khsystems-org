@@ -2,7 +2,16 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { ArrowRight, ArrowUpRight, MapPin, ShieldCheck, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  CalendarCheck,
+  Home as HomeIcon,
+  MapPin,
+  ShieldCheck,
+  Sparkles,
+  Video,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
@@ -11,7 +20,7 @@ import { PhotoTile } from "@/components/sections/photo-tile";
 import { AvatarStack } from "@/components/sections/avatar-stack";
 import { TiltCard } from "@/components/sections/tilt-card";
 import { Sticker } from "@/components/sections/sticker";
-import { company } from "@/lib/content/company";
+import { company, careTeam } from "@/lib/content/company";
 import { programs } from "@/lib/content/services";
 import { testimonials } from "@/lib/content/testimonials";
 
@@ -218,6 +227,48 @@ export default async function HomePage() {
         </div>
       </Section>
 
+      {/* Care team */}
+      <Section className="bg-muted">
+        <FadeIn className="mx-auto max-w-2xl text-center">
+          <Sticker rotate={1} className="text-primary">
+            The People Behind Your Care
+          </Sticker>
+          <h2 className="mt-6 font-heading text-5xl font-extrabold leading-[1.02]">
+            A licensed, credentialed team
+          </h2>
+          <p className="mt-5 text-lg font-medium text-foreground/75">
+            Every client works with real, licensed clinicians - not a
+            call center. Here&apos;s who you&apos;ll meet along the way.
+          </p>
+        </FadeIn>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {careTeam.map((role, i) => (
+            <FadeIn
+              key={role.title}
+              delay={i * 0.06}
+              className={i % 2 === 0 ? "rotate-1" : "-rotate-1"}
+            >
+              <div className="press-hard flex h-full flex-col items-center rounded-2xl border-[3px] border-foreground bg-card p-6 text-center shadow-hard-sm">
+                <span className="flex size-16 items-center justify-center rounded-full border-[3px] border-foreground bg-primary font-heading text-xl font-extrabold text-primary-foreground">
+                  {role.title
+                    .split(" ")
+                    .map((w) => w[0])
+                    .slice(0, 2)
+                    .join("")}
+                </span>
+                <h3 className="mt-4 text-base font-bold">{role.title}</h3>
+                {role.credentials ? (
+                  <p className="mt-1 text-xs font-bold uppercase tracking-wide text-primary">
+                    {role.credentials}
+                  </p>
+                ) : null}
+                <p className="mt-3 text-sm text-muted-foreground">{role.description}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </Section>
+
       {/* Important information split section */}
       <Section className="bg-secondary text-secondary-foreground">
         <div className="grid gap-6 lg:grid-cols-2">
@@ -288,18 +339,23 @@ export default async function HomePage() {
             </p>
             <h2 className="mt-2 font-heading text-5xl font-extrabold leading-[1.02]">{t("telehealthTitle")}</h2>
             <p className="mt-4 text-muted-foreground">{t("telehealthDescription")}</p>
-            <ul className="mt-6 space-y-3">
-              {[t("telehealthItem1"), t("telehealthItem2"), t("telehealthItem3")].map(
-                (item) => (
-                  <li key={item} className="flex items-center gap-3 text-sm font-medium">
-                    <span className="flex size-6 shrink-0 items-center justify-center rounded-full border-[3px] border-foreground bg-primary/10 text-primary">
-                      <ArrowRight className="size-3.5" />
-                    </span>
-                    {item}
-                  </li>
-                )
-              )}
-            </ul>
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              {[
+                { icon: CalendarCheck, label: t("telehealthItem1") },
+                { icon: Video, label: t("telehealthItem2") },
+                { icon: HomeIcon, label: t("telehealthItem3") },
+              ].map(({ icon: Icon, label }, i) => (
+                <div
+                  key={label}
+                  className={`press-hard flex flex-col items-center gap-2 rounded-xl border-[3px] border-foreground bg-card p-4 text-center shadow-hard-sm ${i === 1 ? "-rotate-1" : "rotate-1"}`}
+                >
+                  <span className="flex size-10 items-center justify-center rounded-full border-[3px] border-foreground bg-primary/10 text-primary">
+                    <Icon className="size-5" />
+                  </span>
+                  <p className="text-xs font-bold leading-tight">{label}</p>
+                </div>
+              ))}
+            </div>
             <Button
               render={<Link href="/appointments" />}
               className="press-hard mt-8 border-[3px] border-foreground bg-accent text-accent-foreground shadow-hard"
