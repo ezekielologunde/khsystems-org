@@ -31,9 +31,16 @@ export const metadata: Metadata = {
 };
 
 const CARD_TINTS = [
-  "bg-card",
-  "bg-accent-mint/40",
-  "bg-accent/20",
+  "bg-accent-blue/40",
+  "bg-accent/25",
+  "bg-accent-orange/20",
+];
+
+const TEAM_TINTS = [
+  "bg-primary text-primary-foreground",
+  "bg-accent text-accent-foreground",
+  "bg-accent-blue text-accent-blue-foreground",
+  "bg-accent-orange text-accent-orange-foreground",
 ];
 
 export default async function HomePage() {
@@ -238,13 +245,7 @@ export default async function HomePage() {
             <FadeIn key={role.title} delay={i * 0.06}>
               <div className="flex h-full flex-col items-center rounded-3xl bg-card p-6 text-center shadow-soft-sm">
                 <span
-                  className={`flex size-16 items-center justify-center rounded-full font-heading text-xl font-bold ${
-                    i % 3 === 0
-                      ? "bg-primary text-primary-foreground"
-                      : i % 3 === 1
-                        ? "bg-accent text-accent-foreground"
-                        : "bg-accent-mint text-accent-mint-foreground"
-                  }`}
+                  className={`flex size-16 items-center justify-center rounded-full font-heading text-xl font-bold ${TEAM_TINTS[i % TEAM_TINTS.length]}`}
                 >
                   {role.title
                     .split(" ")
@@ -346,7 +347,13 @@ export default async function HomePage() {
                   className="flex flex-col items-center gap-2 rounded-2xl bg-card p-4 text-center shadow-soft-sm transition-transform duration-200 hover:-translate-y-1"
                 >
                   <span
-                    className={`flex size-10 items-center justify-center rounded-full ${i === 1 ? "bg-accent-mint text-accent-mint-foreground" : "bg-accent/40 text-foreground"}`}
+                    className={`flex size-10 items-center justify-center rounded-full ${
+                      i === 0
+                        ? "bg-accent text-accent-foreground"
+                        : i === 1
+                          ? "bg-accent-blue text-accent-blue-foreground"
+                          : "bg-accent-orange text-accent-orange-foreground"
+                    }`}
                   >
                     <Icon className="size-5" />
                   </span>

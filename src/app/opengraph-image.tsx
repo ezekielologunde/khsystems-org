@@ -18,8 +18,8 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "#fbf6ea",
-          color: "#17140f",
+          background: "#f6fafd",
+          color: "#14161a",
           fontFamily: "sans-serif",
         }}
       >
@@ -31,7 +31,7 @@ export default function OpengraphImage() {
             width: 72,
             height: 72,
             borderRadius: "50%",
-            background: "#17140f",
+            background: "#14161a",
             marginBottom: 32,
           }}
         >
@@ -46,7 +46,7 @@ export default function OpengraphImage() {
         <div style={{ fontSize: 28, marginTop: 20, color: "#4a4335", display: "flex" }}>
           {company.tagline}
         </div>
-        <div style={{ fontSize: 22, marginTop: 40, color: "#6b6355", display: "flex" }}>
+        <div style={{ fontSize: 22, marginTop: 40, color: "#5b6572", display: "flex" }}>
           Mental Health Services in Baltimore &amp; Laurel, Maryland
         </div>
       </div>
