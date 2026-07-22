@@ -15,12 +15,17 @@ export function PageHero({
   imageAlt?: string;
 }) {
   return (
-    <div className="border-b border-border bg-gradient-to-b from-secondary to-secondary/90 text-secondary-foreground">
+    <div className="relative overflow-hidden border-b border-border bg-gradient-to-b from-secondary to-secondary/90 text-secondary-foreground">
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-32 -left-16 size-80 rounded-full bg-primary/40 blur-3xl" />
+        <div className="absolute -bottom-24 right-0 size-96 rounded-full bg-sky-400/25 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 size-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl" />
+      </div>
       <Container
         className={
           image
-            ? "grid gap-8 py-14 sm:py-18 lg:grid-cols-[1.1fr_0.9fr] lg:items-center"
-            : "py-14 sm:py-18"
+            ? "relative grid gap-8 py-14 sm:py-18 lg:grid-cols-[1.1fr_0.9fr] lg:items-center"
+            : "relative py-14 sm:py-18"
         }
       >
         <div>
@@ -37,7 +42,7 @@ export function PageHero({
           ) : null}
         </div>
         {image ? (
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-secondary-foreground/10 lg:aspect-[5/4]">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-secondary-foreground/10 shadow-xl ring-1 ring-white/10 lg:aspect-[5/4]">
             <Image
               src={image}
               alt={imageAlt ?? ""}
