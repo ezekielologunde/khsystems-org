@@ -102,63 +102,19 @@ export default async function HomePage() {
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.1} className="relative mx-auto w-full max-w-md">
-            <Doodle
-              variant="star"
-              className="absolute -top-8 left-8 size-7 text-accent-orange sm:-top-10 sm:left-4"
-            />
-            <Doodle
-              variant="scribble"
-              className="absolute top-1/2 -left-8 hidden size-10 -translate-y-1/2 text-accent-blue sm:block"
-            />
+          <FadeIn delay={0.1} className="relative">
+            <TiltCard className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] bg-muted shadow-soft-lg lg:aspect-[3/4]">
+              <Image
+                src="/images/hero-family.jpg"
+                alt="A family sitting together outdoors, supporting one another"
+                fill
+                priority
+                sizes="(max-width: 1024px) 90vw, 45vw"
+                className="object-cover"
+              />
+            </TiltCard>
 
-            <div className="grid grid-cols-2 gap-4">
-              <TiltCard className="col-span-2 rounded-[1.75rem] bg-accent-yellow p-3 shadow-soft">
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[1.25rem]">
-                  <Image
-                    src="/images/hero-family.jpg"
-                    alt="A family sitting together outdoors, supporting one another"
-                    fill
-                    priority
-                    sizes="(max-width: 448px) 90vw, 448px"
-                    className="object-cover"
-                  />
-                </div>
-              </TiltCard>
-
-              <div className="rounded-[1.5rem] bg-accent-blue p-2.5 shadow-soft-sm">
-                <div className="relative aspect-square w-full overflow-hidden rounded-[1.1rem]">
-                  <Image
-                    src="/images/telehealth-video-call.jpg"
-                    alt="A person having a telehealth video call from home"
-                    fill
-                    sizes="(max-width: 448px) 45vw, 216px"
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-
-              <div className="rounded-[1.5rem] bg-accent-orange/70 p-2.5 shadow-soft-sm">
-                <div className="relative aspect-square w-full overflow-hidden rounded-[1.1rem]">
-                  <Image
-                    src="/images/bento-compassionate-care.jpg"
-                    alt="Two people holding hands in a supportive gesture"
-                    fill
-                    sizes="(max-width: 448px) 45vw, 216px"
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <span className="absolute top-4 -left-3 -rotate-3 rounded-full border border-border bg-card px-3 py-1 text-xs font-bold shadow-soft-sm sm:-left-6">
-              Compassionate
-            </span>
-            <span className="absolute right-2 bottom-24 rotate-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-bold shadow-soft-sm sm:right-0">
-              Supportive
-            </span>
-
-            <div className="mt-5 flex items-center justify-between rounded-2xl border border-border bg-card px-6 py-5 shadow-soft">
+            <div className="absolute -bottom-6 left-6 right-6 flex items-center justify-between gap-4 rounded-2xl border border-border bg-card px-6 py-5 shadow-soft sm:left-8 sm:right-auto sm:w-auto">
               <div className="flex items-center gap-3">
                 <span className="flex size-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
                   <MapPin className="size-6" />
@@ -172,11 +128,16 @@ export default async function HomePage() {
               </div>
               <Link
                 href="/services"
-                className="group flex size-14 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105"
+                className="group flex size-12 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105"
               >
                 <ArrowUpRight className="size-6 transition-transform group-hover:rotate-45" />
               </Link>
             </div>
+
+            <Doodle
+              variant="star"
+              className="absolute -top-5 -right-5 size-8 text-accent-orange"
+            />
           </FadeIn>
         </Container>
       </section>
