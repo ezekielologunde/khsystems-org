@@ -249,7 +249,15 @@ export default async function HomePage() {
               className={i % 2 === 0 ? "rotate-1" : "-rotate-1"}
             >
               <div className="press-hard flex h-full flex-col items-center rounded-2xl border-[3px] border-foreground bg-card p-6 text-center shadow-hard-sm">
-                <span className="flex size-16 items-center justify-center rounded-full border-[3px] border-foreground bg-primary font-heading text-xl font-extrabold text-primary-foreground">
+                <span
+                  className={`flex size-16 items-center justify-center rounded-full border-[3px] border-foreground font-heading text-xl font-extrabold ${
+                    i % 3 === 0
+                      ? "bg-primary text-primary-foreground"
+                      : i % 3 === 1
+                        ? "bg-accent text-accent-foreground"
+                        : "bg-accent-mint text-accent-mint-foreground"
+                  }`}
+                >
                   {role.title
                     .split(" ")
                     .map((w) => w[0])
@@ -349,7 +357,9 @@ export default async function HomePage() {
                   key={label}
                   className={`press-hard flex flex-col items-center gap-2 rounded-xl border-[3px] border-foreground bg-card p-4 text-center shadow-hard-sm ${i === 1 ? "-rotate-1" : "rotate-1"}`}
                 >
-                  <span className="flex size-10 items-center justify-center rounded-full border-[3px] border-foreground bg-primary/10 text-primary">
+                  <span
+                    className={`flex size-10 items-center justify-center rounded-full border-[3px] border-foreground ${i === 1 ? "bg-accent-mint text-accent-mint-foreground" : "bg-accent/40 text-foreground"}`}
+                  >
                     <Icon className="size-5" />
                   </span>
                   <p className="text-xs font-bold leading-tight">{label}</p>

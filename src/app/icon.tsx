@@ -16,13 +16,13 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#1d4ed8",
+          background: "#17140f",
           borderRadius: "50%",
         }}
       >
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
-          <path d={CROWN_PATH} fill="#ffffff" />
-          <path d="M5 21h14" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+          <path d={CROWN_PATH} fill="#f2c94c" />
+          <path d="M5 21h14" stroke="#f2c94c" strokeWidth="2" strokeLinecap="round" />
         </svg>
       </div>
     ),

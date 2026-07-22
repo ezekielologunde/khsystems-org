@@ -29,6 +29,8 @@
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
+  --color-accent-mint-foreground: var(--accent-mint-foreground);
+  --color-accent-mint: var(--accent-mint);
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -49,42 +51,45 @@
 }
 
 :root {
-  /* King Health Systems brand palette: a fuller, brighter blue system -
-     vivid royal blue primary, deep navy secondary, bright sky-blue accent,
-     on a crisp cool-white background. Premium healthcare-tech feel,
-     true to the original crown-and-KING mark's blue heritage. */
-  --background: #f4f7fc;
-  --foreground: #0f172a;
+  /* King Health Systems brand palette: warm editorial cream + pastel duo -
+     near-black primary/text, mustard-yellow and mint-green as the two
+     accent colors, on a soft cream background. Pulled from the MedTrust
+     reference's warm, human, print-editorial feel while keeping our
+     neubrutalist hard-shadow/thick-border structure. */
+  --background: #fbf6ea;
+  --foreground: #17140f;
   --card: #ffffff;
-  --card-foreground: #0f172a;
+  --card-foreground: #17140f;
   --popover: #ffffff;
-  --popover-foreground: #0f172a;
-  --primary: #1d4ed8;
-  --primary-foreground: #ffffff;
-  --secondary: #0b1220;
-  --secondary-foreground: #ffffff;
-  --muted: #e8eef8;
-  --muted-foreground: #5b6b85;
-  --accent: #0284c7;
-  --accent-foreground: #ffffff;
+  --popover-foreground: #17140f;
+  --primary: #17140f;
+  --primary-foreground: #fbf6ea;
+  --secondary: #17140f;
+  --secondary-foreground: #fbf6ea;
+  --muted: #f2ead6;
+  --muted-foreground: #6b6355;
+  --accent: #f2c94c;
+  --accent-foreground: #17140f;
+  --accent-mint: #bdeed9;
+  --accent-mint-foreground: #17140f;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #dbe4f3;
-  --input: #dbe4f3;
-  --ring: #1d4ed8;
-  --chart-1: #1d4ed8;
-  --chart-2: #0b1220;
-  --chart-3: #0284c7;
-  --chart-4: #7ea2f1;
-  --chart-5: #7dd3fc;
+  --border: #e6dcc2;
+  --input: #e6dcc2;
+  --ring: #17140f;
+  --chart-1: #f2c94c;
+  --chart-2: #bdeed9;
+  --chart-3: #17140f;
+  --chart-4: #e0b23a;
+  --chart-5: #8fd9bd;
   --radius: 0.75rem;
-  --sidebar: #f4f7fc;
-  --sidebar-foreground: #0f172a;
-  --sidebar-primary: #1d4ed8;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #e8eef8;
-  --sidebar-accent-foreground: #0f172a;
-  --sidebar-border: #dbe4f3;
-  --sidebar-ring: #1d4ed8;
+  --sidebar: #fbf6ea;
+  --sidebar-foreground: #17140f;
+  --sidebar-primary: #17140f;
+  --sidebar-primary-foreground: #fbf6ea;
+  --sidebar-accent: #f2ead6;
+  --sidebar-accent-foreground: #17140f;
+  --sidebar-border: #e6dcc2;
+  --sidebar-ring: #17140f;
 }
 
 .dark {

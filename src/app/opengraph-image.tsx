@@ -18,8 +18,8 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "linear-gradient(135deg, #0b1220 0%, #1d4ed8 100%)",
-          color: "#ffffff",
+          background: "#fbf6ea",
+          color: "#17140f",
           fontFamily: "sans-serif",
         }}
       >
@@ -31,22 +31,22 @@ export default function OpengraphImage() {
             width: 72,
             height: 72,
             borderRadius: "50%",
-            background: "#ffffff",
+            background: "#17140f",
             marginBottom: 32,
           }}
         >
           <svg width="38" height="38" viewBox="0 0 24 24" fill="none">
-            <path d={CROWN_PATH} fill="#1d4ed8" />
-            <path d="M5 21h14" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
+            <path d={CROWN_PATH} fill="#f2c94c" />
+            <path d="M5 21h14" stroke="#f2c94c" strokeWidth="2" strokeLinecap="round" />
           </svg>
         </div>
         <div style={{ fontSize: 56, fontWeight: 700, lineHeight: 1.15, display: "flex" }}>
           {company.name}
         </div>
-        <div style={{ fontSize: 28, marginTop: 20, color: "#dbe6ff", display: "flex" }}>
+        <div style={{ fontSize: 28, marginTop: 20, color: "#4a4335", display: "flex" }}>
           {company.tagline}
         </div>
-        <div style={{ fontSize: 22, marginTop: 40, color: "#b9cdf5", display: "flex" }}>
+        <div style={{ fontSize: 22, marginTop: 40, color: "#6b6355", display: "flex" }}>
           Mental Health Services in Baltimore &amp; Laurel, Maryland
         </div>
       </div>
