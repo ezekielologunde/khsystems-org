@@ -25,9 +25,14 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute -top-24 -left-24 size-[28rem] rounded-full bg-primary/25 blur-3xl" />
+          <div className="absolute -top-10 right-0 size-[24rem] rounded-full bg-sky-400/25 blur-3xl" />
+          <div className="absolute bottom-[-6rem] left-1/3 size-[22rem] rounded-full bg-accent/20 blur-3xl" />
+        </div>
         <Container className="grid gap-12 py-16 sm:py-20 lg:grid-cols-2 lg:items-center lg:py-24">
           <FadeIn>
-            <span className="inline-flex items-center rounded-full bg-muted px-4 py-1.5 text-sm font-medium text-primary">
+            <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
               {company.tagline}
             </span>
             <h1 className="mt-5 font-heading text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.25rem]">
@@ -66,7 +71,8 @@ export default function HomePage() {
           </FadeIn>
 
           <FadeIn delay={0.1} scale={1.04} className="relative">
-            <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl bg-muted sm:aspect-[5/4] lg:aspect-[4/5] mx-auto">
+            <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/30 via-sky-400/20 to-accent/25 blur-2xl" />
+            <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl bg-muted shadow-xl ring-1 ring-black/5 sm:aspect-[5/4] lg:aspect-[4/5] mx-auto">
               <Image
                 src="/images/hero-family.jpg"
                 alt="A family sitting together outdoors, supporting one another"
@@ -93,7 +99,7 @@ export default function HomePage() {
 
             <Link
               href="/services"
-              className="group absolute -top-4 -right-4 flex size-20 items-center justify-center rounded-full bg-secondary text-secondary-foreground shadow-lg sm:size-24"
+              className="group absolute -top-4 -right-4 flex size-20 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-lg shadow-accent/30 sm:size-24"
             >
               <span className="flex flex-col items-center text-center text-[0.65rem] font-semibold uppercase leading-tight">
                 Explore
