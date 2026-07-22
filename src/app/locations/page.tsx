@@ -19,6 +19,8 @@ export default function LocationsPage() {
         eyebrow="Visit Us"
         title="Our Location"
         description="We're proud to serve clients from two convenient Maryland office locations."
+        image="/images/hero-family.jpg"
+        imageAlt="A family sitting together outdoors, supporting one another"
       />
       <Section>
         <div className="grid gap-8 lg:grid-cols-2">

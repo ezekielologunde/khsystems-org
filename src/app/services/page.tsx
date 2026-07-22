@@ -5,6 +5,7 @@ import { Section } from "@/components/layout/section";
 import { PageHero } from "@/components/sections/page-hero";
 import { FadeIn } from "@/components/sections/fade-in";
 import { ServiceCard } from "@/components/sections/service-card";
+import { Marquee } from "@/components/sections/marquee";
 import {
   managedCareOrganizations,
   medicationDisclaimer,
@@ -30,6 +31,8 @@ export default function ServicesPage() {
         eyebrow="What We Offer"
         title="Our Services"
         description="Eligibility is determined through an evaluation or a referral from a physician or agency. We accept Maryland Medicaid only, with no PCP referral required."
+        image="/images/bento-compassionate-care.jpg"
+        imageAlt="Two people holding hands in a supportive gesture"
       />
 
       <Section>
@@ -68,13 +71,17 @@ export default function ServicesPage() {
             We accept Maryland Medicaid at no cost to eligible clients through
             the following managed care organizations:
           </p>
-          <div className="mt-6 flex flex-wrap gap-2">
+          <Marquee className="mt-6">
             {managedCareOrganizations.map((mco) => (
-              <Badge key={mco} variant="secondary" className="px-3 py-1.5 text-sm">
+              <Badge
+                key={mco}
+                variant="secondary"
+                className="px-3 py-1.5 text-sm whitespace-nowrap"
+              >
                 {mco}
               </Badge>
             ))}
-          </div>
+          </Marquee>
           <Link
             href="/eligibility-and-payment"
             className="mt-6 inline-block text-sm font-medium text-primary hover:underline"

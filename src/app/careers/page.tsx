@@ -17,6 +17,8 @@ export default function CareersPage() {
         eyebrow="Join Our Team"
         title="Careers"
         description="We appreciate your interest in joining King Health Systems, Inc. Qualified applicants will be contacted for an interview."
+        image="/images/cta-support-team.jpg"
+        imageAlt="A team member wearing a headset, ready to help"
       />
       <Section>
         <FadeIn className="mx-auto max-w-2xl">

@@ -8,6 +8,8 @@ export type ServicePageContent = {
   body: string[];
   bullets?: string[];
   facts?: { label: string; value: string }[];
+  heroImage?: string;
+  heroImageAlt?: string;
 };
 
 export const programs = [
@@ -51,6 +53,8 @@ export const services: ServicePageContent[] = [
         value: "LMSW, LGPC, LCSW-C, or LCPC",
       },
     ],
+    heroImage: "/images/about-conversation-sunset.jpg",
+    heroImageAlt: "Two people in a warm conversation at sunset",
   },
   {
     slug: "family-therapy",
@@ -62,6 +66,8 @@ export const services: ServicePageContent[] = [
       "Family therapy helps improve communication and resolve conflicts among family members. Depending on the situation, sessions may include the entire family or select members whose participation is most relevant to the client's treatment goals.",
       "Our therapists tailor each session to the family's specific dynamics and the goals outlined in the client's Individualized Treatment Plan.",
     ],
+    heroImage: "/images/bento-family-therapy.jpg",
+    heroImageAlt: "A family silhouette together at sunset",
   },
   {
     slug: "group-therapy",
@@ -72,6 +78,8 @@ export const services: ServicePageContent[] = [
     body: [
       "Group therapy is offered to clients who share similar diagnoses, such as depression or anxiety. Working alongside peers facing comparable challenges helps clients realize they are not alone, while building coping skills in a supportive, guided setting.",
     ],
+    heroImage: "/images/bento-community-support.jpg",
+    heroImageAlt: "A diverse group of people stacking hands together in support",
   },
   {
     slug: "psychiatric-evaluation",
@@ -95,6 +103,8 @@ export const services: ServicePageContent[] = [
       "Telehealth appointments are available Monday through Friday, 9:00 AM to 5:00 PM, with in-person appointments offered on select days each month at both our Baltimore City and Laurel (Prince George's County) offices.",
     ],
     bullets: [],
+    heroImage: "/images/telehealth-video-call.jpg",
+    heroImageAlt: "A person having a telehealth video call from home",
   },
   {
     slug: "psychosocial-assessment",
@@ -156,6 +166,8 @@ export const services: ServicePageContent[] = [
         value: "Office, client's home, or in the community",
       },
     ],
+    heroImage: "/images/cta-support-team.jpg",
+    heroImageAlt: "A support team member wearing a headset, ready to help",
   },
   {
     slug: "community-resource-linkages",

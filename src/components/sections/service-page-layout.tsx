@@ -23,7 +23,13 @@ const categoryLabel: Record<ServicePageContent["category"], string> = {
 export function ServicePageLayout({ service }: { service: ServicePageContent }) {
   return (
     <>
-      <PageHero eyebrow={categoryLabel[service.category]} title={service.title} description={service.summary} />
+      <PageHero
+        eyebrow={categoryLabel[service.category]}
+        title={service.title}
+        description={service.summary}
+        image={service.heroImage}
+        imageAlt={service.heroImageAlt}
+      />
       <Section>
         <Breadcrumb className="mb-8">
           <BreadcrumbList>

@@ -20,6 +20,8 @@ export default function ContactPage() {
         eyebrow="We're Here to Help"
         title="Contact Us"
         description="Your recommendations, questions, and comments are always welcome at King Health Systems, Inc."
+        image="/images/bento-community-support.jpg"
+        imageAlt="A diverse group of people stacking hands together in support"
       />
       <Section>
         <div className="grid gap-10 lg:grid-cols-3">

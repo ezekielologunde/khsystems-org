@@ -18,6 +18,8 @@ export default function AboutPage() {
         eyebrow="Who We Are"
         title="About Us"
         description="Culturally sensitive, high-quality mental health care for Maryland Medicaid recipients across Baltimore and Prince George's County."
+        image="/images/about-conversation-sunset.jpg"
+        imageAlt="Two people in a warm conversation at sunset"
       />
       <Section>
         <div className="grid gap-10 lg:grid-cols-3">
