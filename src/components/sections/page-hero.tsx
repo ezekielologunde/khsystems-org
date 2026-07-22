@@ -15,12 +15,11 @@ export function PageHero({
   imageAlt?: string;
 }) {
   return (
-    <div className="relative overflow-hidden border-b border-border bg-gradient-to-b from-secondary to-secondary/90 text-secondary-foreground">
-      <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-32 -left-16 size-80 rounded-full bg-primary/40 blur-3xl" />
-        <div className="absolute -bottom-24 right-0 size-96 rounded-full bg-sky-400/25 blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 size-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl" />
-      </div>
+    <div className="relative overflow-hidden border-b-2 border-foreground bg-secondary text-secondary-foreground">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,0.15)_1.5px,transparent_1.5px)] [background-size:26px_26px]"
+      />
       <Container
         className={
           image
@@ -30,11 +29,11 @@ export function PageHero({
       >
         <div>
           {eyebrow ? (
-            <p className="mb-2 text-sm font-bold uppercase tracking-wide text-accent">
+            <span className="inline-flex -rotate-1 items-center rounded-full border-2 border-white/80 bg-white/10 px-4 py-1 text-sm font-bold uppercase tracking-wide text-accent">
               {eyebrow}
-            </p>
+            </span>
           ) : null}
-          <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl">
+          <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl">
             {title}
           </h1>
           {description ? (
@@ -44,7 +43,7 @@ export function PageHero({
           ) : null}
         </div>
         {image ? (
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-secondary-foreground/10 shadow-xl ring-1 ring-white/10 lg:aspect-[5/4]">
+          <div className="relative aspect-[4/3] w-full rotate-1 overflow-hidden rounded-2xl border-2 border-white/70 bg-secondary-foreground/10 shadow-[6px_6px_0_0_rgba(255,255,255,0.25)] lg:aspect-[5/4]">
             <Image
               src={image}
               alt={imageAlt ?? ""}
