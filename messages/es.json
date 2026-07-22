@@ -19,7 +19,11 @@
     "companyTitle": "Compañía",
     "privacyPolicy": "Política de Privacidad",
     "accessibility": "Accesibilidad",
-    "copyright": "King Health Systems, Inc."
+    "copyright": "King Health Systems, Inc.",
+    "newsletterLabel": "Reciba Novedades",
+    "newsletterPlaceholder": "Correo electrónico",
+    "newsletterButton": "Suscribirse",
+    "newsletterSuccess": "¡Gracias! Le mantendremos informado."
   },
   "home": {
     "eyebrow": "Atendiendo las Necesidades de Salud Mental",

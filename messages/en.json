@@ -19,7 +19,11 @@
     "companyTitle": "Company",
     "privacyPolicy": "Privacy Policy",
     "accessibility": "Accessibility",
-    "copyright": "King Health Systems, Inc."
+    "copyright": "King Health Systems, Inc.",
+    "newsletterLabel": "Get Updates",
+    "newsletterPlaceholder": "Email address",
+    "newsletterButton": "Subscribe",
+    "newsletterSuccess": "Thanks! We'll keep you posted."
   },
   "home": {
     "eyebrow": "Serving the Mental Health Needs",

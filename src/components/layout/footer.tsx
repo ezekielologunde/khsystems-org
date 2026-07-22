@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { LogoMark } from "@/components/layout/logo-mark";
+import { NewsletterSignup } from "@/components/forms/newsletter-signup";
 import { company, offices, medicationDisclaimer } from "@/lib/content/company";
 import { footerLinkGroups } from "@/components/layout/nav-data";
 
@@ -17,7 +18,7 @@ export async function Footer() {
 
   return (
     <footer className="border-t border-border bg-secondary text-secondary-foreground">
-      <Container className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-5">
+      <Container className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-6">
         <div className="lg:col-span-2">
           <div className="flex items-center gap-3">
             <LogoMark />
@@ -68,6 +69,13 @@ export async function Footer() {
             </ul>
           </div>
         ))}
+
+        <NewsletterSignup
+          label={t("newsletterLabel")}
+          placeholder={t("newsletterPlaceholder")}
+          buttonLabel={t("newsletterButton")}
+          successMessage={t("newsletterSuccess")}
+        />
       </Container>
 
       <div className="border-t border-white/10">
