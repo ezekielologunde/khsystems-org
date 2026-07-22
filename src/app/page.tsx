@@ -11,6 +11,7 @@ import { ServiceCard } from "@/components/sections/service-card";
 import { PhotoTile } from "@/components/sections/photo-tile";
 import { FloatCard } from "@/components/sections/float-card";
 import { AvatarStack } from "@/components/sections/avatar-stack";
+import { TiltCard } from "@/components/sections/tilt-card";
 import { company } from "@/lib/content/company";
 import { programs } from "@/lib/content/services";
 import { testimonials } from "@/lib/content/testimonials";
@@ -36,48 +37,58 @@ export default async function HomePage() {
         </div>
         <Container className="grid gap-12 py-16 sm:py-20 lg:grid-cols-2 lg:items-center lg:py-24">
           <FadeIn>
-            <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
+            <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-1.5 text-sm font-bold text-primary">
               {t("eyebrow")}
             </span>
-            <h1 className="mt-5 font-heading text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.25rem]">
+            <h1 className="mt-5 font-heading text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-[4.25rem]">
               {t("heroTitlePrefix")}{" "}
               <span className="text-primary">{t("heroTitleHighlight")}</span>{" "}
               {t("heroTitleSuffix")}
             </h1>
-            <p className="mt-6 max-w-md text-muted-foreground">
+            <p className="mt-6 max-w-md text-lg font-medium text-foreground/80">
               {company.mission}
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
               <Button
                 render={<Link href="/appointments" />}
                 size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
+                className="bg-accent text-accent-foreground shadow-lg shadow-accent/25 transition-transform hover:scale-105 hover:bg-accent/90"
               >
                 {tNav("requestAppointment")}
               </Button>
               <Link
                 href="/services"
-                className="text-sm font-semibold underline underline-offset-4 hover:text-primary"
+                className="text-sm font-bold underline underline-offset-4 hover:text-primary"
               >
                 {t("exploreServices")}
               </Link>
             </div>
 
-            <div className="mt-10 flex items-center gap-4 border-t border-border pt-6">
-              <AvatarStack />
-              <p className="text-sm text-muted-foreground">
-                {t("trustedBy")}{" "}
-                <span className="font-semibold text-foreground">
-                  Baltimore &amp; Laurel
-                </span>{" "}
-                {t("trustedSince")}
-              </p>
+            <div className="mt-10 flex flex-wrap items-center gap-8 border-t border-border pt-6">
+              <div className="flex items-center gap-4">
+                <AvatarStack />
+                <p className="text-sm text-muted-foreground">
+                  {t("trustedBy")}{" "}
+                  <span className="font-bold text-foreground">
+                    Baltimore &amp; Laurel
+                  </span>{" "}
+                  {t("trustedSince")}
+                </p>
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span className="font-heading text-3xl font-extrabold text-primary">
+                  {t("yearsBadge")}
+                </span>
+                <span className="max-w-[7rem] text-xs font-semibold leading-tight text-muted-foreground">
+                  {t("yearsLabel")}
+                </span>
+              </div>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.1} scale={1.04} className="relative">
             <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/30 via-sky-400/20 to-accent/25 blur-2xl" />
-            <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl bg-muted shadow-xl ring-1 ring-black/5 sm:aspect-[5/4] lg:aspect-[4/5] mx-auto">
+            <TiltCard className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl bg-muted shadow-2xl ring-1 ring-black/5 sm:aspect-[5/4] lg:aspect-[4/5] mx-auto">
               <Image
                 src="/images/hero-family.jpg"
                 alt="A family sitting together outdoors, supporting one another"
@@ -86,7 +97,7 @@ export default async function HomePage() {
                 sizes="(max-width: 1024px) 90vw, 40vw"
                 className="object-cover"
               />
-            </div>
+            </TiltCard>
 
             <FloatCard className="absolute -bottom-6 left-2 px-5 py-4 sm:left-6" delay={0.3}>
               <div className="flex items-center gap-3">
@@ -94,7 +105,7 @@ export default async function HomePage() {
                   <MapPin className="size-5" />
                 </span>
                 <div>
-                  <p className="text-sm font-semibold leading-none">{t("twoLocations")}</p>
+                  <p className="text-sm font-bold leading-none">{t("twoLocations")}</p>
                   <p className="mt-1 text-xs text-muted-foreground">
                     Baltimore &amp; Laurel, MD
                   </p>
@@ -104,9 +115,10 @@ export default async function HomePage() {
 
             <Link
               href="/services"
-              className="group absolute -top-4 -right-4 flex size-20 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-lg shadow-accent/30 sm:size-24"
+              className="group absolute -top-4 -right-4 flex size-20 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-lg shadow-accent/30 transition-transform hover:scale-110 sm:size-24"
             >
-              <span className="flex flex-col items-center text-center text-[0.65rem] font-semibold uppercase leading-tight">
+              <span className="absolute inset-0 rounded-full bg-accent/50 motion-safe:animate-ping" />
+              <span className="relative flex flex-col items-center text-center text-[0.65rem] font-bold uppercase leading-tight">
                 {t("exploreServices")}
               </span>
               <ArrowUpRight className="absolute size-5 opacity-0 transition-opacity group-hover:opacity-100" />
@@ -166,13 +178,13 @@ export default async function HomePage() {
       <Section>
         <FadeIn className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+            <p className="text-sm font-bold uppercase tracking-wide text-primary">
               {t("programsEyebrow")}
             </p>
-            <h2 className="mt-2 font-heading text-3xl font-bold">
+            <h2 className="mt-2 font-heading text-4xl font-extrabold">
               {t("programsTitle")}
             </h2>
-            <p className="mt-4 text-muted-foreground">{t("programsDescription")}</p>
+            <p className="mt-4 text-base font-medium text-foreground/75">{t("programsDescription")}</p>
           </div>
           <Button render={<Link href="/services" />} variant="outline" className="shrink-0">
             {t("viewAllServices")}
@@ -199,7 +211,7 @@ export default async function HomePage() {
               <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-accent">
                 <ShieldCheck className="size-3.5" /> {t("eligibilityBadge")}
               </span>
-              <p className="mt-6 font-heading text-2xl font-semibold leading-snug sm:text-3xl">
+              <p className="mt-6 font-heading text-3xl font-extrabold leading-snug sm:text-4xl">
                 {t("eligibilityHeadline")}
               </p>
               <p className="mt-4 text-muted-foreground">{t("eligibilityBody")}</p>
@@ -254,7 +266,7 @@ export default async function HomePage() {
             <p className="text-sm font-semibold uppercase tracking-wide text-primary">
               {t("telehealthEyebrow")}
             </p>
-            <h2 className="mt-2 font-heading text-3xl font-bold">{t("telehealthTitle")}</h2>
+            <h2 className="mt-2 font-heading text-4xl font-extrabold">{t("telehealthTitle")}</h2>
             <p className="mt-4 text-muted-foreground">{t("telehealthDescription")}</p>
             <ul className="mt-6 space-y-3">
               {[t("telehealthItem1"), t("telehealthItem2"), t("telehealthItem3")].map(
@@ -294,17 +306,17 @@ export default async function HomePage() {
           <div className="absolute inset-0 flex items-center">
             <Container>
               <FadeIn className="max-w-lg text-secondary-foreground">
-                <h2 className="font-heading text-3xl font-bold sm:text-4xl">
+                <h2 className="font-heading text-4xl font-extrabold sm:text-5xl">
                   {t("ctaTitle")}
                 </h2>
-                <p className="mt-4 text-secondary-foreground/85">
+                <p className="mt-4 text-lg font-medium text-secondary-foreground/85">
                   {t("ctaBody", { phone: company.phone })}
                 </p>
                 <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
                   <Button
                     render={<Link href="/appointments" />}
                     size="lg"
-                    className="bg-accent text-accent-foreground hover:bg-accent/90"
+                    className="bg-accent text-accent-foreground shadow-lg shadow-accent/25 transition-transform hover:scale-105 hover:bg-accent/90"
                   >
                     {t("startYourJourney")}
                   </Button>

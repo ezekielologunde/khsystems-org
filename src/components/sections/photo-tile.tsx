@@ -35,7 +35,7 @@ export function PhotoTile({
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0" />
       <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-2 p-4">
-        <span className="text-sm font-semibold text-white">{label}</span>
+        <span className="text-sm font-bold text-white">{label}</span>
         {href ? (
           <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-white/90 text-foreground transition-transform group-hover:rotate-45">
             <ArrowUpRight className="size-4" />
