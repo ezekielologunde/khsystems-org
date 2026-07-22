@@ -26,6 +26,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Container } from "@/components/layout/container";
+import { LogoMark } from "@/components/layout/logo-mark";
 import { company } from "@/lib/content/company";
 import { primaryNav, serviceMenuGroups } from "@/components/layout/nav-data";
 
@@ -46,11 +47,14 @@ export function Header() {
         </Container>
       </div>
       <Container className="flex h-20 items-center justify-between gap-4">
-        <Link href="/" className="flex flex-col leading-tight">
-          <span className="font-heading text-xl font-bold text-primary">
-            {company.name}
+        <Link href="/" className="flex items-center gap-3">
+          <LogoMark />
+          <span className="flex flex-col leading-tight">
+            <span className="font-heading text-xl font-bold text-primary">
+              {company.name}
+            </span>
+            <span className="text-xs text-muted-foreground">{company.tagline}</span>
           </span>
-          <span className="text-xs text-muted-foreground">{company.tagline}</span>
         </Link>
 
         <nav className="hidden lg:block">

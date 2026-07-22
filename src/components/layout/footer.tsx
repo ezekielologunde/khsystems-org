@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Container } from "@/components/layout/container";
+import { LogoMark } from "@/components/layout/logo-mark";
 import { company, offices, medicationDisclaimer } from "@/lib/content/company";
 import { footerLinkGroups } from "@/components/layout/nav-data";
 
@@ -9,7 +10,10 @@ export function Footer() {
     <footer className="border-t border-border bg-secondary text-secondary-foreground">
       <Container className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-2">
-          <p className="font-heading text-lg font-bold">{company.name}</p>
+          <div className="flex items-center gap-3">
+            <LogoMark />
+            <p className="font-heading text-lg font-bold">{company.name}</p>
+          </div>
           <p className="mt-1 text-sm text-secondary-foreground/80">{company.tagline}</p>
 
           <div className="mt-5 space-y-3 text-sm">
