@@ -166,17 +166,20 @@
 }
 
 /* Neubrutalist-editorial accents: hard offset shadows instead of soft blur */
-.shadow-hard {
+.shadow-hard-sm {
   box-shadow: 6px 6px 0 0 var(--foreground);
 }
-.shadow-hard-sm {
-  box-shadow: 4px 4px 0 0 var(--foreground);
+.shadow-hard {
+  box-shadow: 10px 10px 0 0 var(--foreground);
+}
+.shadow-hard-lg {
+  box-shadow: 14px 14px 0 0 var(--foreground);
 }
 .shadow-hard-primary {
-  box-shadow: 6px 6px 0 0 var(--primary);
+  box-shadow: 10px 10px 0 0 var(--primary);
 }
 .shadow-hard-accent {
-  box-shadow: 6px 6px 0 0 var(--accent);
+  box-shadow: 10px 10px 0 0 var(--accent);
 }
 .press-hard {
   transition:
@@ -184,12 +187,12 @@
     box-shadow 150ms ease-out;
 }
 .press-hard:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0 0 var(--foreground);
+  transform: translate(-3px, -3px);
+  box-shadow: 12px 12px 0 0 var(--foreground);
 }
 .press-hard:active {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 0 var(--foreground);
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 0 var(--foreground);
 }
 
 .highlight-mark {
