@@ -49,40 +49,41 @@
 }
 
 :root {
-  /* King Health Systems brand palette: calm teal + deep blue trust tones,
-     a muted terracotta accent reserved for calls to action, warm neutrals. */
-  --background: #fbfaf7;
-  --foreground: #23201c;
+  /* King Health Systems brand palette: forest-sage + warm terracotta,
+     evolved from the original crown-and-KING mark's blue into a calmer,
+     more distinctly "mental health" warm-neutral direction. */
+  --background: #f8f5ee;
+  --foreground: #201f1b;
   --card: #ffffff;
-  --card-foreground: #23201c;
+  --card-foreground: #201f1b;
   --popover: #ffffff;
-  --popover-foreground: #23201c;
-  --primary: #0f6e6a;
+  --popover-foreground: #201f1b;
+  --primary: #3f5a4d;
   --primary-foreground: #ffffff;
-  --secondary: #1b3a5c;
+  --secondary: #223027;
   --secondary-foreground: #ffffff;
-  --muted: #f1ede6;
+  --muted: #efe9da;
   --muted-foreground: #6b6459;
-  --accent: #c75d3f;
+  --accent: #c1623f;
   --accent-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #e4ded2;
-  --input: #e4ded2;
-  --ring: #0f6e6a;
-  --chart-1: #0f6e6a;
-  --chart-2: #1b3a5c;
-  --chart-3: #c75d3f;
-  --chart-4: #7bb0ac;
-  --chart-5: #8ea9c4;
+  --border: #e3dcc9;
+  --input: #e3dcc9;
+  --ring: #3f5a4d;
+  --chart-1: #3f5a4d;
+  --chart-2: #223027;
+  --chart-3: #c1623f;
+  --chart-4: #93ab9c;
+  --chart-5: #d9cbb0;
   --radius: 0.75rem;
-  --sidebar: #fbfaf7;
-  --sidebar-foreground: #23201c;
-  --sidebar-primary: #0f6e6a;
+  --sidebar: #f8f5ee;
+  --sidebar-foreground: #201f1b;
+  --sidebar-primary: #3f5a4d;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f1ede6;
-  --sidebar-accent-foreground: #23201c;
-  --sidebar-border: #e4ded2;
-  --sidebar-ring: #0f6e6a;
+  --sidebar-accent: #efe9da;
+  --sidebar-accent-foreground: #201f1b;
+  --sidebar-border: #e3dcc9;
+  --sidebar-ring: #3f5a4d;
 }
 
 .dark {
