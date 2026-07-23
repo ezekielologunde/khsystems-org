@@ -11,7 +11,7 @@ export function Sticker({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-1.5 text-sm font-bold shadow-soft-sm",
+        "glass inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-bold",
         className
       )}
     >

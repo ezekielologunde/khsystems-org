@@ -34,11 +34,7 @@ export const metadata: Metadata = {
     "King Health Systems, Inc. provides culturally sensitive, high-quality mental health services to children, adolescents, adults, and their families in Baltimore and Laurel, Maryland.",
 };
 
-const CARD_TINTS = [
-  "bg-accent-blue/40",
-  "bg-accent-yellow/25",
-  "bg-accent-orange/20",
-];
+const CARD_TINTS = ["bg-accent-blue/25", "bg-accent-yellow/25", "bg-accent-orange/25"];
 
 const TEAM_TINTS = [
   "bg-primary text-primary-foreground",
@@ -68,12 +64,27 @@ const HOW_IT_WORKS = [
   },
 ];
 
+function GradientField() {
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+      <div className="absolute -top-32 -left-24 size-[30rem] rounded-full bg-primary/25 blur-3xl" />
+      <div className="absolute top-24 -right-32 size-[26rem] rounded-full bg-accent-yellow/40 blur-3xl" />
+      <div className="absolute top-[85%] -left-16 size-[24rem] rounded-full bg-accent-orange/30 blur-3xl" />
+      <div className="absolute top-[140%] right-0 size-[28rem] rounded-full bg-accent-blue/50 blur-3xl" />
+      <div className="absolute top-[210%] left-1/4 size-[26rem] rounded-full bg-primary/20 blur-3xl" />
+      <div className="absolute top-[270%] -right-20 size-[24rem] rounded-full bg-accent-yellow/35 blur-3xl" />
+    </div>
+  );
+}
+
 export default async function HomePage() {
   const t = await getTranslations("home");
   const tNav = await getTranslations("nav");
 
   return (
-    <>
+    <div className="relative">
+      <GradientField />
+
       {/* Hero */}
       <section className="relative overflow-hidden">
         <Container className="grid gap-14 py-20 sm:py-28 lg:grid-cols-2 lg:items-center lg:py-32">
@@ -127,11 +138,13 @@ export default async function HomePage() {
           </FadeIn>
 
           <FadeIn delay={0.1} className="relative">
-            <TiltCard className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] bg-muted shadow-soft-lg lg:aspect-[3/4]">
-              <BoomerangVideoBg src="/videos/hero-family-loop.mp4" />
+            <TiltCard className="glass relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] p-3 lg:aspect-[3/4]">
+              <div className="relative h-full w-full overflow-hidden rounded-[1.5rem]">
+                <BoomerangVideoBg src="/videos/hero-family-loop.mp4" />
+              </div>
             </TiltCard>
 
-            <div className="absolute -bottom-6 left-6 right-6 flex items-center justify-between gap-4 rounded-2xl border border-border bg-card px-6 py-5 shadow-soft sm:left-8 sm:right-auto sm:w-auto">
+            <div className="glass absolute -bottom-6 left-6 right-6 flex items-center justify-between gap-4 rounded-2xl px-6 py-5 sm:left-8 sm:right-auto sm:w-auto">
               <div className="flex items-center gap-3">
                 <span className="flex size-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
                   <MapPin className="size-6" />
@@ -160,7 +173,7 @@ export default async function HomePage() {
       </section>
 
       {/* Insurance trust marquee */}
-      <Section className="pt-0 pb-10 sm:pb-12">
+      <Section className="relative pt-0 pb-10 sm:pb-12">
         <FadeIn className="mb-6 text-center">
           <p className="text-xs font-bold uppercase tracking-wide text-muted-foreground">
             Maryland Medicaid accepted through every major managed care organization
@@ -170,7 +183,7 @@ export default async function HomePage() {
           {managedCareOrganizations.map((org) => (
             <span
               key={org}
-              className="mx-2 inline-flex items-center rounded-full border border-border bg-card px-5 py-2 text-sm font-bold text-foreground/70 shadow-soft-sm"
+              className="glass mx-2 inline-flex items-center rounded-full px-5 py-2 text-sm font-bold text-foreground/80"
             >
               {org}
             </span>
@@ -179,7 +192,7 @@ export default async function HomePage() {
       </Section>
 
       {/* Programs / Road to well-being */}
-      <Section className="pt-0">
+      <Section className="relative pt-0">
         <FadeIn className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
             <p className="text-sm font-bold uppercase tracking-wide text-primary">
@@ -191,7 +204,7 @@ export default async function HomePage() {
             </h2>
             <p className="mt-5 text-lg font-medium text-foreground/75">{t("programsDescription")}</p>
           </div>
-          <Button render={<Link href="/services" />} variant="outline" className="shrink-0">
+          <Button render={<Link href="/services" />} variant="outline" className="glass shrink-0 border-none">
             {t("viewAllServices")}
           </Button>
         </FadeIn>
@@ -200,7 +213,7 @@ export default async function HomePage() {
             <FadeIn key={program.key} delay={i * 0.08}>
               <Link
                 href="/services"
-                className={`group relative block h-full rounded-3xl p-7 shadow-soft-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-soft ${CARD_TINTS[i % CARD_TINTS.length]}`}
+                className={`glass-tint group relative block h-full rounded-3xl p-7 transition-transform duration-200 hover:-translate-y-1 ${CARD_TINTS[i % CARD_TINTS.length]}`}
               >
                 <span className="font-heading text-6xl font-bold text-primary/15">
                   {String(i + 1).padStart(2, "0")}
@@ -218,7 +231,7 @@ export default async function HomePage() {
       </Section>
 
       {/* Photo gallery */}
-      <Section>
+      <Section className="relative">
         <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
           <FadeIn delay={0}>
             <PhotoTile
@@ -226,8 +239,7 @@ export default async function HomePage() {
               alt="Two people holding hands in a supportive gesture"
               label="Compassionate Care"
               href="/services/individual-therapy"
-              className="shadow-soft-sm"
-              frameClassName="bg-accent-yellow"
+              frameClassName="glass-tint bg-accent-yellow/20"
             />
           </FadeIn>
           <FadeIn delay={0.05}>
@@ -236,8 +248,7 @@ export default async function HomePage() {
               alt="A family silhouette together at sunset"
               label="Family Therapy"
               href="/services/family-therapy"
-              className="shadow-soft-sm"
-              frameClassName="bg-accent-blue"
+              frameClassName="glass-tint bg-accent-blue/20"
             />
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -246,8 +257,7 @@ export default async function HomePage() {
               alt="A person having a telehealth video call from home"
               label="Telehealth"
               href="/appointments"
-              className="shadow-soft-sm"
-              frameClassName="bg-primary/10"
+              frameClassName="glass-tint bg-primary/10"
             />
           </FadeIn>
           <FadeIn delay={0.15}>
@@ -256,8 +266,7 @@ export default async function HomePage() {
               alt="A diverse group of people stacking hands together in support"
               label="Group &amp; Community Support"
               href="/services/group-therapy"
-              className="shadow-soft-sm"
-              frameClassName="bg-accent-orange/70"
+              frameClassName="glass-tint bg-accent-orange/20"
             />
           </FadeIn>
         </div>
@@ -265,13 +274,13 @@ export default async function HomePage() {
 
       {/* Standalone testimonial */}
       {testimonials.length > 0 ? (
-        <Section>
-          <FadeIn className="mx-auto max-w-3xl rounded-[2rem] bg-secondary px-8 py-14 text-center text-secondary-foreground shadow-soft-lg sm:px-14">
+        <Section className="relative">
+          <FadeIn className="glass-dark mx-auto max-w-3xl rounded-[2rem] px-8 py-14 text-center sm:px-14">
             <Quote className="mx-auto size-10 text-accent-yellow" />
             <p className="mt-6 font-heading text-2xl font-semibold leading-snug sm:text-3xl">
               &ldquo;{testimonials[0].quote}&rdquo;
             </p>
-            <p className="mt-6 text-sm font-bold uppercase tracking-wide text-secondary-foreground/70">
+            <p className="mt-6 text-sm font-bold uppercase tracking-wide text-white/70">
               &mdash; {testimonials[0].author}
             </p>
           </FadeIn>
@@ -279,7 +288,7 @@ export default async function HomePage() {
       ) : null}
 
       {/* Care team */}
-      <Section className="bg-muted">
+      <Section className="relative">
         <FadeIn className="mx-auto max-w-2xl text-center">
           <Sticker className="text-primary">The People Behind Your Care</Sticker>
           <h2 className="mt-6 flex items-center justify-center gap-3 font-heading text-5xl font-bold leading-[1.05]">
@@ -294,7 +303,7 @@ export default async function HomePage() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {careTeam.map((role, i) => (
             <FadeIn key={role.title} delay={i * 0.06}>
-              <div className="flex h-full flex-col items-center rounded-3xl bg-card p-6 text-center shadow-soft-sm">
+              <div className="glass flex h-full flex-col items-center rounded-3xl p-6 text-center">
                 <span
                   className={`flex size-16 items-center justify-center rounded-full font-heading text-xl font-bold ${TEAM_TINTS[i % TEAM_TINTS.length]}`}
                 >
@@ -318,7 +327,7 @@ export default async function HomePage() {
       </Section>
 
       {/* How it works */}
-      <Section>
+      <Section className="relative">
         <FadeIn className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-bold uppercase tracking-wide text-primary">
             Getting Started
@@ -331,7 +340,7 @@ export default async function HomePage() {
         <div className="mt-12 grid gap-6 sm:grid-cols-3">
           {HOW_IT_WORKS.map(({ icon: Icon, title, description }, i) => (
             <FadeIn key={title} delay={i * 0.08} className="relative">
-              <div className="flex h-full flex-col items-center rounded-3xl bg-card p-7 text-center shadow-soft-sm">
+              <div className="glass flex h-full flex-col items-center rounded-3xl p-7 text-center">
                 <span className="font-heading text-5xl font-bold text-primary/15">
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -360,31 +369,28 @@ export default async function HomePage() {
       </Section>
 
       {/* Eligibility & payment */}
-      <Section>
+      <Section className="relative">
         <div className="grid gap-6 lg:grid-cols-2">
-          <FadeIn className="flex flex-col justify-between gap-6 rounded-3xl bg-accent p-8 text-accent-foreground shadow-soft-sm sm:p-10">
+          <FadeIn className="glass-tint bg-accent/15 flex flex-col justify-between gap-6 rounded-3xl p-8 sm:p-10">
             <div>
-              <Sticker className="border-none bg-black/15 text-accent-foreground shadow-none">
+              <Sticker className="text-primary">
                 <ShieldCheck className="size-3.5" /> {t("eligibilityBadge")}
               </Sticker>
               <p className="mt-6 font-heading text-4xl font-bold leading-snug sm:text-5xl">
                 {t("eligibilityHeadline")}
               </p>
-              <p className="mt-5 text-lg text-accent-foreground/80">{t("eligibilityBody")}</p>
+              <p className="mt-5 text-lg text-foreground/75">{t("eligibilityBody")}</p>
             </div>
-            <Button
-              render={<Link href="/eligibility-and-payment" />}
-              className="w-fit bg-primary text-primary-foreground hover:bg-primary/80"
-            >
+            <Button render={<Link href="/eligibility-and-payment" />} className="w-fit">
               {t("viewInsuranceDetails")}
             </Button>
           </FadeIn>
 
           <FadeIn
             delay={0.1}
-            className="relative overflow-hidden rounded-3xl bg-muted shadow-soft-sm"
+            className="glass relative overflow-hidden rounded-3xl p-3"
           >
-            <div className="relative aspect-[4/3] w-full sm:aspect-auto sm:h-full">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[1.5rem] sm:aspect-auto sm:h-full">
               <Image
                 src="/images/about-conversation-sunset.jpg"
                 alt="Two people in a warm conversation at sunset"
@@ -410,28 +416,24 @@ export default async function HomePage() {
       </Section>
 
       {/* CTA banner */}
-      <Section className="pt-0">
-        <div className="relative isolate overflow-hidden rounded-[2rem] bg-accent shadow-soft-lg">
+      <Section className="relative pt-0">
+        <div className="glass-tint bg-accent/15 relative isolate overflow-hidden rounded-[2rem]">
           <div className="grid gap-8 p-10 sm:p-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-0">
-            <FadeIn className="max-w-lg text-accent-foreground">
+            <FadeIn className="max-w-lg">
               <h2 className="flex items-start gap-3 font-heading text-5xl font-bold leading-[1.05] sm:text-6xl">
                 {t("ctaTitle")}
-                <Doodle variant="star" className="mt-2 size-8 shrink-0 text-accent-foreground/60" />
+                <Doodle variant="star" className="mt-2 size-8 shrink-0 text-accent-orange" />
               </h2>
-              <p className="mt-4 text-lg font-medium text-accent-foreground/80">
+              <p className="mt-4 text-lg font-medium text-foreground/75">
                 {t("ctaBody", { phone: company.phone })}
               </p>
               <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
-                <Button
-                  render={<Link href="/appointments" />}
-                  size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/80"
-                >
+                <Button render={<Link href="/appointments" />} size="lg">
                   {t("startYourJourney")}
                 </Button>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center text-sm font-bold text-accent-foreground underline decoration-2 underline-offset-4"
+                  className="inline-flex items-center text-sm font-bold text-foreground underline decoration-2 underline-offset-4"
                 >
                   {t("getInTouch")}
                 </Link>
@@ -449,6 +451,6 @@ export default async function HomePage() {
           </div>
         </div>
       </Section>
-    </>
+    </div>
   );
 }
