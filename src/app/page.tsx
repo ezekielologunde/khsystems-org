@@ -19,7 +19,6 @@ import { Container } from "@/components/layout/container";
 import { FadeIn } from "@/components/sections/fade-in";
 import { PhotoTile } from "@/components/sections/photo-tile";
 import { AvatarStack } from "@/components/sections/avatar-stack";
-import { TiltCard } from "@/components/sections/tilt-card";
 import { Sticker } from "@/components/sections/sticker";
 import { Doodle } from "@/components/sections/doodle";
 import { Marquee } from "@/components/sections/marquee";
@@ -86,36 +85,46 @@ export default async function HomePage() {
       <GradientField />
 
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <Container className="grid gap-14 py-20 sm:py-28 lg:grid-cols-2 lg:items-center lg:py-32">
-          <FadeIn>
+      <section className="relative flex min-h-[92vh] w-full items-end overflow-hidden">
+        <div className="absolute inset-0">
+          <BoomerangVideoBg src="/videos/hero-family-loop.mp4" />
+          <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/30 to-secondary/10" />
+        </div>
+
+        <Doodle
+          variant="star"
+          className="absolute top-10 right-8 size-10 text-accent-yellow sm:top-16 sm:right-16"
+        />
+
+        <Container className="relative w-full pb-16 sm:pb-20">
+          <FadeIn className="glass max-w-4xl rounded-[2.5rem] p-8 sm:p-12 lg:p-16">
             <Sticker className="px-5 py-2 text-base text-primary">
               <Sparkles className="size-4" />
               {t("eyebrow")}
             </Sticker>
-            <h1 className="mt-7 font-heading text-6xl font-bold leading-[1.02] tracking-tight sm:text-7xl lg:text-[5rem]">
+            <h1 className="mt-8 font-heading text-7xl font-extrabold leading-[0.95] tracking-tight sm:text-8xl lg:text-[7rem]">
               {t("heroTitlePrefix")}{" "}
-              <span className="script-underline script-accent text-6xl sm:text-7xl lg:text-8xl">
+              <span className="script-underline script-accent text-7xl sm:text-8xl lg:text-9xl">
                 {t("heroTitleHighlight")}
               </span>{" "}
               {t("heroTitleSuffix")}
             </h1>
-            <p className="mt-7 max-w-lg text-xl font-medium text-foreground/75">
+            <p className="mt-8 max-w-2xl text-2xl font-medium text-foreground/80">
               {company.mission}
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
-              <Button render={<Link href="/appointments" />} size="lg">
+            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+              <Button render={<Link href="/appointments" />} size="lg" className="px-10 py-6 text-base">
                 {tNav("requestAppointment")}
               </Button>
               <Link
                 href="/services"
-                className="text-sm font-bold underline decoration-2 underline-offset-4 hover:text-primary"
+                className="text-base font-bold underline decoration-2 underline-offset-4 hover:text-primary"
               >
                 {t("exploreServices")}
               </Link>
             </div>
 
-            <div className="mt-11 flex flex-wrap items-center gap-8 border-t border-border pt-7">
+            <div className="mt-12 flex flex-wrap items-center gap-10 border-t border-border pt-8">
               <div className="flex items-center gap-4">
                 <AvatarStack />
                 <p className="text-sm text-muted-foreground">
@@ -127,47 +136,31 @@ export default async function HomePage() {
                 </p>
               </div>
               <div className="flex items-baseline gap-2">
-                <span className="font-heading text-4xl font-bold text-primary">
+                <span className="font-heading text-5xl font-bold text-primary">
                   {t("yearsBadge")}
                 </span>
                 <span className="max-w-[8rem] text-sm font-semibold leading-tight text-muted-foreground">
                   {t("yearsLabel")}
                 </span>
               </div>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.1} className="relative">
-            <TiltCard className="glass relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] p-3 lg:aspect-[3/4]">
-              <div className="relative h-full w-full overflow-hidden rounded-[1.5rem]">
-                <BoomerangVideoBg src="/videos/hero-family-loop.mp4" />
-              </div>
-            </TiltCard>
-
-            <div className="glass absolute -bottom-6 left-6 right-6 flex items-center justify-between gap-4 rounded-2xl px-6 py-5 sm:left-8 sm:right-auto sm:w-auto">
-              <div className="flex items-center gap-3">
-                <span className="flex size-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <MapPin className="size-6" />
+              <div className="glass flex items-center gap-3 rounded-2xl px-5 py-3">
+                <span className="flex size-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                  <MapPin className="size-5" />
                 </span>
                 <div>
-                  <p className="text-base font-bold leading-none">{t("twoLocations")}</p>
-                  <p className="mt-1.5 text-sm text-muted-foreground">
+                  <p className="text-sm font-bold leading-none">{t("twoLocations")}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">
                     Baltimore &amp; Laurel, MD
                   </p>
                 </div>
+                <Link
+                  href="/services"
+                  className="group ml-2 flex size-9 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105"
+                >
+                  <ArrowUpRight className="size-4 transition-transform group-hover:rotate-45" />
+                </Link>
               </div>
-              <Link
-                href="/services"
-                className="group flex size-12 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105"
-              >
-                <ArrowUpRight className="size-6 transition-transform group-hover:rotate-45" />
-              </Link>
             </div>
-
-            <Doodle
-              variant="star"
-              className="absolute -top-5 -right-5 size-8 text-accent-orange"
-            />
           </FadeIn>
         </Container>
       </section>
