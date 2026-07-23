@@ -21,6 +21,7 @@ import { AvatarStack } from "@/components/sections/avatar-stack";
 import { TiltCard } from "@/components/sections/tilt-card";
 import { Sticker } from "@/components/sections/sticker";
 import { Doodle } from "@/components/sections/doodle";
+import { BoomerangVideoBg } from "@/components/sections/boomerang-video-bg";
 import { company, careTeam } from "@/lib/content/company";
 import { programs } from "@/lib/content/services";
 import { testimonials } from "@/lib/content/testimonials";
@@ -104,14 +105,7 @@ export default async function HomePage() {
 
           <FadeIn delay={0.1} className="relative">
             <TiltCard className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] bg-muted shadow-soft-lg lg:aspect-[3/4]">
-              <Image
-                src="/images/hero-family.jpg"
-                alt="A family sitting together outdoors, supporting one another"
-                fill
-                priority
-                sizes="(max-width: 1024px) 90vw, 45vw"
-                className="object-cover"
-              />
+              <BoomerangVideoBg src="/videos/hero-family-loop.mp4" />
             </TiltCard>
 
             <div className="absolute -bottom-6 left-6 right-6 flex items-center justify-between gap-4 rounded-2xl border border-border bg-card px-6 py-5 shadow-soft sm:left-8 sm:right-auto sm:w-auto">
