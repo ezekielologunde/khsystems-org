@@ -220,7 +220,7 @@ export default async function HomePage() {
       </div>
 
       {/* Insurance trust marquee */}
-      <Section className="relative bg-muted pt-0 pb-10 sm:pb-12">
+      <Section className="relative bg-accent-orange/40 pt-0 pb-10 sm:pb-12">
         <FadeIn className="mb-6 text-center">
           <p className="text-xs font-bold uppercase tracking-wide text-muted-foreground">
             Maryland Medicaid accepted through every major managed care organization
@@ -278,7 +278,7 @@ export default async function HomePage() {
       </Section>
 
       {/* Photo gallery */}
-      <Section className="relative bg-accent-blue/10">
+      <Section className="relative bg-accent-blue/40">
         <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
           <FadeIn delay={0}>
             <PhotoTile
@@ -335,7 +335,7 @@ export default async function HomePage() {
       ) : null}
 
       {/* Care team */}
-      <Section className="relative bg-accent-yellow/10">
+      <Section className="relative bg-accent-yellow/40">
         <FadeIn className="mx-auto max-w-2xl text-center">
           <Sticker className="text-primary">The People Behind Your Care</Sticker>
           <h2 className="mt-6 flex items-center justify-center gap-3 font-heading text-5xl font-bold leading-[1.05]">
@@ -416,7 +416,7 @@ export default async function HomePage() {
       </Section>
 
       {/* Eligibility & payment */}
-      <Section className="relative bg-muted">
+      <Section className="relative bg-primary/10">
         <div className="grid gap-6 lg:grid-cols-2">
           <FadeIn className="glass-tint bg-accent/15 flex flex-col justify-between gap-6 rounded-3xl p-8 sm:p-10">
             <div>
