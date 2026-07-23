@@ -5,9 +5,10 @@ import { getTranslations } from "next-intl/server";
 import {
   ArrowRight,
   ArrowUpRight,
-  CalendarCheck,
-  Home as HomeIcon,
+  ClipboardCheck,
   MapPin,
+  PhoneCall,
+  Quote,
   ShieldCheck,
   Sparkles,
   Video,
@@ -21,8 +22,9 @@ import { AvatarStack } from "@/components/sections/avatar-stack";
 import { TiltCard } from "@/components/sections/tilt-card";
 import { Sticker } from "@/components/sections/sticker";
 import { Doodle } from "@/components/sections/doodle";
+import { Marquee } from "@/components/sections/marquee";
 import { BoomerangVideoBg } from "@/components/sections/boomerang-video-bg";
-import { company, careTeam } from "@/lib/content/company";
+import { company, careTeam, managedCareOrganizations } from "@/lib/content/company";
 import { programs } from "@/lib/content/services";
 import { testimonials } from "@/lib/content/testimonials";
 
@@ -43,6 +45,27 @@ const TEAM_TINTS = [
   "bg-accent-yellow text-accent-yellow-foreground",
   "bg-accent-blue text-accent-blue-foreground",
   "bg-accent-orange text-accent-orange-foreground",
+];
+
+const HOW_IT_WORKS = [
+  {
+    icon: PhoneCall,
+    title: "Reach Out",
+    description:
+      "Call, request an appointment online, or send a referral - our team responds without delay.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Get Your Treatment Plan",
+    description:
+      "A licensed clinician completes an assessment and builds an Individualized Treatment Plan for you.",
+  },
+  {
+    icon: Video,
+    title: "Start Care, In Person or by Telehealth",
+    description:
+      "Meet your provider at our Baltimore or Laurel office, or from home - Monday through Friday.",
+  },
 ];
 
 export default async function HomePage() {
@@ -136,61 +159,27 @@ export default async function HomePage() {
         </Container>
       </section>
 
-      {/* Bento photo grid */}
-      <Section className="pt-0">
-        <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
-          <FadeIn delay={0}>
-            <PhotoTile
-              src="/images/bento-compassionate-care.jpg"
-              alt="Two people holding hands in a supportive gesture"
-              label="Compassionate Care"
-              href="/services/individual-therapy"
-              className="shadow-soft-sm"
-              frameClassName="bg-accent-yellow"
-            />
-          </FadeIn>
-          <FadeIn delay={0.05}>
-            <PhotoTile
-              src="/images/bento-family-therapy.jpg"
-              alt="A family silhouette together at sunset"
-              label="Family Therapy"
-              href="/services/family-therapy"
-              className="shadow-soft-sm"
-              frameClassName="bg-accent-blue"
-            />
-          </FadeIn>
-          <FadeIn delay={0.1} className="col-span-2 sm:col-span-1">
-            <div className="flex aspect-[4/5] flex-col justify-between rounded-3xl bg-secondary p-5 text-secondary-foreground shadow-soft-sm">
-              <p className="text-xs font-bold uppercase tracking-wide text-accent-yellow">
-                {t("testimonialsLabel")}
-              </p>
-              {testimonials.length > 0 ? (
-                <p className="font-heading text-base leading-snug">
-                  &ldquo;{testimonials[0].quote}&rdquo;
-                </p>
-              ) : null}
-              {testimonials.length > 0 ? (
-                <p className="text-sm font-semibold text-secondary-foreground/80">
-                  &mdash; {testimonials[0].author}
-                </p>
-              ) : null}
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.15} className="col-span-2 sm:col-span-1">
-            <PhotoTile
-              src="/images/bento-community-support.jpg"
-              alt="A diverse group of people stacking hands together in support"
-              label="Group &amp; Community Support"
-              href="/services/group-therapy"
-              className="shadow-soft-sm"
-              frameClassName="bg-accent-orange/70"
-            />
-          </FadeIn>
-        </div>
+      {/* Insurance trust marquee */}
+      <Section className="pt-0 pb-10 sm:pb-12">
+        <FadeIn className="mb-6 text-center">
+          <p className="text-xs font-bold uppercase tracking-wide text-muted-foreground">
+            Maryland Medicaid accepted through every major managed care organization
+          </p>
+        </FadeIn>
+        <Marquee>
+          {managedCareOrganizations.map((org) => (
+            <span
+              key={org}
+              className="mx-2 inline-flex items-center rounded-full border border-border bg-card px-5 py-2 text-sm font-bold text-foreground/70 shadow-soft-sm"
+            >
+              {org}
+            </span>
+          ))}
+        </Marquee>
       </Section>
 
       {/* Programs / Road to well-being */}
-      <Section>
+      <Section className="pt-0">
         <FadeIn className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
             <p className="text-sm font-bold uppercase tracking-wide text-primary">
@@ -227,6 +216,67 @@ export default async function HomePage() {
           ))}
         </div>
       </Section>
+
+      {/* Photo gallery */}
+      <Section>
+        <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
+          <FadeIn delay={0}>
+            <PhotoTile
+              src="/images/bento-compassionate-care.jpg"
+              alt="Two people holding hands in a supportive gesture"
+              label="Compassionate Care"
+              href="/services/individual-therapy"
+              className="shadow-soft-sm"
+              frameClassName="bg-accent-yellow"
+            />
+          </FadeIn>
+          <FadeIn delay={0.05}>
+            <PhotoTile
+              src="/images/bento-family-therapy.jpg"
+              alt="A family silhouette together at sunset"
+              label="Family Therapy"
+              href="/services/family-therapy"
+              className="shadow-soft-sm"
+              frameClassName="bg-accent-blue"
+            />
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <PhotoTile
+              src="/images/telehealth-video-call.jpg"
+              alt="A person having a telehealth video call from home"
+              label="Telehealth"
+              href="/appointments"
+              className="shadow-soft-sm"
+              frameClassName="bg-primary/10"
+            />
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <PhotoTile
+              src="/images/bento-community-support.jpg"
+              alt="A diverse group of people stacking hands together in support"
+              label="Group &amp; Community Support"
+              href="/services/group-therapy"
+              className="shadow-soft-sm"
+              frameClassName="bg-accent-orange/70"
+            />
+          </FadeIn>
+        </div>
+      </Section>
+
+      {/* Standalone testimonial */}
+      {testimonials.length > 0 ? (
+        <Section>
+          <FadeIn className="mx-auto max-w-3xl rounded-[2rem] bg-secondary px-8 py-14 text-center text-secondary-foreground shadow-soft-lg sm:px-14">
+            <Quote className="mx-auto size-10 text-accent-yellow" />
+            <p className="mt-6 font-heading text-2xl font-semibold leading-snug sm:text-3xl">
+              &ldquo;{testimonials[0].quote}&rdquo;
+            </p>
+            <p className="mt-6 text-sm font-bold uppercase tracking-wide text-secondary-foreground/70">
+              &mdash; {testimonials[0].author}
+            </p>
+          </FadeIn>
+        </Section>
+      ) : null}
 
       {/* Care team */}
       <Section className="bg-muted">
@@ -267,7 +317,49 @@ export default async function HomePage() {
         </div>
       </Section>
 
-      {/* Important information split section */}
+      {/* How it works */}
+      <Section>
+        <FadeIn className="mx-auto max-w-2xl text-center">
+          <p className="text-sm font-bold uppercase tracking-wide text-primary">
+            Getting Started
+          </p>
+          <h2 className="mt-2 flex items-center justify-center gap-3 font-heading text-5xl font-bold leading-[1.05]">
+            How care works here
+            <Doodle variant="spark" className="size-7 shrink-0 text-accent-blue" />
+          </h2>
+        </FadeIn>
+        <div className="mt-12 grid gap-6 sm:grid-cols-3">
+          {HOW_IT_WORKS.map(({ icon: Icon, title, description }, i) => (
+            <FadeIn key={title} delay={i * 0.08} className="relative">
+              <div className="flex h-full flex-col items-center rounded-3xl bg-card p-7 text-center shadow-soft-sm">
+                <span className="font-heading text-5xl font-bold text-primary/15">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span
+                  className={`mt-2 flex size-12 items-center justify-center rounded-full ${
+                    i === 0
+                      ? "bg-accent-yellow text-accent-yellow-foreground"
+                      : i === 1
+                        ? "bg-accent-blue text-accent-blue-foreground"
+                        : "bg-accent-orange text-accent-orange-foreground"
+                  }`}
+                >
+                  <Icon className="size-6" />
+                </span>
+                <h3 className="mt-4 text-lg font-bold">{title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{description}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+        <FadeIn delay={0.2} className="mt-10 flex justify-center">
+          <Button render={<Link href="/appointments" />}>
+            {t("scheduleTelehealth")}
+          </Button>
+        </FadeIn>
+      </Section>
+
+      {/* Eligibility & payment */}
       <Section>
         <div className="grid gap-6 lg:grid-cols-2">
           <FadeIn className="flex flex-col justify-between gap-6 rounded-3xl bg-accent p-8 text-accent-foreground shadow-soft-sm sm:p-10">
@@ -313,61 +405,6 @@ export default async function HomePage() {
                 </Link>
               </div>
             </div>
-          </FadeIn>
-        </div>
-      </Section>
-
-      {/* Telehealth section */}
-      <Section>
-        <div className="grid items-center gap-10 lg:grid-cols-2">
-          <FadeIn className="relative order-2 overflow-hidden rounded-3xl shadow-soft-sm lg:order-1">
-            <div className="relative aspect-[4/3]">
-              <Image
-                src="/images/telehealth-video-call.jpg"
-                alt="A person having a telehealth video call from home"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.1} className="order-1 lg:order-2">
-            <p className="text-sm font-bold uppercase tracking-wide text-primary">
-              {t("telehealthEyebrow")}
-            </p>
-            <h2 className="mt-2 flex items-center gap-3 font-heading text-5xl font-bold leading-[1.05]">
-              {t("telehealthTitle")}
-              <Doodle variant="spark" className="size-7 shrink-0 text-accent-blue" />
-            </h2>
-            <p className="mt-4 text-muted-foreground">{t("telehealthDescription")}</p>
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              {[
-                { icon: CalendarCheck, label: t("telehealthItem1") },
-                { icon: Video, label: t("telehealthItem2") },
-                { icon: HomeIcon, label: t("telehealthItem3") },
-              ].map(({ icon: Icon, label }, i) => (
-                <div
-                  key={label}
-                  className="flex flex-col items-center gap-2 rounded-2xl bg-card p-4 text-center shadow-soft-sm transition-transform duration-200 hover:-translate-y-1"
-                >
-                  <span
-                    className={`flex size-10 items-center justify-center rounded-full ${
-                      i === 0
-                        ? "bg-accent-yellow text-accent-yellow-foreground"
-                        : i === 1
-                          ? "bg-accent-blue text-accent-blue-foreground"
-                          : "bg-accent-orange text-accent-orange-foreground"
-                    }`}
-                  >
-                    <Icon className="size-5" />
-                  </span>
-                  <p className="text-xs font-bold leading-tight">{label}</p>
-                </div>
-              ))}
-            </div>
-            <Button render={<Link href="/appointments" />} className="mt-8">
-              {t("scheduleTelehealth")}
-            </Button>
           </FadeIn>
         </div>
       </Section>
