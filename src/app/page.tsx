@@ -167,10 +167,10 @@ export default async function HomePage() {
       <div className="relative grid grid-cols-1 md:grid-cols-[2fr_1fr_2fr]">
         <div className="animate-fade-up delay-900 flex flex-col justify-between gap-6 bg-muted p-8 sm:p-10">
           <p className="max-w-[350px] font-heading text-2xl leading-[1.1] tracking-tight sm:text-[28px] lg:text-[35px]">
-            {t("itpHeadline")}
+            Start your personalized path to complete well-being.
           </p>
           <Link
-            href="/services/individualized-treatment-plan"
+            href="/services"
             className="inline-flex w-fit items-center gap-1 text-base font-medium underline underline-offset-4 lg:text-lg"
           >
             {t("learnHowItWorks")}
