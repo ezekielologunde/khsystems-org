@@ -17,18 +17,20 @@ export function WordReveal({
   return (
     <span className={className}>
       {words.map((word, i) => (
-        <span key={`${word}-${i}`} className="inline-block overflow-hidden align-bottom">
-          <span
-            className="inline-block"
-            style={{
-              animation: "wordReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) both",
-              animationDelay: `${startDelay + i * step}s`,
-              opacity: dimSet.has(word.toLowerCase().replace(/[^\w]/g, "")) ? 0.45 : 1,
-            }}
-          >
-            {word}
-            {i < words.length - 1 ? " " : ""}
+        <span key={`${word}-${i}`}>
+          <span className="inline-block overflow-hidden align-bottom">
+            <span
+              className="inline-block"
+              style={{
+                animation: "wordReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) both",
+                animationDelay: `${startDelay + i * step}s`,
+                opacity: dimSet.has(word.toLowerCase().replace(/[^\w]/g, "")) ? 0.45 : 1,
+              }}
+            >
+              {word}
+            </span>
           </span>
+          {i < words.length - 1 ? " " : ""}
         </span>
       ))}
     </span>

@@ -278,7 +278,7 @@ export default async function HomePage() {
       </Section>
 
       {/* Photo gallery */}
-      <Section className="relative bg-muted">
+      <Section className="relative bg-accent-blue/10">
         <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
           <FadeIn delay={0}>
             <PhotoTile
@@ -335,7 +335,7 @@ export default async function HomePage() {
       ) : null}
 
       {/* Care team */}
-      <Section className="relative bg-muted">
+      <Section className="relative bg-accent-yellow/10">
         <FadeIn className="mx-auto max-w-2xl text-center">
           <Sticker className="text-primary">The People Behind Your Care</Sticker>
           <h2 className="mt-6 flex items-center justify-center gap-3 font-heading text-5xl font-bold leading-[1.05]">
