@@ -6,11 +6,13 @@ import {
   ArrowRight,
   ArrowUpRight,
   ClipboardCheck,
+  HeartHandshake,
   MapPin,
   PhoneCall,
   Quote,
   ShieldCheck,
   Sparkles,
+  Users,
   Video,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -22,7 +24,8 @@ import { AvatarStack } from "@/components/sections/avatar-stack";
 import { Sticker } from "@/components/sections/sticker";
 import { Doodle } from "@/components/sections/doodle";
 import { Marquee } from "@/components/sections/marquee";
-import { BoomerangVideoBg } from "@/components/sections/boomerang-video-bg";
+import { WordReveal } from "@/components/sections/word-reveal";
+import { RotatingValues } from "@/components/sections/rotating-values";
 import { company, careTeam, managedCareOrganizations } from "@/lib/content/company";
 import { programs } from "@/lib/content/services";
 import { testimonials } from "@/lib/content/testimonials";
@@ -85,85 +88,136 @@ export default async function HomePage() {
       <GradientField />
 
       {/* Hero */}
-      <section className="relative flex min-h-[92vh] w-full items-end overflow-hidden">
-        <div className="absolute inset-0">
-          <BoomerangVideoBg src="/videos/hero-family-loop.mp4" />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/30 to-secondary/10" />
-        </div>
+      <section className="relative flex min-h-screen w-full flex-col overflow-hidden">
+        <Image
+          src="/images/hero-family.jpg"
+          alt="A family sitting together outdoors, supporting one another"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary/95 via-secondary/55 to-secondary/25" />
 
         <Doodle
           variant="star"
-          className="absolute top-10 right-8 size-10 text-accent-yellow sm:top-16 sm:right-16"
+          className="animate-fade-in delay-500 absolute top-28 right-8 size-10 text-accent-yellow sm:top-32 sm:right-16"
         />
 
-        <Container className="relative w-full pb-16 sm:pb-20">
-          <FadeIn className="glass max-w-4xl rounded-[2.5rem] p-8 sm:p-12 lg:p-16">
-            <Sticker className="px-5 py-2 text-base text-primary">
-              <Sparkles className="size-4" />
-              {t("eyebrow")}
-            </Sticker>
-            <h1 className="mt-8 font-heading text-7xl font-extrabold leading-[0.95] tracking-tight sm:text-8xl lg:text-[7rem]">
-              {t("heroTitlePrefix")}{" "}
-              <span className="script-underline script-accent text-7xl sm:text-8xl lg:text-9xl">
-                {t("heroTitleHighlight")}
-              </span>{" "}
-              {t("heroTitleSuffix")}
-            </h1>
-            <p className="mt-8 max-w-2xl text-2xl font-medium text-foreground/80">
+        <Container className="relative flex flex-1 flex-col justify-center py-28 text-white sm:py-32">
+          <span className="animate-fade-in delay-200 inline-flex w-fit items-center gap-2 text-sm font-bold tracking-wide text-white/90 uppercase">
+            <Sparkles className="size-4" />
+            {t("eyebrow")}
+          </span>
+
+          <h1 className="mt-6 font-heading text-[3rem] leading-[0.95] font-normal tracking-tight text-white sm:text-[5rem] md:text-[6.5rem] lg:text-[7.5rem]">
+            <WordReveal text={t("heroTitlePrefix")} startDelay={0.3} step={0.1} />{" "}
+            <span
+              className="script-accent inline-block text-white"
+              style={{
+                animation: "wordReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) both",
+                animationDelay: "0.55s",
+              }}
+            >
+              {t("heroTitleHighlight")}
+            </span>{" "}
+            <WordReveal text={t("heroTitleSuffix")} startDelay={0.75} step={0.1} />
+          </h1>
+
+          <div className="animate-fade-up delay-600 mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
+            <Button
+              render={<Link href="/appointments" />}
+              size="lg"
+              className="bg-white px-10 py-6 text-base text-secondary hover:bg-white/90"
+            >
+              {tNav("requestAppointment")}
+              <ArrowUpRight className="size-4" />
+            </Button>
+            <p className="max-w-xs text-base leading-snug text-white/85">
               {company.mission}
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <Button render={<Link href="/appointments" />} size="lg" className="px-10 py-6 text-base">
-                {tNav("requestAppointment")}
-              </Button>
-              <Link
-                href="/services"
-                className="text-base font-bold underline decoration-2 underline-offset-4 hover:text-primary"
-              >
-                {t("exploreServices")}
-              </Link>
-            </div>
+          </div>
 
-            <div className="mt-12 flex flex-wrap items-center gap-10 border-t border-border pt-8">
-              <div className="flex items-center gap-4">
-                <AvatarStack />
-                <p className="text-sm text-muted-foreground">
-                  {t("trustedBy")}{" "}
-                  <span className="font-bold text-foreground">
-                    Baltimore &amp; Laurel
-                  </span>{" "}
-                  {t("trustedSince")}
-                </p>
-              </div>
-              <div className="flex items-baseline gap-2">
-                <span className="font-heading text-5xl font-bold text-primary">
-                  {t("yearsBadge")}
-                </span>
-                <span className="max-w-[8rem] text-sm font-semibold leading-tight text-muted-foreground">
-                  {t("yearsLabel")}
-                </span>
-              </div>
-              <div className="glass flex items-center gap-3 rounded-2xl px-5 py-3">
-                <span className="flex size-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <MapPin className="size-5" />
-                </span>
-                <div>
-                  <p className="text-sm font-bold leading-none">{t("twoLocations")}</p>
-                  <p className="mt-1 text-xs text-muted-foreground">
-                    Baltimore &amp; Laurel, MD
-                  </p>
-                </div>
-                <Link
-                  href="/services"
-                  className="group ml-2 flex size-9 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105"
-                >
-                  <ArrowUpRight className="size-4 transition-transform group-hover:rotate-45" />
-                </Link>
-              </div>
+          <div className="animate-fade-up delay-800 mt-14 flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-white/20 pt-8">
+            <div className="flex items-center gap-4">
+              <AvatarStack />
+              <p className="text-sm text-white/75">
+                {t("trustedBy")}{" "}
+                <span className="font-bold text-white">Baltimore &amp; Laurel</span>{" "}
+                {t("trustedSince")}
+              </p>
             </div>
-          </FadeIn>
+            <div className="flex items-baseline gap-2">
+              <span className="font-heading text-4xl font-bold text-white">
+                {t("yearsBadge")}
+              </span>
+              <span className="max-w-[8rem] text-sm font-semibold leading-tight text-white/75">
+                {t("yearsLabel")}
+              </span>
+            </div>
+            <div className="flex items-center gap-2 text-sm font-bold text-white">
+              <MapPin className="size-4" />
+              {t("twoLocations")}
+            </div>
+          </div>
         </Container>
       </section>
+
+      {/* Three-panel strip */}
+      <div className="relative grid grid-cols-1 md:grid-cols-[2fr_1fr_2fr]">
+        <div className="animate-fade-up delay-900 flex flex-col justify-between gap-6 bg-muted p-8 sm:p-10">
+          <p className="max-w-[350px] font-heading text-2xl leading-[1.1] tracking-tight sm:text-[28px] lg:text-[35px]">
+            {t("itpHeadline")}
+          </p>
+          <Link
+            href="/services/individualized-treatment-plan"
+            className="inline-flex w-fit items-center gap-1 text-base font-medium underline underline-offset-4 lg:text-lg"
+          >
+            {t("learnHowItWorks")}
+          </Link>
+        </div>
+
+        <div className="animate-fade-up delay-1000 bg-card p-8 sm:p-10">
+          <RotatingValues
+            items={[
+              {
+                icon: <HeartHandshake className="size-5 sm:size-6" />,
+                iconClassName: "bg-primary",
+                text: "Board-certified psychiatric nurse practitioners and licensed therapists.",
+              },
+              {
+                icon: <Video className="size-5 sm:size-6" />,
+                iconClassName: "bg-accent-blue text-accent-blue-foreground",
+                text: "In-office, at-home, and telehealth care, whatever fits your life.",
+              },
+              {
+                icon: <ShieldCheck className="size-5 sm:size-6" />,
+                iconClassName: "bg-accent-yellow text-accent-yellow-foreground",
+                text: "Maryland Medicaid accepted at no cost, no PCP referral required.",
+              },
+              {
+                icon: <Users className="size-5 sm:size-6" />,
+                iconClassName: "bg-accent-orange text-accent-orange-foreground",
+                text: "Individual, family, and group therapy for every stage of life.",
+              },
+            ]}
+          />
+        </div>
+
+        <div className="animate-fade-up delay-1100 flex items-center gap-6 bg-secondary p-8 text-secondary-foreground sm:p-10">
+          <span className="flex size-16 shrink-0 items-center justify-center rounded-full bg-white/10">
+            <MapPin className="size-7" />
+          </span>
+          <div>
+            <p className="font-heading text-3xl font-bold sm:text-4xl">
+              {t("yearsBadge")}
+            </p>
+            <p className="mt-1 text-sm leading-tight text-secondary-foreground/70">
+              {t("yearsLabel")}
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* Insurance trust marquee */}
       <Section className="relative pt-0 pb-10 sm:pb-12">
