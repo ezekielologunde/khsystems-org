@@ -82,6 +82,7 @@ export const footerLinkGroups = [
       { label: "Eligibility and Payment", href: "/eligibility-and-payment" },
       { label: "Transit Assistance", href: "/transit-assistance" },
       { label: "Contact Us", href: "/contact" },
+      { label: "Staff Resources", href: "/staff" },
     ],
   },
 ];
