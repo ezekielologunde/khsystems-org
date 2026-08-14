@@ -29,8 +29,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const serviceRoutes = services.map((s) => `/services/${s.slug}`);
   serviceRoutes.push("/services/psychiatric-rehabilitation/resources");
 
+  // Content here is static/hand-authored (no CMS timestamps to draw on),
+  // so a fixed build-time date is the honest freshness signal - it beats
+  // the previous new Date(0) (literally Jan 1 1970), which told crawlers
+  // every page was 55+ years stale and gave them no reason to re-check any
+  // of it.
+  const lastModified = new Date();
+
   return [...staticRoutes, ...serviceRoutes].map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(0),
+    lastModified,
+    priority: route === "" ? 1 : route.startsWith("/services") ? 0.8 : 0.6,
   }));
 }

@@ -5,6 +5,7 @@ import { FadeIn } from "@/components/sections/fade-in";
 import { ReferralForm } from "@/components/forms/referral-form";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/referrals" },
   title: "Referrals",
   description:
     "Submit an OMHC or PRP referral to King Health Systems, Inc.",

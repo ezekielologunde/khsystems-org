@@ -5,6 +5,7 @@ import { getServiceBySlug } from "@/lib/content/services";
 const service = getServiceBySlug("community-resource-linkages")!;
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/services/community-resource-linkages" },
   title: service.title,
   description: service.summary,
 };

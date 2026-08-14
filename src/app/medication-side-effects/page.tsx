@@ -9,6 +9,7 @@ import { medications } from "@/lib/content/medications";
 import { medicationDisclaimer } from "@/lib/content/company";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/medication-side-effects" },
   title: "Possible Medication Side Effects",
   description:
     "General information about common side effects for medications prescribed through our Medication Management program.",

@@ -12,9 +12,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Section } from "@/components/layout/section";
 import { PageHero } from "@/components/sections/page-hero";
 import { FadeIn } from "@/components/sections/fade-in";
+import { BreadcrumbStructuredData } from "@/components/structured-data";
 import { prpResourceCategories } from "@/lib/content/resources";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/services/psychiatric-rehabilitation/resources" },
   title: "PRP Resources",
   description:
     "Benefits, entitlements, and employment resources for PRP clients of King Health Systems, Inc.",
@@ -23,6 +25,14 @@ export const metadata: Metadata = {
 export default function PrpResourcesPage() {
   return (
     <>
+      <BreadcrumbStructuredData
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Our Services", path: "/services" },
+          { name: "PRP", path: "/services/psychiatric-rehabilitation" },
+          { name: "PRP Resources", path: "/services/psychiatric-rehabilitation/resources" },
+        ]}
+      />
       <PageHero
         eyebrow="Psychiatric Rehabilitation Program"
         title="PRP Resources"

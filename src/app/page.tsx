@@ -31,6 +31,7 @@ import { programs } from "@/lib/content/services";
 import { testimonials } from "@/lib/content/testimonials";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/" },
   title: "Home",
   description:
     "King Health Systems, Inc. provides culturally sensitive, high-quality mental health services to children, adolescents, adults, and their families in Baltimore and Laurel, Maryland.",

@@ -7,6 +7,7 @@ import { FadeIn } from "@/components/sections/fade-in";
 import { testimonials } from "@/lib/content/testimonials";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/testimonials" },
   title: "Client Testimonials",
   description: "What clients say about King Health Systems, Inc.",
 };

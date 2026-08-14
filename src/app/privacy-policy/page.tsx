@@ -5,6 +5,7 @@ import { FadeIn } from "@/components/sections/fade-in";
 import { privacyPolicySections, privacyPolicyEffectiveDate } from "@/lib/content/privacy-policy";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy-policy" },
   title: "Privacy Policy",
   description:
     "Notice of Policies and Practices to Protect the Privacy of Your Health Information at King Health Systems, Inc.",

@@ -8,6 +8,7 @@ import { FadeIn } from "@/components/sections/fade-in";
 import { company } from "@/lib/content/company";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/transit-assistance" },
   title: "Transit Assistance",
   description:
     "MDOT Reduced Fare application information for King Health Systems, Inc. clients.",

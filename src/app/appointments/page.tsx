@@ -5,6 +5,7 @@ import { FadeIn } from "@/components/sections/fade-in";
 import { AppointmentForm } from "@/components/forms/appointment-form";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/appointments" },
   title: "Set an Appointment",
   description:
     "Request an appointment with King Health Systems, Inc. - available at our Baltimore and Laurel offices.",

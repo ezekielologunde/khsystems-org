@@ -5,6 +5,7 @@ import { FadeIn } from "@/components/sections/fade-in";
 import { company } from "@/lib/content/company";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/accessibility" },
   title: "Accessibility Statement",
   description:
     "King Health Systems, Inc.'s commitment to making our website accessible to all visitors.",

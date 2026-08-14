@@ -38,6 +38,11 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: `${company.name} – Mental Health Services in Baltimore, Maryland`,
+    description: company.mission,
+  },
 };
 
 export default async function RootLayout({

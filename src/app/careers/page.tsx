@@ -5,6 +5,7 @@ import { FadeIn } from "@/components/sections/fade-in";
 import { CareersForm } from "@/components/forms/careers-form";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/careers" },
   title: "Careers",
   description:
     "Join the King Health Systems, Inc. team - explore open positions and submit your application.",

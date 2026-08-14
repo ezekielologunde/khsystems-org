@@ -11,6 +11,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Section } from "@/components/layout/section";
 import { PageHero } from "@/components/sections/page-hero";
 import { FadeIn } from "@/components/sections/fade-in";
+import { BreadcrumbStructuredData } from "@/components/structured-data";
 import type { ServicePageContent } from "@/lib/content/services";
 import { Button } from "@/components/ui/button";
 
@@ -23,6 +24,13 @@ const categoryLabel: Record<ServicePageContent["category"], string> = {
 export function ServicePageLayout({ service }: { service: ServicePageContent }) {
   return (
     <>
+      <BreadcrumbStructuredData
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Our Services", path: "/services" },
+          { name: service.title, path: `/services/${service.slug}` },
+        ]}
+      />
       <PageHero
         eyebrow={categoryLabel[service.category]}
         title={service.title}

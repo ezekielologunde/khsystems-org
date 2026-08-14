@@ -7,6 +7,7 @@ import { FadeIn } from "@/components/sections/fade-in";
 import { resourceCategories } from "@/lib/content/resources";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/staff" },
   title: "Staff Resources",
   description: "Quick links to the PRP Tool, staff email, Carelon ProviderConnect, and LightningStep for King Health Systems staff.",
   robots: { index: false, follow: false },

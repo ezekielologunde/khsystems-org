@@ -7,6 +7,7 @@ import { FadeIn } from "@/components/sections/fade-in";
 import { company } from "@/lib/content/company";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "About Us",
   description: company.mission,
 };

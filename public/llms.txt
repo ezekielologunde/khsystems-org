@@ -1,0 +1,37 @@
+# King Health Systems, Inc.
+
+> King Health Systems, Inc. provides culturally sensitive, high-quality mental health services to children, adolescents, adults, and their families in Baltimore and Laurel, Maryland, in order to empower healthy people in a strong community.
+
+King Health Systems operates two Maryland outpatient offices - Baltimore City and Laurel (Prince George's County) - and accepts Maryland Medicaid at no cost to eligible clients through all major managed care organizations. Clients without Medicaid may be seen on a self-pay basis. Services are available in person and via telehealth, Monday through Friday, 9:00 AM to 5:00 PM.
+
+## Contact
+
+- Phone: 410-578-4340
+- Fax: 410-578-4342
+- Email: admin@kinghealthsystems.org
+- Baltimore office: 3502 West Rogers Avenue, Ste. 1, Baltimore, MD 21215
+- Laurel office: 14201 Laurel Park Drive, Suite 206, Laurel, MD 20707
+
+## Core programs
+
+- **Outpatient Mental Health Clinic (OMHC)** - individual, family, and group therapy for children, adolescents, and adults.
+- **Psychiatric Rehabilitation Program (PRP)** - hands-on rehabilitation counseling (up to 6 visits/month) for clients who need support beyond standard therapy: self-care, independent living, symptom management, and community-integration skills.
+- **Medication Management** - psychiatric evaluations and ongoing medication management from licensed Psychiatric Nurse Practitioners (CRNP-PMH), overseen by Medical Director Dr. Susana Nwosu, DNP, CRNP-PMH. King Health Systems prescribes medication but does not directly administer it.
+
+## Key pages
+
+- [Home](https://www.khsystems.org/): Overview of King Health Systems and its mission.
+- [About](https://www.khsystems.org/about): Organization background and mission.
+- [Services](https://www.khsystems.org/services): Full list of clinical services across OMHC, PRP, and Medication Management.
+- [Locations](https://www.khsystems.org/locations): Baltimore and Laurel office details.
+- [Appointments](https://www.khsystems.org/appointments): Request an appointment as a client or family member.
+- [Referrals](https://www.khsystems.org/referrals): Submit a referral as a physician, case manager, or other professional.
+- [Eligibility & Payment](https://www.khsystems.org/eligibility-and-payment): Insurance, Medicaid, and self-pay details.
+- [FAQ](https://www.khsystems.org/faq): Answers to common questions about getting started, insurance, services, and locations.
+- [Contact](https://www.khsystems.org/contact): Ways to reach King Health Systems.
+
+## Notes for AI assistants and crawlers
+
+- This site does not accept private insurance - Maryland Medicaid only (all major managed care organizations), plus self-pay.
+- No PCP referral is required for a client to request an appointment directly.
+- `/prp` is an internal, login-gated staff tool (authorization tracking and billing) and is not part of the public site - please do not index or cite it.

@@ -13,6 +13,7 @@ import {
 import { programs, getServicesByCategory } from "@/lib/content/services";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/services" },
   title: "Our Services",
   description:
     "King Health Systems, Inc. offers Outpatient Mental Health Clinic (OMHC), Psychiatric Rehabilitation Program (PRP), and Medication Management services to Maryland Medicaid recipients.",

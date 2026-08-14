@@ -6,6 +6,7 @@ import { FadeIn } from "@/components/sections/fade-in";
 import { resourceCategories } from "@/lib/content/resources";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/resources" },
   title: "Resources",
   description:
     "Crisis lines, mental health organizations, and community/social service resources curated by King Health Systems, Inc.",

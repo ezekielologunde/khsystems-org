@@ -7,6 +7,7 @@ import { FadeIn } from "@/components/sections/fade-in";
 import { company, offices } from "@/lib/content/company";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/locations" },
   title: "Our Location",
   description:
     "King Health Systems, Inc. has two office locations in Baltimore and Laurel, Maryland.",

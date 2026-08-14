@@ -5,6 +5,7 @@ import { getServiceBySlug } from "@/lib/content/services";
 const service = getServiceBySlug("psychiatric-rehabilitation")!;
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/services/psychiatric-rehabilitation" },
   title: service.title,
   description: service.summary,
 };

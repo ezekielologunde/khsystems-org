@@ -8,9 +8,11 @@ import {
 import { Section } from "@/components/layout/section";
 import { PageHero } from "@/components/sections/page-hero";
 import { FadeIn } from "@/components/sections/fade-in";
+import { FaqStructuredData } from "@/components/structured-data";
 import { faqCategories } from "@/lib/content/faq";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/faq" },
   title: "Frequently Asked Questions",
   description:
     "Answers to common questions about getting started, insurance, services, and locations at King Health Systems, Inc.",
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
 export default function FaqPage() {
   return (
     <>
+      <FaqStructuredData categories={faqCategories} />
       <PageHero
         eyebrow="Have Questions?"
         title="Frequently Asked Questions"

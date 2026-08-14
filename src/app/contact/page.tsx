@@ -8,6 +8,7 @@ import { ContactForm } from "@/components/forms/contact-form";
 import { company, offices } from "@/lib/content/company";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact Us",
   description:
     "Get in touch with King Health Systems, Inc. - call, email, or send us a message online.",

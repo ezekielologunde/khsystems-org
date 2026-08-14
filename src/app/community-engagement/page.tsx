@@ -5,6 +5,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { FadeIn } from "@/components/sections/fade-in";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/community-engagement" },
   title: "Community Engagement",
   description:
     "King Health Systems, Inc. strives to be a positive influence in our community through pro-bono services and free transportation assistance.",

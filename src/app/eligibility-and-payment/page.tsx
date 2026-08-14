@@ -12,6 +12,7 @@ import { FadeIn } from "@/components/sections/fade-in";
 import { managedCareOrganizations } from "@/lib/content/company";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/eligibility-and-payment" },
   title: "Eligibility and Payment",
   description:
     "King Health Systems, Inc. accepts Maryland Medicaid only, with no PCP referral required. We do not currently accept private insurance.",

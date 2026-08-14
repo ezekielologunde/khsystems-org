@@ -4,6 +4,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { FadeIn } from "@/components/sections/fade-in";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/calendar" },
   title: "Calendar of Events",
   description: "Upcoming events and availability at King Health Systems, Inc.",
 };
