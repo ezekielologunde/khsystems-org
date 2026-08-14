@@ -20,9 +20,9 @@ const staffLinks = [
     icon: LayoutDashboard,
   },
   {
-    name: "Staff Gmail",
-    description: "kinghealthsystem@gmail.com",
-    url: "https://mail.google.com/mail/u/0/?authuser=kinghealthsystem@gmail.com",
+    name: "Staff Email",
+    description: "Sign in with your @kinghealthsystems.org Google account.",
+    url: "https://mail.google.com/a/kinghealthsystems.org",
     icon: Mail,
   },
   {
