@@ -31,6 +31,12 @@ export default function LearnPage() {
           >
             Free &amp; private depression and anxiety check-ins (PHQ-9, GAD-7) →
           </Link>
+          <Link
+            href="/learn/news"
+            className="block rounded-lg border border-border bg-muted p-5 font-semibold hover:shadow-md"
+          >
+            News &amp; updates on Maryland Medicaid and mental health →
+          </Link>
         </div>
         {publishedArticles.length === 0 ? (
           <p className="text-muted-foreground">New articles are coming soon.</p>
