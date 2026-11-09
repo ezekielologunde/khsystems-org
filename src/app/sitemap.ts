@@ -28,6 +28,9 @@ const staticRoutes = [
   "/testimonials",
   "/team",
   "/learn",
+  "/first-visit",
+  "/insurance-check",
+  "/find-your-service",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

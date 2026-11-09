@@ -45,6 +45,9 @@ export const serviceMenuGroups = [
 
 export const quickActionLinks = [
   { label: "Set an Appointment", href: "/appointments" },
+  { label: "Your First Visit", href: "/first-visit" },
+  { label: "Do You Take My Insurance?", href: "/insurance-check" },
+  { label: "Which Service Fits Me?", href: "/find-your-service" },
   { label: "Referrals", href: "/referrals" },
   { label: "Client Satisfaction Survey", href: "/satisfaction-survey" },
   { label: "Possible Medication Side Effects", href: "/medication-side-effects" },
