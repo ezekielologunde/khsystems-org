@@ -8,6 +8,7 @@ import { NewsletterSignup } from "@/components/forms/newsletter-signup";
 import {
   accreditation,
   company,
+  facebookUrl,
   linkedInUrl,
   medicationDisclaimer,
   offices,
@@ -147,6 +148,14 @@ export async function Footer() {
             <Link href="/accessibility" className="hover:text-white hover:underline">
               {t("accessibility")}
             </Link>
+            <a
+              href={facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white hover:underline"
+            >
+              Facebook
+            </a>
             <a
               href={linkedInUrl}
               target="_blank"

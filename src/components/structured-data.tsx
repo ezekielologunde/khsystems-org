@@ -1,4 +1,4 @@
-import { company, linkedInUrl, offices } from "@/lib/content/company";
+import { company, facebookUrl, linkedInUrl, offices } from "@/lib/content/company";
 import type { FaqCategory } from "@/lib/content/faq";
 
 export function OrganizationStructuredData() {
@@ -12,7 +12,7 @@ export function OrganizationStructuredData() {
     url: "https://www.khsystems.org",
     medicalSpecialty: "Psychiatric",
     openingHours: "Mo-Fr 09:00-17:00",
-    sameAs: [linkedInUrl],
+    sameAs: [linkedInUrl, facebookUrl],
     department: offices.map((office) => ({
       "@type": "MedicalClinic",
       name: office.name,

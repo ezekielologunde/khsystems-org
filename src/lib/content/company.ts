@@ -67,6 +67,8 @@ export const accreditation = {
 
 export const linkedInUrl = "https://www.linkedin.com/company/king-health-systems";
 
+export const facebookUrl = "https://www.facebook.com/profile.php?id=61574121447974";
+
 export const indeedJobsUrl = "https://www.indeed.com/cmp/King-Health-Systems/jobs";
 
 export const managedCareOrganizations = [
