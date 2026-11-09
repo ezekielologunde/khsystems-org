@@ -9,13 +9,17 @@ import {
   Clock,
   MapPin,
   Phone,
+  HeartHandshake,
   ShieldCheck,
   Video,
+  ArrowUpRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { FadeIn } from "@/components/sections/fade-in";
+import { WordReveal } from "@/components/sections/word-reveal";
+import { RotatingValues } from "@/components/sections/rotating-values";
 import {
   accreditation,
   company,
@@ -97,93 +101,122 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero: who it is for, what it accepts, how to reach us, in one screen */}
-      <section className="relative overflow-hidden bg-secondary text-secondary-foreground">
-        <Container className="grid gap-10 py-12 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14 lg:py-20">
-          <div>
-            <p className="inline-flex items-center gap-2 rounded-full bg-accent-yellow px-4 py-1.5 text-sm font-bold text-accent-yellow-foreground">
+      {/* Hero: full-viewport photo, word-by-word headline, three-panel strip */}
+      <div className="relative flex min-h-[calc(100svh-7rem)] flex-col overflow-hidden bg-secondary text-white">
+        <Image
+          src="/images/hero-family.jpg"
+          alt="A family sitting together outdoors, supporting one another"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/60 to-secondary/20" />
+
+        <section className="relative z-10 flex flex-1 flex-col justify-center">
+          <Container className="py-14 sm:py-16 lg:py-20">
+            <p className="animate-fade-in delay-200 inline-flex items-center gap-2 rounded-full bg-accent-yellow px-4 py-1.5 text-sm font-bold text-accent-yellow-foreground">
               <ShieldCheck className="size-4" aria-hidden />
               Maryland Medicaid accepted
             </p>
-            <h1 className="mt-5 max-w-2xl font-heading text-[2.5rem] leading-[1.05] font-bold tracking-tight text-balance sm:text-6xl">
-              {t("heroTitlePrefix")} {t("heroTitleHighlight")} {t("heroTitleSuffix")}
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-secondary-foreground/85 sm:text-xl">
-              Outpatient therapy, psychiatry, and rehabilitation for children, teens, adults,
-              and families. In Baltimore, Laurel, and Cockeysville, or by telehealth.
-            </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <h1 className="mt-6 max-w-4xl font-heading text-[2.75rem] leading-[1.02] font-normal tracking-tight text-balance sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6rem]">
+              <WordReveal text={t("heroTitlePrefix")} startDelay={0.3} step={0.1} dimWords={["we", "care"]} />{" "}
+              <WordReveal text={t("heroTitleHighlight")} startDelay={0.6} step={0.1} />{" "}
+              <WordReveal text={t("heroTitleSuffix")} startDelay={0.8} step={0.1} dimWords={["every", "day"]} />
+            </h1>
+
+            <div className="animate-fade-up delay-600 mt-8 flex flex-col gap-5 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-5">
               <Button
                 render={<Link href="/appointments" />}
                 size="lg"
                 className="min-h-14 bg-accent-yellow px-8 text-base font-bold text-accent-yellow-foreground hover:bg-accent-yellow/90"
               >
-                <CalendarCheck className="size-5" aria-hidden />
                 {tNav("requestAppointment")}
+                <ArrowUpRight className="size-5" aria-hidden />
               </Button>
               <Button
                 render={<a href={company.phoneHref} />}
                 size="lg"
                 variant="outline"
-                className="min-h-14 border-white/40 bg-transparent px-8 text-base font-bold text-white hover:bg-white/10 hover:text-white"
+                className="min-h-14 border-white/50 bg-transparent px-8 text-base font-bold text-white hover:bg-white/10 hover:text-white"
               >
                 <Phone className="size-5" aria-hidden />
                 Call {company.phone}
               </Button>
+              <p className="max-w-md text-base leading-snug text-white/90 sm:basis-full xl:basis-auto xl:max-w-xs lg:text-lg">
+                Therapy, psychiatry and rehabilitation for children, teens, adults and families.
+              </p>
             </div>
+          </Container>
+        </section>
 
-            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-secondary-foreground/85">
-              <li className="flex items-center gap-2">
-                <Clock className="size-4 text-accent-yellow" aria-hidden />
-                {company.hours}
-              </li>
-              <li className="flex items-center gap-2">
-                <BadgeCheck className="size-4 text-accent-yellow" aria-hidden />
-                CARF-accredited
-              </li>
-              <li className="flex items-center gap-2">
-                <Video className="size-4 text-accent-yellow" aria-hidden />
-                Telehealth available
-              </li>
-            </ul>
+        {/* Three panels: path, rotating reassurance, where to find us */}
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-[2fr_1fr_2fr]">
+          <div className="animate-fade-up delay-900 flex flex-col justify-between gap-6 bg-muted p-8 text-foreground sm:p-10">
+            <p className="max-w-[350px] font-heading text-2xl leading-[1.1] tracking-tight sm:text-[28px] lg:text-[35px]">
+              Start your personalized path to complete well-being.
+            </p>
+            <Link
+              href="/find-your-service"
+              className="inline-flex w-fit items-center gap-1 text-base font-medium underline underline-offset-4 lg:text-lg"
+            >
+              Which service fits me?
+            </Link>
           </div>
 
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-soft-lg lg:aspect-[5/6]">
-            <Image
-              src="/images/hero-family.jpg"
-              alt="A family sitting together outdoors, supporting one another"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-cover"
+          <div className="animate-fade-up delay-1000 bg-card p-8 text-foreground sm:p-10">
+            <RotatingValues
+              items={[
+                {
+                  icon: <HeartHandshake className="size-5 sm:size-6" />,
+                  iconClassName: "bg-primary",
+                  text: "Psychiatric nurse practitioners and licensed therapists.",
+                },
+                {
+                  icon: <Video className="size-5 sm:size-6" />,
+                  iconClassName: "bg-accent-blue text-accent-blue-foreground",
+                  text: "In-office, at-home and telehealth care.",
+                },
+                {
+                  icon: <ShieldCheck className="size-5 sm:size-6" />,
+                  iconClassName: "bg-accent-yellow text-accent-yellow-foreground",
+                  text: "Maryland Medicaid accepted, no PCP referral needed.",
+                },
+                {
+                  icon: <BadgeCheck className="size-5 sm:size-6" />,
+                  iconClassName: "bg-accent-orange text-accent-orange-foreground",
+                  text: "CARF-accredited programs.",
+                },
+              ]}
             />
           </div>
-        </Container>
 
-        {/* Three offices, each one tap from a map or the locations page */}
-        <div className="border-t border-white/15 bg-white/5">
-          <Container className="grid gap-px py-0 sm:grid-cols-3">
-            {offices.map((o) => (
-              <Link
-                key={o.id}
-                href="/locations"
-                className="group flex items-start gap-3 py-5 sm:px-5 sm:first:pl-0"
-              >
-                <MapPin className="mt-0.5 size-5 shrink-0 text-accent-yellow" aria-hidden />
-                <span className="text-sm leading-snug">
-                  <span className="block font-bold text-white group-hover:underline">
-                    {o.city}, {o.state}
-                  </span>
-                  <span className="text-secondary-foreground/75">
-                    {o.addressLines[o.addressLines.length - 1]}
-                  </span>
-                </span>
-              </Link>
-            ))}
-          </Container>
+          <div className="animate-fade-up delay-1100 bg-secondary p-8 text-secondary-foreground sm:p-10">
+            <p className="flex items-center gap-2 text-sm font-bold text-secondary-foreground/70">
+              <Clock className="size-4" aria-hidden />
+              {company.hours}
+            </p>
+            <ul className="mt-4 space-y-3">
+              {offices.map((o) => (
+                <li key={o.id}>
+                  <Link href="/locations" className="group flex items-start gap-3">
+                    <MapPin className="mt-0.5 size-5 shrink-0 text-accent-yellow" aria-hidden />
+                    <span className="text-sm leading-snug">
+                      <span className="block font-bold group-hover:underline">
+                        {o.city}, {o.state}
+                      </span>
+                      <span className="text-secondary-foreground/75">
+                        {o.addressLines[o.addressLines.length - 1]}
+                      </span>
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* Quick answers to the first questions visitors have */}
       <Section className="pb-0">
