@@ -4,7 +4,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { LogoMark } from "@/components/layout/logo-mark";
 import { NewsletterSignup } from "@/components/forms/newsletter-signup";
-import { company, offices, medicationDisclaimer } from "@/lib/content/company";
+import { company, linkedInUrl, offices, medicationDisclaimer } from "@/lib/content/company";
 import { footerLinkGroups } from "@/components/layout/nav-data";
 
 export async function Footer() {
@@ -89,6 +89,14 @@ export async function Footer() {
             <Link href="/accessibility" className="hover:underline">
               {t("accessibility")}
             </Link>
+            <a
+              href={linkedInUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              LinkedIn
+            </a>
           </div>
         </Container>
       </div>

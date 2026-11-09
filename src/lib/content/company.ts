@@ -65,6 +65,8 @@ export const accreditation = {
   carf: "CARF-accredited outpatient mental health and psychiatric rehabilitation programs.",
 } as const;
 
+export const linkedInUrl = "https://www.linkedin.com/company/king-health-systems";
+
 export const indeedJobsUrl = "https://www.indeed.com/cmp/King-Health-Systems/jobs";
 
 export const managedCareOrganizations = [
