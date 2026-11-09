@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/lib/content/services";
+import { publishedArticles } from "@/lib/content/learn";
+import { screeners } from "@/lib/content/screeners";
 
 const baseUrl = "https://www.khsystems.org";
 
@@ -24,11 +26,14 @@ const staticRoutes = [
   "/accessibility",
   "/testimonials",
   "/team",
+  "/learn",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const serviceRoutes = services.map((s) => `/services/${s.slug}`);
   serviceRoutes.push("/services/psychiatric-rehabilitation/resources");
+  serviceRoutes.push("/learn/check-in", ...screeners.map((s) => `/learn/check-in/${s.slug}`));
+  for (const a of publishedArticles) serviceRoutes.push(`/learn/${a.slug}`);
 
   // Content here is static/hand-authored (no CMS timestamps to draw on),
   // so a fixed build-time date is the honest freshness signal - it beats
