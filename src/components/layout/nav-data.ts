@@ -71,12 +71,21 @@ export const footerLinkGroups = [
     links: quickActionLinks,
   },
   {
+    title: "Learn",
+    links: [
+      { label: "Articles", href: "/learn" },
+      { label: "News & Updates", href: "/learn/news" },
+      { label: "Check-ins (PHQ-9, GAD-7)", href: "/learn/check-in" },
+      { label: "Resources", href: "/resources" },
+      { label: "FAQ", href: "/faq" },
+    ],
+  },
+  {
     title: "Company",
     links: [
       { label: "About Us", href: "/about" },
       { label: "Testimonials", href: "/testimonials" },
       { label: "Our Clinicians", href: "/team" },
-      { label: "Learn", href: "/learn" },
       { label: "Careers", href: "/careers" },
       { label: "Our Location", href: "/locations" },
       { label: "Calendar of Events", href: "/calendar" },
