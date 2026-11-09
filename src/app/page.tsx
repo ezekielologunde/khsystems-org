@@ -65,6 +65,12 @@ const SERVICES = [
   },
 ] as const;
 
+const QUICK_LINKS = [
+  { href: "/insurance-check", title: "Do you take my insurance?", body: "Pick your Maryland Medicaid plan and see." },
+  { href: "/find-your-service", title: "Which service fits me?", body: "Two questions to point you the right way." },
+  { href: "/first-visit", title: "Your first visit", body: "What happens, and what to bring." },
+] as const;
+
 const STEPS = [
   {
     title: "Call or request a visit",
@@ -178,6 +184,29 @@ export default async function HomePage() {
           </Container>
         </div>
       </section>
+
+      {/* Quick answers to the first questions visitors have */}
+      <Section className="pb-0">
+        <ul className="grid gap-4 md:grid-cols-3">
+          {QUICK_LINKS.map((q) => (
+            <li key={q.href}>
+              <Link
+                href={q.href}
+                className="group flex h-full items-start justify-between gap-4 rounded-2xl border border-border bg-card p-5 transition-shadow hover:shadow-md"
+              >
+                <span>
+                  <span className="block text-lg font-bold">{q.title}</span>
+                  <span className="mt-1 block text-sm text-foreground/75">{q.body}</span>
+                </span>
+                <ArrowRight
+                  className="mt-1 size-5 shrink-0 text-primary transition-transform group-hover:translate-x-1"
+                  aria-hidden
+                />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
       {/* Services as photographs */}
       <Section>

@@ -25,6 +25,9 @@ export type LearnArticle = {
   whenToGetHelp: string;
   sources: LearnSource[];
   videos: LearnVideo[];
+  /** Optional banner photo (public path) and its alt text. */
+  heroImage?: string;
+  heroImageAlt?: string;
   /** Absent = draft, not published. */
   review?: LearnReview;
 };

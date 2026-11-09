@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/lib/content/services";
 import { publishedArticles } from "@/lib/content/learn";
+import { conditionPages } from "@/lib/content/conditions";
 import { screeners } from "@/lib/content/screeners";
 import { allNews } from "@/lib/content/news";
 
@@ -38,6 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   serviceRoutes.push("/services/psychiatric-rehabilitation/resources");
   serviceRoutes.push("/learn/check-in", ...screeners.map((s) => `/learn/check-in/${s.slug}`));
   serviceRoutes.push("/learn/news", ...allNews.map((n) => `/learn/news/${n.slug}`));
+  serviceRoutes.push("/conditions", ...conditionPages.map((c) => `/conditions/${c.slug}`));
   for (const a of publishedArticles) serviceRoutes.push(`/learn/${a.slug}`);
 
   // Content here is static/hand-authored (no CMS timestamps to draw on),

@@ -59,6 +59,7 @@ export const footerLinkGroups = [
     title: "Services",
     links: [
       { label: "Our Services", href: "/services" },
+      { label: "What We Treat", href: "/conditions" },
       { label: "Individual Therapy", href: "/services/individual-therapy" },
       { label: "Family Therapy", href: "/services/family-therapy" },
       { label: "Group Therapy", href: "/services/group-therapy" },
