@@ -374,3 +374,25 @@
     0 8px 32px rgba(15, 23, 42, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
+/* Home page ribbon: CSS-only motion that stops on hover, focus, pause, or reduced motion. */
+@keyframes khs-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: khs-marquee 45s linear infinite;
+}
+.marquee-viewport:hover .marquee-track,
+.marquee-viewport:focus-within .marquee-track,
+.marquee-viewport[data-paused="true"] .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+  .marquee-viewport {
+    overflow-x: auto;
+  }
+}

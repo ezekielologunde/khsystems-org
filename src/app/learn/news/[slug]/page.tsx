@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Section } from "@/components/layout/section";
-import { PageHero } from "@/components/sections/page-hero";
+import { Container } from "@/components/layout/container";
 import { allNews, formatNewsDate, getNews } from "@/lib/content/news";
 import { company } from "@/lib/content/company";
 
@@ -43,25 +42,45 @@ export default async function NewsItemPage({ params }: Props) {
 
   return (
     <>
-      <PageHero
-        eyebrow={`${n.kind === "khs" ? "From King Health Systems" : "Policy update"} · ${formatNewsDate(n.date)}`}
-        title={n.title}
-        description={n.summary}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Section>
-        <article className="mx-auto max-w-3xl space-y-5">
+      <header className="border-b border-border bg-background">
+        <Container className="py-10 sm:py-14">
+          <nav aria-label="Breadcrumb">
+            <Link
+              href="/learn/news"
+              className="inline-flex min-h-11 items-center text-sm font-semibold text-primary underline-offset-4 hover:underline"
+            >
+              &larr; News
+            </Link>
+          </nav>
+          <p className="mt-4 text-base font-semibold text-primary">
+            {n.kind === "khs" ? "From King Health Systems" : "Policy update"} ·{" "}
+            <time dateTime={n.date}>{formatNewsDate(n.date)}</time>
+          </p>
+          <h1 className="mt-3 max-w-4xl font-heading text-4xl font-semibold leading-[1.08] tracking-tight text-balance sm:text-6xl">
+            {n.title}
+          </h1>
+          <p className="mt-5 max-w-3xl text-xl leading-relaxed text-foreground/80">{n.summary}</p>
+          {n.source ? (
+            <p className="mt-5 max-w-3xl border-l-4 border-accent-yellow pl-4 text-sm text-muted-foreground">
+              Summarized from {n.source.publisher}. Checked against the source on the date shown.
+            </p>
+          ) : null}
+        </Container>
+      </header>
+      <Container className="py-12 sm:py-16">
+        <article className="mx-auto max-w-3xl space-y-6">
           {n.paragraphs.map((p, i) => (
-            <p key={i} className="leading-relaxed text-foreground/90">
+            <p key={i} className="text-lg leading-[1.75] text-foreground/90">
               {p}
             </p>
           ))}
           {n.whatItMeansForClients ? (
-            <section className="rounded-lg border border-border bg-muted p-6">
-              <h2 className="font-heading text-lg font-semibold">What this may mean for you</h2>
+            <section className="rounded-2xl border-l-4 border-primary bg-muted p-6 sm:p-8">
+              <h2 className="font-heading text-xl font-semibold">What this may mean for you</h2>
               <p className="mt-2 leading-relaxed">{n.whatItMeansForClients}</p>
             </section>
           ) : null}
@@ -87,7 +106,7 @@ export default async function NewsItemPage({ params }: Props) {
             </Button>
           </div>
         </article>
-      </Section>
+      </Container>
     </>
   );
 }

@@ -1,35 +1,28 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
-import {
-  ArrowRight,
-  BadgeCheck,
-  CalendarCheck,
-  Clock,
-  MapPin,
-  Phone,
-  HeartHandshake,
-  ShieldCheck,
-  Video,
-  ArrowUpRight,
-} from "lucide-react";
+import { getLocale, getTranslations } from "next-intl/server";
+import { ArrowRight, ArrowUpRight, BadgeCheck, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { FadeIn } from "@/components/sections/fade-in";
 import { IntroVideo } from "@/components/sections/intro-video";
 import { WordReveal } from "@/components/sections/word-reveal";
-import { RotatingValues } from "@/components/sections/rotating-values";
-import {
-  accreditation,
-  company,
-  managedCareOrganizations,
-  offices,
-} from "@/lib/content/company";
+import { AudienceWord } from "@/components/home/audience-word";
+import { Breathing } from "@/components/home/breathing";
+import { FirstVisitStepper } from "@/components/home/first-visit-stepper";
+import { HeroCollage } from "@/components/home/hero-collage";
+import { Marquee } from "@/components/home/marquee";
+import { MoodPicker } from "@/components/home/mood-picker";
+import { OpenNow } from "@/components/home/open-now";
+import { TeamScroller } from "@/components/home/team-scroller";
+import { TiltCard } from "@/components/home/tilt-card";
+import { InsuranceChecker } from "@/components/tools/insurance-checker";
+import { accreditation, company, offices } from "@/lib/content/company";
 import { clinicians } from "@/lib/content/clinicians";
 import { publishedArticles } from "@/lib/content/learn";
 import { allNews, formatNewsDate } from "@/lib/content/news";
+import { articlePhoto, deck } from "@/lib/content/editorial";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -70,68 +63,94 @@ const SERVICES = [
   },
 ] as const;
 
-const QUICK_LINKS = [
-  { href: "/insurance-check", title: "Do you take my insurance?", body: "Pick your Maryland Medicaid plan and see." },
-  { href: "/find-your-service", title: "Which service fits me?", body: "Two questions to point you the right way." },
-  { href: "/first-visit", title: "Your first visit", body: "What happens, and what to bring." },
-] as const;
+const RIBBON = [
+  "Individual therapy",
+  "Family therapy",
+  "Group therapy",
+  "Psychiatric evaluation",
+  "Medication management",
+  "Psychiatric rehabilitation (PRP)",
+  "Telehealth",
+  "At-home care for eligible clients",
+  "Maryland Medicaid accepted",
+  "Children, teens and adults",
+];
 
 const STEPS = [
   {
-    title: "Call or request a visit",
-    body: "Phone us or use the online form. Referrals are welcome. We reply without delay.",
+    title: "You reach out",
+    body: "Call, or request an appointment online. A referral from a provider works too. We confirm your Maryland Medicaid coverage with you.",
+    image: "/images/stock/stock-video.jpg",
+    alt: "A laptop on a glass table showing a video call",
   },
   {
-    title: "Meet your clinician",
-    body: "A licensed clinician completes your assessment and builds your Individualized Treatment Plan with you.",
+    title: "Your assessment",
+    body: "A licensed clinician talks with you about what is going on, your history, and what you want from care. Ask questions any time.",
+    image: "/images/stock/stock-talk.jpg",
+    alt: "Two friends sitting on the grass, talking",
   },
   {
-    title: "Start care your way",
-    body: "In one of our three offices, at home, or by telehealth, Monday through Friday.",
+    title: "Your treatment plan",
+    body: "Together you build an Individualized Treatment Plan with goals that matter to you, reviewed as things change.",
+    image: "/images/stock/stock-journal.jpg",
+    alt: "Hands writing in a journal",
   },
-] as const;
+  {
+    title: "Your visits",
+    body: "Meet at one of our offices, by telehealth, or at home if you are eligible, Monday through Friday.",
+    image: "/images/live/individual-therapy.jpg",
+    alt: "A client and therapist talking in a calm, bright room",
+  },
+];
 
-const FEATURED_TEAM = clinicians.filter((c) => c.photo).slice(0, 4);
+const TEAM = clinicians
+  .filter((c) => c.photo)
+  .map((c) => ({ name: c.name, credentials: c.credentials, availability: c.availability, photo: c.photo! }));
 
 export default async function HomePage() {
   const t = await getTranslations("home");
   const tNav = await getTranslations("nav");
+  const locale = await getLocale();
 
-  const latestNews = allNews.slice(0, 2);
-  const latestArticles = publishedArticles.slice(0, 2);
+  const lead = publishedArticles[0];
+  const latestNews = allNews.slice(0, 3);
 
   return (
     <>
-      {/* Hero: full-viewport photo, word-by-word headline, three-panel strip */}
-      <div className="relative flex flex-col overflow-hidden bg-secondary text-white">
-        <Image
-          src="/images/hero-family.jpg"
-          alt="A family sitting together outdoors, supporting one another"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[50%_70%]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/60 to-secondary/20" />
+      {/* Hero: who it is for, Medicaid, hours, one tap to call or request */}
+      <section className="relative overflow-hidden bg-background">
+        <Container className="grid items-center gap-10 py-10 sm:py-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-12">
+          <div>
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="inline-flex items-center gap-2 rounded-full bg-accent-yellow px-4 py-1.5 text-sm font-bold text-accent-yellow-foreground">
+                <BadgeCheck className="size-4" aria-hidden />
+                Maryland Medicaid accepted
+              </p>
+              <OpenNow className="border border-border" />
+            </div>
 
-        <section className="relative z-10 flex flex-1 flex-col justify-center">
-          <Container className="py-10 sm:py-14 lg:py-16">
-            <p className="animate-fade-in delay-200 inline-flex items-center gap-2 rounded-full bg-accent-yellow px-4 py-1.5 text-sm font-bold text-accent-yellow-foreground">
-              <ShieldCheck className="size-4" aria-hidden />
-              Maryland Medicaid accepted
-            </p>
-
-            <h1 className="mt-5 max-w-3xl font-heading text-[2.5rem] leading-[1.05] font-normal tracking-tight text-balance sm:text-[3.5rem] lg:text-[4.25rem] xl:text-[4.75rem]">
-              <WordReveal text={t("heroTitlePrefix")} startDelay={0.3} step={0.1} dimWords={["we", "care"]} />{" "}
-              <WordReveal text={t("heroTitleHighlight")} startDelay={0.6} step={0.1} />{" "}
-              <WordReveal text={t("heroTitleSuffix")} startDelay={0.8} step={0.1} dimWords={["every", "day"]} />
+            <h1 className="mt-5 font-heading text-[2.5rem] font-semibold leading-[1.06] tracking-tight sm:text-6xl lg:text-[3.75rem] xl:text-[4.25rem]">
+              {locale === "en" ? (
+                <AudienceWord />
+              ) : (
+                <>
+                  <WordReveal text={t("heroTitlePrefix")} startDelay={0.2} step={0.08} />{" "}
+                  <WordReveal text={t("heroTitleHighlight")} startDelay={0.5} step={0.08} />{" "}
+                  <WordReveal text={t("heroTitleSuffix")} startDelay={0.7} step={0.08} />
+                </>
+              )}
             </h1>
 
-            <div className="animate-fade-up delay-600 mt-6 flex flex-col gap-4 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-5">
+            <p className="mt-5 max-w-xl text-xl leading-relaxed text-foreground/80">
+              Therapy, psychiatry and rehabilitation for children, teens, adults and families, at
+              three Maryland offices, at home, or by telehealth.
+            </p>
+
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button
                 render={<Link href="/appointments" />}
                 size="lg"
-                className="min-h-14 bg-accent-yellow px-8 text-base font-bold text-accent-yellow-foreground hover:bg-accent-yellow/90"
+                className="min-h-14 bg-primary px-8 text-base font-bold text-primary-foreground shadow-[0_14px_28px_-12px_rgba(29,78,216,0.7)] hover:bg-primary/90"
               >
                 {tNav("requestAppointment")}
                 <ArrowUpRight className="size-5" aria-hidden />
@@ -140,337 +159,258 @@ export default async function HomePage() {
                 render={<a href={company.phoneHref} />}
                 size="lg"
                 variant="outline"
-                className="min-h-14 border-white/50 bg-transparent px-8 text-base font-bold text-white hover:bg-white/10 hover:text-white"
+                className="min-h-14 border-2 border-foreground bg-transparent px-8 text-base font-bold hover:bg-foreground hover:text-background"
               >
                 <Phone className="size-5" aria-hidden />
                 Call {company.phone}
               </Button>
-              <p className="max-w-md text-base leading-snug text-white/90 sm:basis-full xl:basis-auto xl:max-w-xs lg:text-lg">
-                Therapy, psychiatry and rehabilitation for children, teens, adults and families.
-              </p>
             </div>
-          </Container>
-        </section>
-
-        {/* Three panels: path, rotating reassurance, where to find us */}
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-[2fr_1fr_2fr]">
-          <div className="animate-fade-up delay-900 flex flex-col justify-between gap-6 bg-muted p-8 text-foreground sm:p-10">
-            <p className="max-w-[350px] font-heading text-2xl leading-[1.1] tracking-tight sm:text-[28px] lg:text-[35px]">
-              Start your personalized path to complete well-being.
-            </p>
-            <Link
-              href="/find-your-service"
-              className="inline-flex w-fit items-center gap-1 text-base font-medium underline underline-offset-4 lg:text-lg"
-            >
-              Which service fits me?
-            </Link>
           </div>
 
-          <div className="animate-fade-up delay-1000 bg-card p-8 text-foreground sm:p-10">
-            <RotatingValues
-              items={[
-                {
-                  icon: <HeartHandshake className="size-5 sm:size-6" />,
-                  iconClassName: "bg-primary",
-                  text: "Psychiatric nurse practitioners and licensed therapists.",
-                },
-                {
-                  icon: <Video className="size-5 sm:size-6" />,
-                  iconClassName: "bg-accent-blue text-accent-blue-foreground",
-                  text: "In-office, at-home and telehealth care.",
-                },
-                {
-                  icon: <ShieldCheck className="size-5 sm:size-6" />,
-                  iconClassName: "bg-accent-yellow text-accent-yellow-foreground",
-                  text: "Maryland Medicaid accepted, no PCP referral needed.",
-                },
-                {
-                  icon: <BadgeCheck className="size-5 sm:size-6" />,
-                  iconClassName: "bg-accent-orange text-accent-orange-foreground",
-                  text: "CARF-accredited programs.",
-                },
-              ]}
-            />
-          </div>
+          <HeroCollage />
+        </Container>
+      </section>
 
-          <div className="animate-fade-up delay-1100 bg-secondary p-8 text-secondary-foreground sm:p-10">
-            <p className="flex items-center gap-2 text-sm font-bold text-secondary-foreground/70">
-              <Clock className="size-4" aria-hidden />
-              {company.hours}
-            </p>
-            <ul className="mt-4 space-y-3">
-              {offices.map((o) => (
-                <li key={o.id}>
-                  <Link href="/locations" className="group flex items-start gap-3">
-                    <MapPin className="mt-0.5 size-5 shrink-0 text-accent-yellow" aria-hidden />
-                    <span className="text-sm leading-snug">
-                      <span className="block font-bold group-hover:underline">
-                        {o.city}, {o.state}
-                      </span>
-                      <span className="text-secondary-foreground/75">
-                        {o.addressLines[o.addressLines.length - 1]}
-                      </span>
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
+      <Marquee items={RIBBON} />
 
-      {/* Quick answers to the first questions visitors have */}
-      <Section className="pb-0">
-        <ul className="grid gap-4 md:grid-cols-3">
-          {QUICK_LINKS.map((q) => (
-            <li key={q.href}>
-              <Link
-                href={q.href}
-                className="group flex h-full items-start justify-between gap-4 rounded-2xl border border-border bg-card p-5 transition-shadow hover:shadow-md"
-              >
-                <span>
-                  <span className="block text-lg font-bold">{q.title}</span>
-                  <span className="mt-1 block text-sm text-foreground/75">{q.body}</span>
-                </span>
-                <ArrowRight
-                  className="mt-1 size-5 shrink-0 text-primary transition-transform group-hover:translate-x-1"
-                  aria-hidden
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Section>
+      {/* How are you feeling: routes to the right page */}
+      <section className="py-16 sm:py-24">
+        <Container>
+          <MoodPicker />
+        </Container>
+      </section>
 
-      {/* Services as photographs */}
-      <Section>
-        <FadeIn className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div className="max-w-xl">
-            <h2 className="font-heading text-4xl font-bold leading-tight text-balance sm:text-5xl">
-              {t("programsTitle")}
-            </h2>
-            <p className="mt-4 text-lg text-foreground/75">{t("programsDescription")}</p>
-          </div>
-          <Button render={<Link href="/services" />} variant="outline" className="shrink-0">
-            {t("viewAllServices")}
-          </Button>
-        </FadeIn>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {SERVICES.map((s, i) => (
-            <FadeIn key={s.href} delay={i * 0.06}>
-              <Link
-                href={s.href}
-                className="group relative block aspect-[4/5] overflow-hidden rounded-2xl bg-muted"
-              >
-                <Image
-                  src={s.image}
-                  alt={s.alt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/25 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-                  <h3 className="text-xl font-bold leading-tight">{s.title}</h3>
-                  <p className="mt-1 text-sm text-white/85">{s.blurb}</p>
-                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-bold">
-                    Learn more
-                    <ArrowRight
-                      className="size-4 transition-transform group-hover:translate-x-1"
-                      aria-hidden
-                    />
-                  </span>
-                </div>
-              </Link>
-            </FadeIn>
-          ))}
-        </div>
-      </Section>
-
-      {/* Short captioned intro; plays only when asked to */}
-      <Section>
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-12">
-          <FadeIn>
-            <h2 className="font-heading text-4xl font-bold leading-tight text-balance sm:text-5xl">
-              Meet King Health Systems
-            </h2>
-            <p className="mt-4 text-lg text-foreground/75">
-              A 36-second look at who we are, where to find us, and how to start. Captions are
-              on, and nothing plays until you press play.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <IntroVideo />
-          </FadeIn>
-        </div>
-      </Section>
-
-      {/* Getting started + insurance, side by side */}
-      <Section className="bg-muted">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <FadeIn>
-            <h2 className="font-heading text-4xl font-bold leading-tight text-balance sm:text-5xl">
-              Getting started is simple
-            </h2>
-            <ol className="mt-8 space-y-6">
-              {STEPS.map((step, i) => (
-                <li key={step.title} className="flex gap-4">
-                  <span
-                    aria-hidden
-                    className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary font-heading text-lg font-bold text-primary-foreground"
-                  >
-                    {i + 1}
-                  </span>
-                  <div>
-                    <h3 className="text-lg font-bold">{step.title}</h3>
-                    <p className="mt-1 text-foreground/75">{step.body}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-            <Button render={<Link href="/appointments" />} size="lg" className="mt-8">
-              {tNav("requestAppointment")}
+      {/* Services as photographs that lean toward the pointer */}
+      <section className="bg-muted py-16 sm:py-24">
+        <Container>
+          <FadeIn className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-xl">
+              <h2 className="font-heading text-4xl font-semibold leading-tight text-balance sm:text-5xl">
+                {t("programsTitle")}
+              </h2>
+              <p className="mt-4 text-lg text-foreground/80">{t("programsDescription")}</p>
+            </div>
+            <Button render={<Link href="/services" />} variant="outline" className="min-h-12 shrink-0 bg-background font-bold">
+              {t("viewAllServices")}
             </Button>
           </FadeIn>
+          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {SERVICES.map((s, i) => (
+              <li key={s.href}>
+                <FadeIn delay={i * 0.08} y={28}>
+                  <TiltCard>
+                    <Link
+                      href={s.href}
+                      className="group relative block aspect-[4/5] overflow-hidden rounded-3xl bg-secondary shadow-[0_24px_44px_-20px_rgba(15,23,42,0.5)]"
+                    >
+                      <Image
+                        src={s.image}
+                        alt={s.alt}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/20 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                        <h3 className="font-heading text-2xl font-semibold leading-tight">{s.title}</h3>
+                        <p className="mt-1 text-base text-white/90">{s.blurb}</p>
+                        <span className="mt-3 inline-flex items-center gap-1 font-bold">
+                          Learn more
+                          <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
+                        </span>
+                      </div>
+                    </Link>
+                  </TiltCard>
+                </FadeIn>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
 
-          <FadeIn delay={0.1}>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-soft-lg">
-              <Image
-                src="/images/telehealth-video-call.jpg"
-                alt="A person having a telehealth video visit from home"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
-          </FadeIn>
-        </div>
-      </Section>
+      {/* A pause to breathe */}
+      <section className="bg-primary py-16 text-primary-foreground sm:py-24">
+        <Container>
+          <Breathing />
+        </Container>
+      </section>
 
-      <Section>
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+      {/* First visit, step by step */}
+      <section className="py-16 sm:py-24">
+        <Container>
+          <FirstVisitStepper steps={STEPS} />
+        </Container>
+      </section>
+
+      {/* Insurance */}
+      <section className="bg-accent-blue/40 py-16 sm:py-24">
+        <Container className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start lg:gap-14">
           <FadeIn>
-            <h2 className="font-heading text-4xl font-bold leading-tight text-balance sm:text-5xl">
-              {t("eligibilityHeadline")}
+            <h2 className="font-heading text-4xl font-semibold leading-tight text-balance sm:text-5xl">
+              Do you take my insurance?
             </h2>
-            <p className="mt-5 text-lg text-foreground/75">{t("eligibilityBody")}</p>
-            <p className="mt-4 text-foreground/75">{accreditation.licensure}</p>
-            <Button
-              render={<Link href="/eligibility-and-payment" />}
-              variant="outline"
-              className="mt-6"
-            >
-              {t("viewInsuranceDetails")}
-            </Button>
-          </FadeIn>
-          <FadeIn delay={0.1} className="rounded-3xl border border-border bg-card p-6 sm:p-8">
-            <p className="text-sm font-bold text-muted-foreground">
-              Accepted through these Maryland Medicaid plans
-            </p>
-            <ul className="mt-4 grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
-              {managedCareOrganizations.map((org) => (
-                <li key={org} className="flex items-start gap-2 text-sm font-medium">
-                  <BadgeCheck className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
-                  {org}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6 flex items-center gap-4 border-t border-border pt-5">
+            <p className="mt-5 text-lg leading-relaxed text-foreground/85">{t("eligibilityBody")}</p>
+            <p className="mt-4 text-foreground/80">{accreditation.licensure}</p>
+            <div className="mt-6 flex items-center gap-4">
               <Image
                 src="/images/live/carf-seals.png"
                 alt="CARF accreditation seals"
                 width={160}
                 height={64}
-                className="h-12 w-auto"
+                className="h-12 w-auto rounded-md bg-white p-1.5"
               />
-              <p className="text-sm text-muted-foreground">{accreditation.carf}</p>
+              <p className="max-w-xs text-sm text-foreground/75">{accreditation.carf}</p>
             </div>
-          </FadeIn>
-        </div>
-      </Section>
-
-      {/* Real clinicians, real faces */}
-      <Section className="bg-accent-blue/40">
-        <FadeIn className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div className="max-w-xl">
-            <h2 className="font-heading text-4xl font-bold leading-tight text-balance sm:text-5xl">
-              Meet some of our clinicians
-            </h2>
-            <p className="mt-4 text-lg text-foreground/75">
-              Licensed therapists and psychiatric providers, not a call center.
-            </p>
-          </div>
-          <Button render={<Link href="/team" />} variant="outline" className="shrink-0 bg-background">
-            See the whole team
-          </Button>
-        </FadeIn>
-        <ul className="mt-10 grid grid-cols-2 gap-5 lg:grid-cols-4">
-          {FEATURED_TEAM.map((c, i) => (
-            <li key={c.name}>
-              <FadeIn delay={i * 0.06}>
-                <Link href="/team" className="group block">
-                  <div className="relative aspect-square overflow-hidden rounded-2xl bg-muted">
-                    <Image
-                      src={c.photo!}
-                      alt={`Portrait of ${c.name}, ${c.credentials}`}
-                      fill
-                      sizes="(max-width: 1024px) 50vw, 25vw"
-                      className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
-                    />
-                  </div>
-                  <p className="mt-3 font-bold group-hover:underline">{c.name}</p>
-                  <p className="text-sm text-foreground/70">
-                    {c.credentials}
-                    {c.availability ? ` · ${c.availability}` : ""}
-                  </p>
-                </Link>
-              </FadeIn>
-            </li>
-          ))}
-        </ul>
-      </Section>
-
-      {/* Learn teaser */}
-      {latestArticles.length + latestNews.length > 0 ? (
-        <Section>
-          <FadeIn className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="font-heading text-4xl font-bold leading-tight text-balance sm:text-5xl">
-              Learn &amp; stay informed
-            </h2>
-            <Button render={<Link href="/learn" />} variant="outline" className="shrink-0">
-              Articles, news &amp; check-ins
+            <Button render={<Link href="/eligibility-and-payment" />} variant="outline" className="mt-6 min-h-12 bg-background font-bold">
+              {t("viewInsuranceDetails")}
             </Button>
           </FadeIn>
-          <ul className="mt-8 grid gap-4 md:grid-cols-2">
-            {latestArticles.map((a) => (
-              <li key={a.slug}>
-                <Link
-                  href={`/learn/${a.slug}`}
-                  className="block h-full rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-md"
-                >
-                  <p className="text-xs font-bold text-primary">Article</p>
-                  <p className="mt-2 text-lg font-bold leading-snug">{a.title}</p>
-                </Link>
-              </li>
-            ))}
-            {latestNews.map((n) => (
-              <li key={n.slug}>
-                <Link
-                  href={`/learn/news/${n.slug}`}
-                  className="block h-full rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-md"
-                >
-                  <p className="text-xs font-bold text-primary">
-                    News &middot; {formatNewsDate(n.date)}
-                  </p>
-                  <p className="mt-2 text-lg font-bold leading-snug">{n.title}</p>
-                </Link>
+          <FadeIn delay={0.1} className="rounded-3xl bg-card p-6 shadow-[0_24px_48px_-24px_rgba(15,23,42,0.35)] sm:p-8">
+            <InsuranceChecker />
+          </FadeIn>
+        </Container>
+      </section>
+
+      {/* Real clinicians, real faces */}
+      <section className="overflow-hidden py-16 sm:py-24">
+        <Container>
+          <FadeIn className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-xl">
+              <h2 className="font-heading text-4xl font-semibold leading-tight text-balance sm:text-5xl">
+                Meet some of our clinicians
+              </h2>
+              <p className="mt-4 text-lg text-foreground/80">
+                Licensed therapists and psychiatric providers, not a call center.
+              </p>
+            </div>
+            <Button render={<Link href="/team" />} variant="outline" className="min-h-12 shrink-0 font-bold">
+              See the whole team
+            </Button>
+          </FadeIn>
+          <div className="mt-8">
+            <TeamScroller people={TEAM} />
+          </div>
+        </Container>
+      </section>
+
+      {/* Three offices */}
+      <section className="bg-secondary py-16 text-secondary-foreground sm:py-24">
+        <Container>
+          <FadeIn>
+            <h2 className="font-heading text-4xl font-semibold leading-tight text-balance text-white sm:text-5xl">
+              Three offices, close to home
+            </h2>
+            <p className="mt-4 max-w-xl text-lg text-secondary-foreground/85">{company.hours}.</p>
+          </FadeIn>
+          <ul className="mt-10 grid gap-5 md:grid-cols-3">
+            {offices.map((o, i) => (
+              <li key={o.id}>
+                <FadeIn delay={i * 0.08}>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(o.mapQuery)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex h-full flex-col rounded-3xl bg-white/5 p-7 ring-1 ring-white/15 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:ring-accent-yellow"
+                  >
+                    <span className="flex size-12 items-center justify-center rounded-full bg-accent-yellow text-accent-yellow-foreground">
+                      <MapPin className="size-6" aria-hidden />
+                    </span>
+                    <span className="mt-5 font-heading text-3xl font-semibold text-white">{o.city}</span>
+                    <span className="mt-2 leading-relaxed text-secondary-foreground/85">
+                      {o.addressLines.join(", ")}
+                      <br />
+                      {o.city}, {o.state} {o.zip}
+                    </span>
+                    <span className="mt-5 inline-flex items-center gap-2 font-bold text-accent-yellow">
+                      Get directions
+                      <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden />
+                    </span>
+                  </a>
+                </FadeIn>
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-sm text-muted-foreground">
-            In crisis? Call or text <strong>988</strong>. In an emergency, call <strong>911</strong>.
-          </p>
-        </Section>
+        </Container>
+      </section>
+
+      {/* Short captioned intro; plays only when asked to */}
+      <section className="py-16 sm:py-24">
+        <Container className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-12">
+          <FadeIn>
+            <h2 className="font-heading text-4xl font-semibold leading-tight text-balance sm:text-5xl">
+              Meet King Health Systems
+            </h2>
+            <p className="mt-4 text-lg text-foreground/80">
+              A 36-second look at who we are, where to find us, and how to start. Captions are on,
+              and nothing plays until you press play.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <IntroVideo />
+          </FadeIn>
+        </Container>
+      </section>
+
+      {/* Learn and news, in an editorial layout */}
+      {lead || latestNews.length ? (
+        <section className="bg-muted py-16 sm:py-24">
+          <Container>
+            <FadeIn className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <h2 className="font-heading text-4xl font-semibold leading-tight text-balance sm:text-5xl">
+                Learn &amp; stay informed
+              </h2>
+              <Button render={<Link href="/learn" />} variant="outline" className="min-h-12 shrink-0 bg-background font-bold">
+                Articles, news &amp; check-ins
+              </Button>
+            </FadeIn>
+            <div className="mt-10 grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:gap-14">
+              {lead ? (
+                <FadeIn>
+                  <article className="group">
+                    <Link href={`/learn/${lead.slug}`} tabIndex={-1} aria-hidden className="relative block aspect-[3/2] overflow-hidden rounded-3xl bg-secondary">
+                      <Image
+                        src={articlePhoto(lead).src}
+                        alt=""
+                        fill
+                        sizes="(min-width:1024px) 52vw, 100vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </Link>
+                    <p className="mt-5 text-sm font-semibold text-primary">
+                      {lead.topic} · {lead.readingMinutes} min read
+                    </p>
+                    <h3 className="mt-2 font-heading text-3xl font-semibold leading-tight text-balance">
+                      <Link href={`/learn/${lead.slug}`} className="decoration-2 underline-offset-4 hover:underline">
+                        {lead.title}
+                      </Link>
+                    </h3>
+                    <p className="mt-3 text-lg leading-relaxed text-foreground/80">{deck(lead.shortAnswer, 170)}</p>
+                  </article>
+                </FadeIn>
+              ) : null}
+              <div>
+                <h3 className="border-b-2 border-foreground pb-2 font-heading text-2xl font-semibold">From the news desk</h3>
+                <ul className="divide-y divide-border">
+                  {latestNews.map((n) => (
+                    <li key={n.slug}>
+                      <Link href={`/learn/news/${n.slug}`} className="group block py-5">
+                        <time dateTime={n.date} className="text-sm font-semibold text-muted-foreground">
+                          {formatNewsDate(n.date)}
+                        </time>
+                        <span className="mt-1 block font-heading text-xl font-semibold leading-snug decoration-2 underline-offset-4 group-hover:underline">
+                          {n.title}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <p className="mt-8 text-sm text-muted-foreground">
+              In crisis? Call or text <strong>988</strong>. In an emergency, call <strong>911</strong>.
+            </p>
+          </Container>
+        </section>
       ) : null}
 
       {/* Closing call to action, photo-backed */}
@@ -483,12 +423,10 @@ export default async function HomePage() {
           className="-z-10 object-cover opacity-35"
         />
         <Container className="py-16 text-center sm:py-24">
-          <h2 className="mx-auto max-w-2xl font-heading text-4xl font-bold leading-tight text-balance sm:text-5xl">
+          <h2 className="mx-auto max-w-2xl font-heading text-4xl font-semibold leading-tight text-balance sm:text-5xl">
             {t("ctaTitle")}
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-white/85">
-            {t("ctaBody", { phone: company.phone })}
-          </p>
+          <p className="mx-auto mt-4 max-w-xl text-lg text-white/90">{t("ctaBody", { phone: company.phone })}</p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button
               render={<Link href="/appointments" />}
@@ -501,7 +439,7 @@ export default async function HomePage() {
               render={<a href={company.phoneHref} />}
               size="lg"
               variant="outline"
-              className="min-h-14 border-white/40 bg-transparent px-8 text-base font-bold text-white hover:bg-white/10 hover:text-white"
+              className="min-h-14 border-white/50 bg-transparent px-8 text-base font-bold text-white hover:bg-white/10 hover:text-white"
             >
               <Phone className="size-5" aria-hidden />
               {company.phone}
