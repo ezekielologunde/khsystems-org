@@ -122,5 +122,65 @@ export const newsItems: NewsItem[] = [
       "url": "https://www.samhsa.gov/newsroom/press-announcements/20260908/hhs-awards-380-million-988-suicide-prevention-behavioral-health"
     },
     "kind": "policy"
-  }
+  },
+  {
+    "slug": "maryland-medicaid-four-walls-waiver-outpatient-mental-health-telehealth",
+    "title": "Maryland Medicaid lets outpatient mental health clinics bill for telehealth when the provider and client are both offsite",
+    "date": "2025-06-09",
+    "summary": "On June 9, 2025, Maryland Medicaid told Outpatient Mental Health Centers (OMHCs) that the \"Four Walls\" requirement is waived. As of June 1, 2025, participating clinics may provide and bill for telehealth services at clinic rates when both the practitioner and the patient are offsite.",
+    "paragraphs": [
+      "Maryland Medicaid sent a notice to Outpatient Mental Health Centers on June 9, 2025. It is called PT 86-25. It is from Tricia Roddy, Deputy Medicaid Director. It was addressed to OMHCs and to the Behavioral Health Administrative Services Organization (BHASO).",
+      "The notice is about the \"Four Walls\" requirement. The notice does not explain the term in its text. It says the state received approval from the Centers for Medicare & Medicaid Services (CMS) on May 19, 2025 to update the Maryland State Plan to waive the Four Walls requirement for OMHCs.",
+      "The notice says the state used the State Plan route because of CMS guidance.",
+      "As of June 1, 2025, Maryland Medicaid participating OMHCs may provide services by telehealth and submit claims for them at clinic rates. This applies when both the practitioner and the patient are offsite.",
+      "The notice replaces earlier guidance from July 15, 2024, titled PT 21-25 Policy Clarification, Four Walls Requirement Termination. It also says the state is still pursuing a separate 1115 Waiver Amendment for local health departments. The notice is written for clinics and billing staff. It does not describe how any one clinic will schedule visits. Questions go to mdh.mabehavioralhealth@maryland.gov."
+    ],
+    "whatItMeansForClients": "Based on this notice, Maryland Medicaid allows participating outpatient mental health centers to bill for telehealth visits when the clinician and the patient are both offsite. Whether telehealth is offered for your visits depends on your clinic and your care team, so ask them. If you are in crisis, call or text 988, or call 911 for an emergency.",
+    "source": {
+      "title": "PT 86-25: Waived Four Walls Requirement - Outpatient Mental Health Clinics (Outpatient Mental Health Clinics Transmittal No. 1)",
+      "publisher": "Maryland Department of Health, Maryland Medical Assistance Program",
+      "url": "https://health.maryland.gov/mmcp/provider/Documents/transmittals/PT86-25_Waived_FourWalls_Requirement_OMHC.pdf"
+    },
+    "kind": "policy"
+  },
+  {
+    "slug": "cms-new-state-option-ccbhc-medicaid-coverage",
+    "title": "CMS Explains a New Medicaid Option for Community Behavioral Health Clinics",
+    "date": "2026-10-06",
+    "summary": "On October 6, 2026, CMS sent state Medicaid directors guidance (SMD 26-004) on a new, optional way for states to cover Certified Community Behavioral Health Clinic (CCBHC) services. The letter is written for states and does not name Maryland as a state.",
+    "paragraphs": [
+      "The Centers for Medicare & Medicaid Services (CMS) sent a letter to State Medicaid Directors on October 6, 2026. It is called SMD # 26-004. It explains a new state option to add Certified Community Behavioral Health Clinic services, called CCBHCs, to a state's Medicaid plan. The option was authorized by a federal law enacted on March 9, 2024.",
+      "A CCBHC is a clinic that a state has certified as meeting set criteria. The letter says these clinics must serve anyone requesting mental health or substance use care, regardless of ability to pay or place of residence. The criteria also call for 24/7 access to crisis services. The new benefit is optional. States decide whether to use it.",
+      "The letter lists nine required services. They include crisis mental health services, screening, assessment and diagnosis, treatment planning, outpatient mental health and substance use services, primary care screening and monitoring, intensive case management, psychiatric rehabilitation, and peer, counselor and family supports. The ninth covers intensive community-based mental health care for members of the armed forces and veterans. For psychiatric rehabilitation, the letter says states must cover supported employment, plus services that support supported education and finding and keeping housing.",
+      "The letter also says CCBHCs must submit ongoing data on services and clinical outcomes to the state or the federal Secretary. It says services must be delivered directly by the clinic or by another provider with a formal relationship to it. It describes the new benefit as based on a demonstration program that was established in 2014.",
+      "The letter is written for states. It does not name Maryland as a state, and it does not say whether any state will adopt the option. It also does not change how members get care today."
+    ],
+    "whatItMeansForClients": "Based on this letter, nothing changes for Maryland Medicaid members right now. It describes an option that each state chooses, and it does not say whether Maryland will use it. If Maryland adds this option later, you may hear about it from the Maryland Department of Health or your health plan.",
+    "source": {
+      "title": "SMD # 26-004, RE: New State Plan Option to Cover Certified Community Behavioral Health Clinic Services",
+      "publisher": "Centers for Medicare & Medicaid Services (Medicaid.gov)",
+      "url": "https://www.medicaid.gov/Federal-Policy-Guidance/Downloads/smd26004.pdf"
+    },
+    "kind": "policy"
+  },
+  {
+    "slug": "maryland-medicaid-provider-enrollment-portal-transition-2026",
+    "title": "Maryland Medicaid planned a new provider enrollment portal for October 2026",
+    "date": "2026-01-29",
+    "summary": "On January 29, 2026, Maryland Medicaid told providers it would replace its ePREP enrollment and revalidation system with a new portal, set to go live in October 2026. From July 1, 2026, ePREP applications could not be submitted for high and moderate risk provider types, which include outpatient mental health clinics and psychiatric rehabilitation facilities.",
+    "paragraphs": [
+      "On January 29, 2026, the Maryland Medical Assistance Program sent a notice to all providers. It is called PT 59-26, General Provider Transmittal No. 115. It is from Charles Crisp, Director of the Office of Medicaid Provider Services.",
+      "The notice says Maryland Medicaid will move from ePREP to a new Medicaid Provider Enrollment portal system. ePREP is the current online system for provider enrollment and revalidation. The new system is set to go live in October 2026.",
+      "To get ready, Medicaid is putting a phased hold on ePREP applications. Once a hold takes effect, providers must wait until the new system is available to make any enrollment updates. That includes new enrollments, revalidations, and changes to existing enrollment accounts.",
+      "The first hold takes effect July 1, 2026, for high and moderate risk provider types. Attachment 1 of the notice lists Outpatient Mental Health Clinic, Psychiatric Rehab Services Facility, Mobile Treatment Program, and Behavioral Health Crisis Stabilization Center among them. The second hold takes effect August 1, 2026, for limited risk provider types. Attachment 2 lists Mobile Crisis Team, Certified Community Behavioral Health Clinic, and Mental Health Case Management among them.",
+      "The notice tells providers to send questions to mdh.providerenrollment@maryland.gov. It is written for providers, not for people who get care. This summary covers only the January 29 notice. It does not confirm whether the new portal has launched, so check with the Maryland Department of Health for the current status."
+    ],
+    "whatItMeansForClients": "Based on this notice, the change is about how providers file enrollment paperwork with Medicaid, not about your benefits or how you get care. If you have questions about whether a provider is enrolled, ask the provider or call the number on your Medicaid card.",
+    "source": {
+      "title": "PT 59-26 Provider Enrollment Portal Transition (General Provider Transmittal No. 115)",
+      "publisher": "Maryland Department of Health, Maryland Medical Assistance Program",
+      "url": "https://health.maryland.gov/mmcp/provider/Documents/transmittals/PT59-26_Provider_Enrollment_Portal_Transition.pdf"
+    },
+    "kind": "policy"
+  },
 ];
