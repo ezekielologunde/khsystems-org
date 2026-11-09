@@ -15,6 +15,8 @@ export default function CommunityEngagementPage() {
   return (
     <>
       <PageHero
+        image="/images/stock/stock-community.jpg"
+        imageAlt="A diverse group of friends laughing together outdoors"
         eyebrow="Giving Back"
         title="Community Engagement"
         description="King Health Systems, Inc. consistently strives to be a positive influence within the community and to aid in strengthening families and improving our neighborhoods."

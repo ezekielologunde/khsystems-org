@@ -17,6 +17,8 @@ export default function CheckInIndexPage() {
   return (
     <>
       <PageHero
+        image="/images/stock/stock-window.jpg"
+        imageAlt="Sunlight from a tall window across a quiet room"
         eyebrow="Check-ins"
         title="Free & Private Check-ins"
         description="Short, widely used questionnaires that can help you decide whether to talk with someone. Your answers are never saved or sent."

@@ -45,6 +45,8 @@ export default function EligibilityAndPaymentPage() {
   return (
     <>
       <PageHero
+        image="/images/stock/stock-family.jpg"
+        imageAlt="A mother and daughter sharing a warm hug outdoors"
         eyebrow="Getting Started"
         title="Eligibility and Payment"
         description="We make it simple for Maryland Medicaid recipients to access high-quality mental health care."

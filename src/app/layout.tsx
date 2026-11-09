@@ -1,3 +1,4 @@
+import { MobileActionBar } from "@/components/layout/mobile-action-bar";
 import type { Metadata } from "next";
 import { Caveat, Lora, Public_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
@@ -71,6 +72,7 @@ export default async function RootLayout({
             {children}
           </main>
           <Footer />
+          <MobileActionBar />
           <LazyToaster />
         </NextIntlClientProvider>
         <Analytics />

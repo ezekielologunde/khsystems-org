@@ -16,6 +16,8 @@ export default function ResourcesPage() {
   return (
     <>
       <PageHero
+        image="/images/stock/stock-walk.jpg"
+        imageAlt="A mother and son walking together on a sunny tree-lined path"
         eyebrow="Community Resources"
         title="Resources"
         description="A curated list of crisis lines, mental health organizations, and community resources for Maryland residents."

@@ -18,6 +18,8 @@ export default function LearnPage() {
   return (
     <>
       <PageHero
+        image="/images/stock/stock-journal.jpg"
+        imageAlt="Hands writing in a journal with a cup of coffee"
         eyebrow="Learn"
         title="Mental Health Tips & Research"
         description="Plain-language guides on what the latest research says, how care works, and how to get support in Maryland."

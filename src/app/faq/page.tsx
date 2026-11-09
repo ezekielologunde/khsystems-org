@@ -23,6 +23,8 @@ export default function FaqPage() {
     <>
       <FaqStructuredData categories={faqCategories} />
       <PageHero
+        image="/images/stock/stock-window.jpg"
+        imageAlt="Sunlight from a tall window across a quiet room"
         eyebrow="Have Questions?"
         title="Frequently Asked Questions"
         description="Answers to the questions we hear most often. Don't see yours? Contact us directly and we'll help."

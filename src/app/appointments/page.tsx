@@ -15,6 +15,8 @@ export default function AppointmentsPage() {
   return (
     <>
       <PageHero
+        image="/images/stock/stock-video.jpg"
+        imageAlt="A man on a video call from home with a laptop and coffee"
         eyebrow="Get Started"
         title="Set an Appointment"
         description="Please use the form below to request an appointment with King Health Systems, Inc."

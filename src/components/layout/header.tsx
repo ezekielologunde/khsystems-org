@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Menu, Phone } from "lucide-react";
+import { Menu, Phone, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -51,38 +51,52 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85">
       <div className="bg-secondary text-secondary-foreground">
-        <Container className="flex h-9 items-center justify-between gap-4 text-sm">
-          <LanguageSwitcher className="flex items-center gap-1.5" />
-          <a
-            href={company.phoneHref}
-            className="flex items-center gap-1.5 hover:opacity-90"
-          >
-            <Phone className="size-3.5" aria-hidden />
-            {company.phone}
-          </a>
+        <Container className="flex min-h-10 items-center justify-between gap-4 py-1.5 text-sm">
+          <p className="flex items-center gap-2 font-semibold">
+            <ShieldCheck className="size-4 shrink-0 text-accent-yellow" aria-hidden />
+            <span>
+              Maryland Medicaid accepted
+              <span className="hidden text-secondary-foreground/70 sm:inline">
+                {" "}
+                &middot; {company.hours}
+              </span>
+            </span>
+          </p>
+          <div className="flex items-center gap-5">
+            <LanguageSwitcher className="hidden items-center gap-1.5 sm:flex" />
+            <a
+              href={company.phoneHref}
+              className="hidden items-center gap-1.5 font-bold hover:underline sm:flex"
+            >
+              <Phone className="size-3.5" aria-hidden />
+              {company.phone}
+            </a>
+          </div>
         </Container>
       </div>
-      <Container className="flex h-20 items-center justify-between gap-4">
-        <Link href="/" className="flex items-center gap-3">
+      <Container className="flex h-[4.5rem] items-center justify-between gap-4">
+        <Link href="/" className="flex shrink-0 items-center gap-3" aria-label={company.name}>
           <LogoMark />
-          <span className="flex flex-col leading-tight">
-            <span className="font-heading text-xl font-bold text-primary">
+          <span className="flex min-w-0 flex-col leading-tight">
+            <span className="truncate font-heading text-lg font-bold text-primary sm:text-xl">
               {company.name}
             </span>
-            <span className="text-xs text-muted-foreground">{company.tagline}</span>
+            <span className="hidden truncate text-xs text-muted-foreground sm:block">
+              {company.tagline}
+            </span>
           </span>
         </Link>
 
-        <nav className="hidden lg:block">
+        <nav className="hidden xl:block">
           <NavigationMenu>
             <NavigationMenuList>
               {primaryNav.slice(0, 2).map((item) => (
                 <NavigationMenuItem key={item.href}>
                   <NavigationMenuLink
                     render={<Link href={item.href} />}
-                    className="inline-flex h-10 items-center px-4 py-2 text-sm font-medium hover:text-primary"
+                    className="inline-flex h-10 items-center whitespace-nowrap px-4 py-2 text-sm font-medium hover:text-primary"
                   >
                     {item.label}
                   </NavigationMenuLink>
@@ -118,7 +132,7 @@ export function Header() {
                 <NavigationMenuItem key={item.href}>
                   <NavigationMenuLink
                     render={<Link href={item.href} />}
-                    className="inline-flex h-10 items-center px-4 py-2 text-sm font-medium hover:text-primary"
+                    className="inline-flex h-10 items-center whitespace-nowrap px-4 py-2 text-sm font-medium hover:text-primary"
                   >
                     {item.label}
                   </NavigationMenuLink>
@@ -131,13 +145,14 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Button
             render={<Link href="/appointments" />}
-            className="hidden sm:inline-flex bg-accent text-accent-foreground hover:bg-accent/90"
+            size="lg"
+            className="hidden min-h-11 bg-accent px-5 text-accent-foreground hover:bg-accent/90 sm:inline-flex"
           >
             {t("requestAppointment")}
           </Button>
 
           <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger render={<Button variant="outline" size="icon" className="lg:hidden" />}>
+            <SheetTrigger render={<Button variant="outline" size="icon" className="xl:hidden" />}>
               <Menu className="size-5" />
               <span className="sr-only">Open menu</span>
             </SheetTrigger>

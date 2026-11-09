@@ -15,6 +15,8 @@ export default function ReferralsPage() {
   return (
     <>
       <PageHero
+        image="/images/stock/stock-talk.jpg"
+        imageAlt="Two friends sitting on the grass in a park, talking"
         eyebrow="Refer a Client"
         title="Referrals"
         description="Your recommendations are welcome at King Health Systems, Inc. Please submit the information below and our intake team will follow up."

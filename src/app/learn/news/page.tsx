@@ -16,6 +16,8 @@ export default function NewsPage() {
   return (
     <>
       <PageHero
+        image="/images/stock/stock-street.jpg"
+        imageAlt="A tree-lined city sidewalk with brick buildings in warm evening light"
         eyebrow="News"
         title="News & Updates"
         description="Plain-language updates on Maryland Medicaid and behavioral health, with links to the official sources."

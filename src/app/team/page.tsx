@@ -19,7 +19,7 @@ export default function TeamPage() {
         eyebrow="Our Team"
         title="Our Clinicians"
         description="Get to know the clinicians who support your goals and recovery."
-        image="/images/cta-support-team.jpg"
+        image="/images/stock/stock-community.jpg"
         imageAlt="A team member wearing a headset, ready to help"
       />
       <Section>

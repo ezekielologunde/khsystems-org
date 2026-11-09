@@ -18,6 +18,8 @@ export default function TransitAssistancePage() {
   return (
     <>
       <PageHero
+        image="/images/stock/stock-street.jpg"
+        imageAlt="A tree-lined city sidewalk with brick buildings in warm evening light"
         eyebrow="Getting Here"
         title="Transit Assistance"
         description="The Maryland Department of Transportation (MDOT) offers a Reduced Fare program for eligible riders, including Medicare recipients."
