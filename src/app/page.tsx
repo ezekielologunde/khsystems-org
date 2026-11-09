@@ -170,7 +170,8 @@ export default async function HomePage() {
         </section>
 
         {/* Three panels: path, rotating reassurance, where to find us */}
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-[2fr_1fr_2fr]">
+        <Container className="relative z-10 pb-8 sm:pb-10">
+        <div className="grid grid-cols-1 overflow-hidden rounded-3xl shadow-[0_24px_48px_-24px_rgba(0,0,0,0.6)] md:grid-cols-[1.4fr_1fr_1.4fr]">
           <div className="animate-fade-up delay-900 flex flex-col justify-between gap-6 bg-muted p-8 text-foreground sm:p-10">
             <p className="max-w-[350px] font-heading text-2xl leading-[1.1] tracking-tight sm:text-[28px] lg:text-[35px]">
               Start your personalized path to complete well-being.
@@ -234,6 +235,7 @@ export default async function HomePage() {
             </ul>
           </div>
         </div>
+        </Container>
       </div>
 
       {/* Quick answers to the first questions visitors have */}
