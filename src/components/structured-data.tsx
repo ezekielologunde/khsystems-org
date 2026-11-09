@@ -5,7 +5,9 @@ export function OrganizationStructuredData() {
   const data = {
     "@context": "https://schema.org",
     "@type": "MedicalClinic",
+    "@id": "https://www.khsystems.org/#organization",
     name: company.name,
+    areaServed: offices.map((o) => ({ "@type": "City", name: `${o.city}, ${o.state}` })),
     description: company.mission,
     telephone: company.phone,
     email: company.email,
@@ -16,6 +18,9 @@ export function OrganizationStructuredData() {
     department: offices.map((office) => ({
       "@type": "MedicalClinic",
       name: office.name,
+      telephone: company.phone,
+      openingHours: "Mo-Fr 09:00-17:00",
+      hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(office.mapQuery)}`,
       address: {
         "@type": "PostalAddress",
         streetAddress: office.addressLines.join(", "),

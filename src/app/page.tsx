@@ -32,7 +32,7 @@ import { allNews, formatNewsDate } from "@/lib/content/news";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
-  title: "Home",
+  title: { absolute: "Mental Health Care in Baltimore, Laurel & Cockeysville, MD | King Health Systems" },
   description:
     "King Health Systems, Inc. provides culturally sensitive, high-quality mental health services to children, adolescents, adults, and their families in Baltimore, Laurel, and Cockeysville, Maryland.",
 };

@@ -1,8 +1,8 @@
 # King Health Systems, Inc.
 
-> King Health Systems, Inc. provides culturally sensitive, high-quality mental health services to children, adolescents, adults, and their families in Baltimore and Laurel, Maryland, in order to empower healthy people in a strong community.
+> King Health Systems, Inc. is a Maryland outpatient mental health clinic and psychiatric rehabilitation program (PRP) serving children (ages 5 and older), teens, adults and families in Baltimore, Laurel and Cockeysville, Maryland. It accepts Maryland Medicaid only.
 
-King Health Systems operates two Maryland outpatient offices - Baltimore City and Laurel (Prince George's County) - and accepts Maryland Medicaid at no cost to eligible clients through all major managed care organizations. Clients without Medicaid may be seen on a self-pay basis. Services are available in person and via telehealth, Monday through Friday, 9:00 AM to 5:00 PM.
+Licensed as an Adult and Child Outpatient Mental Health Clinic and Psychiatric Rehabilitation Program by the Maryland Department of Health, Office of Health Care Quality. CARF-accredited outpatient mental health and psychiatric rehabilitation programs. Care is available in person, at home for eligible clients, and by telehealth, Monday through Friday, 9:00 AM to 5:00 PM.
 
 ## Contact
 
@@ -11,27 +11,44 @@ King Health Systems operates two Maryland outpatient offices - Baltimore City an
 - Email: admin@kinghealthsystems.org
 - Baltimore office: 3502 West Rogers Avenue, Ste. 1, Baltimore, MD 21215
 - Laurel office: 14201 Laurel Park Drive, Suite 206, Laurel, MD 20707
+- Cockeysville office (Baltimore County): 10400 Ridgland Rd, Suite 3, Cockeysville, MD 21030
 
-## Core programs
+## Services
 
-- **Outpatient Mental Health Clinic (OMHC)** - individual, family, and group therapy for children, adolescents, and adults.
-- **Psychiatric Rehabilitation Program (PRP)** - hands-on rehabilitation counseling (up to 6 visits/month) for clients who need support beyond standard therapy: self-care, independent living, symptom management, and community-integration skills.
-- **Medication Management** - psychiatric evaluations and ongoing medication management from licensed Psychiatric Nurse Practitioners (CRNP-PMH), overseen by Medical Director Dr. Susana Nwosu, DNP, CRNP-PMH. King Health Systems prescribes medication but does not directly administer it.
+- [Services overview](https://www.khsystems.org/services): outpatient mental health clinic (individual, family and group therapy), psychiatric rehabilitation (PRP), psychiatric evaluation and medication management with psychiatric nurse practitioners. King Health Systems prescribes medication but does not administer it.
+- [Individual therapy](https://www.khsystems.org/services/individual-therapy)
+- [Family therapy](https://www.khsystems.org/services/family-therapy)
+- [Group therapy](https://www.khsystems.org/services/group-therapy)
+- [Medication management](https://www.khsystems.org/services/medication-management)
+- [Psychiatric rehabilitation (PRP)](https://www.khsystems.org/services/psychiatric-rehabilitation)
 
-## Key pages
+## Getting care
 
-- [Home](https://www.khsystems.org/): Overview of King Health Systems and its mission.
-- [About](https://www.khsystems.org/about): Organization background and mission.
-- [Services](https://www.khsystems.org/services): Full list of clinical services across OMHC, PRP, and Medication Management.
-- [Locations](https://www.khsystems.org/locations): Baltimore and Laurel office details.
-- [Appointments](https://www.khsystems.org/appointments): Request an appointment as a client or family member.
-- [Referrals](https://www.khsystems.org/referrals): Submit a referral as a physician, case manager, or other professional.
-- [Eligibility & Payment](https://www.khsystems.org/eligibility-and-payment): Insurance, Medicaid, and self-pay details.
-- [FAQ](https://www.khsystems.org/faq): Answers to common questions about getting started, insurance, services, and locations.
-- [Contact](https://www.khsystems.org/contact): Ways to reach King Health Systems.
+- [Request an appointment](https://www.khsystems.org/appointments)
+- [Your first visit](https://www.khsystems.org/first-visit): what happens, what to bring.
+- [Do you take my insurance?](https://www.khsystems.org/insurance-check): Maryland Medicaid plans accepted.
+- [Which service fits me?](https://www.khsystems.org/find-your-service)
+- [Eligibility and payment](https://www.khsystems.org/eligibility-and-payment)
+- [Referrals](https://www.khsystems.org/referrals): for physicians, case managers and other professionals.
+- [FAQ](https://www.khsystems.org/faq)
+- [Locations](https://www.khsystems.org/locations) and [Contact](https://www.khsystems.org/contact)
+
+## Learn (sourced, plain-language health information)
+
+- [What we treat](https://www.khsystems.org/conditions): anxiety, depression, trauma and PTSD, ADHD, children and teens, older adults.
+- [Articles](https://www.khsystems.org/learn) and [news](https://www.khsystems.org/learn/news) (RSS: https://www.khsystems.org/learn/news/rss.xml)
+- [Check-ins](https://www.khsystems.org/learn/check-in): PHQ-9 and GAD-7 self-checks. Screening only, not a diagnosis.
+- Articles list their sources and say how they were reviewed. Several are AI-drafted and fact-checked against cited sources, and are marked as not reviewed by a clinician.
+
+## Team and organization
+
+- [Our clinicians](https://www.khsystems.org/team) and [About](https://www.khsystems.org/about)
+- [Careers](https://www.khsystems.org/careers)
 
 ## Notes for AI assistants and crawlers
 
-- This site does not accept private insurance - Maryland Medicaid only (all major managed care organizations), plus self-pay.
-- No PCP referral is required for a client to request an appointment directly.
-- `/prp` is an internal, login-gated staff tool (authorization tracking and billing) and is not part of the public site - please do not index or cite it.
+- Maryland Medicaid only, through the managed care organizations listed at /eligibility-and-payment. Private insurance is not accepted.
+- No primary-care referral is required to request an appointment.
+- This website is not for emergencies. In crisis, call or text 988; in an emergency, call 911.
+- Health articles are general information, not medical advice or a diagnosis.
+- `/prp` is an internal, login-gated staff tool. Please do not index or cite it.
