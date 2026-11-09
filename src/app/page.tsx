@@ -102,31 +102,31 @@ export default async function HomePage() {
   return (
     <>
       {/* Hero: full-viewport photo, word-by-word headline, three-panel strip */}
-      <div className="relative flex min-h-[calc(100svh-7rem)] flex-col overflow-hidden bg-secondary text-white">
+      <div className="relative flex flex-col overflow-hidden bg-secondary text-white">
         <Image
           src="/images/hero-family.jpg"
           alt="A family sitting together outdoors, supporting one another"
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-cover object-[50%_70%]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/60 to-secondary/20" />
 
         <section className="relative z-10 flex flex-1 flex-col justify-center">
-          <Container className="py-14 sm:py-16 lg:py-20">
+          <Container className="py-10 sm:py-14 lg:py-16">
             <p className="animate-fade-in delay-200 inline-flex items-center gap-2 rounded-full bg-accent-yellow px-4 py-1.5 text-sm font-bold text-accent-yellow-foreground">
               <ShieldCheck className="size-4" aria-hidden />
               Maryland Medicaid accepted
             </p>
 
-            <h1 className="mt-6 max-w-4xl font-heading text-[2.75rem] leading-[1.02] font-normal tracking-tight text-balance sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6rem]">
+            <h1 className="mt-5 max-w-3xl font-heading text-[2.5rem] leading-[1.05] font-normal tracking-tight text-balance sm:text-[3.5rem] lg:text-[4.25rem] xl:text-[4.75rem]">
               <WordReveal text={t("heroTitlePrefix")} startDelay={0.3} step={0.1} dimWords={["we", "care"]} />{" "}
               <WordReveal text={t("heroTitleHighlight")} startDelay={0.6} step={0.1} />{" "}
               <WordReveal text={t("heroTitleSuffix")} startDelay={0.8} step={0.1} dimWords={["every", "day"]} />
             </h1>
 
-            <div className="animate-fade-up delay-600 mt-8 flex flex-col gap-5 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-5">
+            <div className="animate-fade-up delay-600 mt-6 flex flex-col gap-4 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-5">
               <Button
                 render={<Link href="/appointments" />}
                 size="lg"
