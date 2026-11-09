@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { FadeIn } from "@/components/sections/fade-in";
+import { IntroVideo } from "@/components/sections/intro-video";
 import { WordReveal } from "@/components/sections/word-reveal";
 import { RotatingValues } from "@/components/sections/rotating-values";
 import {
@@ -283,6 +284,24 @@ export default async function HomePage() {
               </Link>
             </FadeIn>
           ))}
+        </div>
+      </Section>
+
+      {/* Short captioned intro; plays only when asked to */}
+      <Section>
+        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-12">
+          <FadeIn>
+            <h2 className="font-heading text-4xl font-bold leading-tight text-balance sm:text-5xl">
+              Meet King Health Systems
+            </h2>
+            <p className="mt-4 text-lg text-foreground/75">
+              A 36-second look at who we are, where to find us, and how to start. Captions are
+              on, and nothing plays until you press play.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <IntroVideo />
+          </FadeIn>
         </div>
       </Section>
 
