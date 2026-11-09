@@ -41,6 +41,8 @@ export function Header() {
     { label: t("about"), href: "/about" },
     { label: t("careers"), href: "/careers" },
     { label: t("resources"), href: "/resources" },
+    { label: t("learn"), href: "/learn" },
+    { label: t("news"), href: "/learn/news" },
     { label: t("contact"), href: "/contact" },
   ];
 
@@ -96,7 +98,7 @@ export function Header() {
                 <NavigationMenuItem key={item.href}>
                   <NavigationMenuLink
                     render={<Link href={item.href} />}
-                    className="inline-flex h-10 items-center whitespace-nowrap px-4 py-2 text-sm font-medium hover:text-primary"
+                    className="inline-flex h-10 items-center whitespace-nowrap px-3 py-2 text-sm font-medium hover:text-primary"
                   >
                     {item.label}
                   </NavigationMenuLink>
@@ -132,7 +134,7 @@ export function Header() {
                 <NavigationMenuItem key={item.href}>
                   <NavigationMenuLink
                     render={<Link href={item.href} />}
-                    className="inline-flex h-10 items-center whitespace-nowrap px-4 py-2 text-sm font-medium hover:text-primary"
+                    className="inline-flex h-10 items-center whitespace-nowrap px-3 py-2 text-sm font-medium hover:text-primary"
                   >
                     {item.label}
                   </NavigationMenuLink>
