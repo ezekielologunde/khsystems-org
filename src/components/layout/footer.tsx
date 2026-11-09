@@ -115,10 +115,10 @@ export async function Footer() {
               <p className="border-b-2 border-primary pb-2 text-sm font-bold uppercase tracking-wide text-white">
                 {group.title}
               </p>
-              <ul className="mt-4 space-y-2.5 text-sm text-secondary-foreground/80">
+              <ul className="mt-3 space-y-0.5 text-sm text-secondary-foreground/80">
                 {group.links.map((l) => (
                   <li key={l.href}>
-                    <Link href={l.href} className="hover:text-white hover:underline">
+                    <Link href={l.href} className="inline-block py-1 hover:text-white hover:underline">
                       {l.label}
                     </Link>
                   </li>
@@ -140,7 +140,7 @@ export async function Footer() {
             </p>
             <a
               href={`mailto:${company.email}`}
-              className="mt-4 flex items-center gap-2 text-sm hover:underline"
+              className="mt-4 flex min-h-8 items-center gap-2 text-sm hover:underline"
             >
               <Mail className="size-4 shrink-0 text-accent-yellow" aria-hidden />
               {company.email}
@@ -187,17 +187,17 @@ export async function Footer() {
           <p className="max-w-3xl">{medicationDisclaimer}</p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-1">
             <span>&copy; 2015&ndash;2026 {t("copyright")}</span>
-            <Link href="/privacy-policy" className="hover:text-white hover:underline">
+            <Link href="/privacy-policy" className="inline-block py-1 hover:text-white hover:underline">
               {t("privacyPolicy")}
             </Link>
-            <Link href="/accessibility" className="hover:text-white hover:underline">
+            <Link href="/accessibility" className="inline-block py-1 hover:text-white hover:underline">
               {t("accessibility")}
             </Link>
             <a
               href={facebookUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white hover:underline"
+              className="inline-block py-1 hover:text-white hover:underline"
             >
               Facebook
             </a>
@@ -205,7 +205,7 @@ export async function Footer() {
               href={linkedInUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white hover:underline"
+              className="inline-block py-1 hover:text-white hover:underline"
             >
               LinkedIn
             </a>
