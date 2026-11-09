@@ -63,6 +63,7 @@ export function NewsletterSignup({
           <Input
             type="email"
             placeholder={placeholder}
+            aria-label={label}
             aria-invalid={!!errors.email}
             className="border-2 border-white/40 bg-white/10 text-secondary-foreground placeholder:text-secondary-foreground/50 focus-visible:border-white"
             {...register("email")}
