@@ -1,19 +1,34 @@
 /**
- * Short captioned intro video. Loads nothing until the visitor presses play
+ * Short captioned video. Loads nothing until the visitor presses play
  * (preload="none"), has a poster and a captions track, and is never autoplayed.
+ * The background music is CC BY 4.0, so the credit is always shown beneath it.
  */
-export function IntroVideo() {
+type IntroVideoProps = {
+  src?: string;
+  captions?: string;
+  poster?: string;
+  /** Short description for assistive tech. */
+  label?: string;
+};
+
+export function IntroVideo({
+  src = "/videos/khs-intro.mp4",
+  captions = "/videos/khs-intro.vtt",
+  poster = "/images/khs-intro-poster.jpg",
+  label = "King Health Systems introduction video",
+}: IntroVideoProps) {
   return (
     <figure className="overflow-hidden rounded-3xl bg-secondary shadow-soft-lg">
       <video
         controls
         playsInline
         preload="none"
-        poster="/images/khs-intro-poster.jpg"
+        poster={poster}
+        aria-label={label}
         className="aspect-video w-full"
       >
-        <source src="/videos/khs-intro.mp4" type="video/mp4" />
-        <track kind="captions" src="/videos/khs-intro.vtt" srcLang="en" label="English" default />
+        <source src={src} type="video/mp4" />
+        <track kind="captions" src={captions} srcLang="en" label="English" default />
         Your browser does not support video. Call 410-578-4340 to talk with our team.
       </video>
       <figcaption className="px-4 py-3 text-xs text-secondary-foreground/80">

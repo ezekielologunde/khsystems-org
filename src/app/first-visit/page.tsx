@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/layout/section";
 import { PageHero } from "@/components/sections/page-hero";
+import { IntroVideo } from "@/components/sections/intro-video";
 import { company } from "@/lib/content/company";
 
 export const metadata: Metadata = {
@@ -50,6 +51,12 @@ export default function FirstVisitPage() {
       />
       <Section>
         <div className="mx-auto max-w-3xl space-y-12">
+          <IntroVideo
+            src="/videos/khs-first-visit.mp4"
+            captions="/videos/khs-first-visit.vtt"
+            poster="/images/khs-first-visit-poster.jpg"
+            label="Video: what to expect at your first visit"
+          />
           <ol className="space-y-6">
             {STEPS.map((s, i) => (
               <li key={s.t} className="flex gap-4">
