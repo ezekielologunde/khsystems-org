@@ -36,15 +36,19 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const t = useTranslations("nav");
 
-  const primaryNav = [
-    { label: t("home"), href: "/" },
-    { label: t("about"), href: "/about" },
-    { label: t("careers"), href: "/careers" },
-    { label: t("resources"), href: "/resources" },
+  // Desktop: Services (menu), About, Learn (menu), Careers, Contact. The logo is Home.
+  const learnLinks = [
     { label: t("learn"), href: "/learn" },
     { label: t("news"), href: "/learn/news" },
+    { label: t("resources"), href: "/resources" },
+  ];
+  const plainBefore = [{ label: t("about"), href: "/about" }];
+  const plainAfter = [
+    { label: t("careers"), href: "/careers" },
     { label: t("contact"), href: "/contact" },
   ];
+  const linkCls =
+    "inline-flex h-10 items-center whitespace-nowrap px-3.5 py-2 text-[0.95rem] font-semibold hover:text-primary";
 
   const groupTitleKey: Record<string, string> = {
     Programs: t("programs"),
@@ -56,29 +60,19 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85">
       <div className="bg-secondary text-secondary-foreground">
         <Container className="flex min-h-10 items-center justify-between gap-4 py-1.5 text-sm">
-          <p className="flex items-center gap-2 font-semibold">
-            <ShieldCheck className="size-4 shrink-0 text-accent-yellow" aria-hidden />
-            <span>
+          <p className="flex flex-wrap items-center gap-x-3 gap-y-1 font-semibold">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-yellow px-3 py-0.5 text-accent-yellow-foreground">
+              <ShieldCheck className="size-4 shrink-0" aria-hidden />
               Maryland Medicaid accepted
-              <span className="hidden text-secondary-foreground/70 sm:inline">
-                {" "}
-                &middot; {company.hours}
-              </span>
             </span>
+            <span className="hidden text-secondary-foreground/80 sm:inline">{company.hours}</span>
           </p>
           <div className="flex items-center gap-5">
-            <LanguageSwitcher className="hidden items-center gap-1.5 sm:flex" />
-            <a
-              href={company.phoneHref}
-              className="hidden items-center gap-1.5 font-bold hover:underline sm:flex"
-            >
-              <Phone className="size-3.5" aria-hidden />
-              {company.phone}
-            </a>
+            <LanguageSwitcher className="flex items-center gap-1.5" />
           </div>
         </Container>
       </div>
-      <Container className="flex h-[4.5rem] items-center justify-between gap-4">
+      <Container className="flex h-20 items-center justify-between gap-4">
         <Link href="/" className="flex shrink-0 items-center gap-3" aria-label={company.name}>
           <LogoMark />
           <span className="flex min-w-0 flex-col leading-tight">
@@ -94,18 +88,8 @@ export function Header() {
         <nav className="hidden xl:block">
           <NavigationMenu>
             <NavigationMenuList>
-              {primaryNav.slice(0, 2).map((item) => (
-                <NavigationMenuItem key={item.href}>
-                  <NavigationMenuLink
-                    render={<Link href={item.href} />}
-                    className="inline-flex h-10 items-center whitespace-nowrap px-3 py-2 text-sm font-medium hover:text-primary"
-                  >
-                    {item.label}
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
               <NavigationMenuItem>
-                <NavigationMenuTrigger>{t("services")}</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="text-[0.95rem] font-semibold">{t("services")}</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid w-[600px] grid-cols-3 gap-6 p-6">
                     {serviceMenuGroups.map((group) => (
@@ -130,12 +114,33 @@ export function Header() {
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-              {primaryNav.slice(2).map((item) => (
+              {plainBefore.map((item) => (
                 <NavigationMenuItem key={item.href}>
-                  <NavigationMenuLink
-                    render={<Link href={item.href} />}
-                    className="inline-flex h-10 items-center whitespace-nowrap px-3 py-2 text-sm font-medium hover:text-primary"
-                  >
+                  <NavigationMenuLink render={<Link href={item.href} />} className={linkCls}>
+                    {item.label}
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="text-[0.95rem] font-semibold">{t("learn")}</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="w-56 space-y-1 p-3">
+                    {learnLinks.map((link) => (
+                      <li key={link.href}>
+                        <NavigationMenuLink
+                          render={<Link href={link.href} />}
+                          className="block rounded-md px-2 py-1.5 text-sm font-medium hover:text-primary"
+                        >
+                          {link.label}
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              {plainAfter.map((item) => (
+                <NavigationMenuItem key={item.href}>
+                  <NavigationMenuLink render={<Link href={item.href} />} className={linkCls}>
                     {item.label}
                   </NavigationMenuLink>
                 </NavigationMenuItem>
@@ -146,9 +151,18 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <Button
+            render={<a href={company.phoneHref} />}
+            size="lg"
+            variant="outline"
+            className="hidden min-h-12 border-2 border-foreground bg-transparent px-5 text-base font-bold hover:bg-foreground hover:text-background lg:inline-flex"
+          >
+            <Phone className="size-4" aria-hidden />
+            {company.phone}
+          </Button>
+          <Button
             render={<Link href="/appointments" />}
             size="lg"
-            className="hidden min-h-11 bg-accent px-5 text-accent-foreground hover:bg-accent/90 sm:inline-flex"
+            className="hidden min-h-12 bg-accent-yellow px-6 text-base font-bold text-accent-yellow-foreground shadow-md hover:bg-accent-yellow/90 sm:inline-flex"
           >
             {t("requestAppointment")}
           </Button>
@@ -165,12 +179,12 @@ export function Header() {
                 </SheetTitle>
               </SheetHeader>
               <nav className="flex flex-col gap-1 px-4">
-                {primaryNav.slice(0, 2).map((item) => (
+                {[{ label: t("home"), href: "/" }, ...plainBefore].map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
+                    className="rounded-md px-3 py-2 text-base font-medium hover:bg-muted"
                   >
                     {item.label}
                   </Link>
@@ -205,7 +219,7 @@ export function Header() {
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
-                {primaryNav.slice(2).map((item) => (
+                {[...learnLinks, ...plainAfter].map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
@@ -216,8 +230,18 @@ export function Header() {
                   </Link>
                 ))}
                 <Button
+                  render={<a href={company.phoneHref} />}
+                  variant="outline"
+                  size="lg"
+                  className="mt-3 min-h-12 border-2 border-foreground bg-transparent text-base font-bold"
+                >
+                  <Phone className="size-4" aria-hidden />
+                  Call {company.phone}
+                </Button>
+                <Button
                   render={<Link href="/appointments" onClick={() => setOpen(false)} />}
-                  className="mt-3 bg-accent text-accent-foreground hover:bg-accent/90"
+                  size="lg"
+                  className="mt-2 min-h-12 bg-accent-yellow text-base font-bold text-accent-yellow-foreground hover:bg-accent-yellow/90"
                 >
                   {t("requestAppointment")}
                 </Button>
