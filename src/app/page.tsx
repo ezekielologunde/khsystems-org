@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   title: "Home",
   description:
-    "King Health Systems, Inc. provides culturally sensitive, high-quality mental health services to children, adolescents, adults, and their families in Baltimore and Laurel, Maryland.",
+    "King Health Systems, Inc. provides culturally sensitive, high-quality mental health services to children, adolescents, adults, and their families in Baltimore, Laurel, and Cockeysville, Maryland.",
 };
 
 const CARD_TINTS = ["bg-accent-blue/25", "bg-accent-yellow/25", "bg-accent-orange/25"];

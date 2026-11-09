@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Section } from "@/components/layout/section";
 import { PageHero } from "@/components/sections/page-hero";
 import { FadeIn } from "@/components/sections/fade-in";
-import { company } from "@/lib/content/company";
+import { accreditation, company } from "@/lib/content/company";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/about" },
@@ -18,7 +18,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="Who We Are"
         title="About Us"
-        description="Culturally sensitive, high-quality mental health care for Maryland Medicaid recipients across Baltimore and Prince George's County."
+        description="Culturally sensitive, high-quality mental health care for Maryland Medicaid recipients across Baltimore City, Prince George's County, and Baltimore County."
         image="/images/about-conversation-sunset.jpg"
         imageAlt="Two people in a warm conversation at sunset"
       />
@@ -38,6 +38,9 @@ export default function AboutPage() {
               professionals to provide holistic care, and clients are
               involved in choosing their providers and shaping their own
               treatment goals.
+            </p>
+            <p className="leading-relaxed text-foreground/90">
+              {accreditation.licensure} {accreditation.carf}
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>

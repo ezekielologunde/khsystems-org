@@ -23,6 +23,7 @@ const staticRoutes = [
   "/faq",
   "/accessibility",
   "/testimonials",
+  "/team",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

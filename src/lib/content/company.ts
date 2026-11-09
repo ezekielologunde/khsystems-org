@@ -48,7 +48,24 @@ export const offices: Office[] = [
     zip: "20707",
     mapQuery: "14201 Laurel Park Drive, Suite 206, Laurel, MD 20707",
   },
+  {
+    id: "cockeysville",
+    name: "Cockeysville Office (Baltimore County)",
+    addressLines: ["10400 Ridgland Rd, Suite 3"],
+    city: "Cockeysville",
+    state: "MD",
+    zip: "21030",
+    mapQuery: "10400 Ridgland Rd, Suite 3, Cockeysville, MD 21030",
+  },
 ];
+
+export const accreditation = {
+  licensure:
+    "Licensed as an Adult and Child Outpatient Mental Health Clinic and Psychiatric Rehabilitation Program (PRP) by Maryland Department of Health, Office of Health Care Quality.",
+  carf: "CARF-accredited outpatient mental health and psychiatric rehabilitation programs.",
+} as const;
+
+export const indeedJobsUrl = "https://www.indeed.com/cmp/King-Health-Systems/jobs";
 
 export const managedCareOrganizations = [
   "Aetna Better Health",

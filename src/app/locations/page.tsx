@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/locations" },
   title: "Our Location",
   description:
-    "King Health Systems, Inc. has two office locations in Baltimore and Laurel, Maryland.",
+    "King Health Systems, Inc. has three office locations in Baltimore, Laurel, and Cockeysville, Maryland.",
 };
 
 export default function LocationsPage() {
@@ -19,12 +19,12 @@ export default function LocationsPage() {
       <PageHero
         eyebrow="Visit Us"
         title="Our Location"
-        description="We're proud to serve clients from two convenient Maryland office locations."
+        description="We're proud to serve clients from three convenient Maryland office locations."
         image="/images/hero-family.jpg"
         imageAlt="A family sitting together outdoors, supporting one another"
       />
       <Section>
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-8 lg:grid-cols-3">
           {offices.map((office, i) => (
             <FadeIn key={office.id} delay={i * 0.08}>
               <Card className="overflow-hidden">

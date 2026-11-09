@@ -56,7 +56,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: "Do you offer telehealth?",
         answer:
-          "Yes. Most services, including therapy and medication management, are available via telehealth Monday through Friday, 9:00 AM to 5:00 PM, in addition to in-person appointments at both our Baltimore and Laurel offices.",
+          "Yes. Most services, including therapy and medication management, are available via telehealth Monday through Friday, 9:00 AM to 5:00 PM, in addition to in-person appointments at our Baltimore, Laurel, and Cockeysville offices.",
       },
       {
         question: "Does King Health Systems administer medication?",
@@ -72,7 +72,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: "Where are your offices located?",
         answer:
-          "We have two offices: 3502 West Rogers Avenue, Ste. 1, Baltimore, MD 21215, and 14201 Laurel Park Drive, Suite 206, Laurel, MD 20707 (Greater Laurel Professional Building).",
+          "We have three offices: 3502 West Rogers Avenue, Ste. 1, Baltimore, MD 21215; 14201 Laurel Park Drive, Suite 206, Laurel, MD 20707 (Greater Laurel Professional Building); and 10400 Ridgland Rd, Suite 3, Cockeysville, MD 21030.",
       },
       {
         question: "What are your hours?",

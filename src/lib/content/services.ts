@@ -101,7 +101,7 @@ export const services: ServicePageContent[] = [
       "Ongoing psychiatric medication management from licensed Psychiatric Nurse Practitioners.",
     body: [
       "Our licensed Psychiatric Nurse Practitioners (CRNP-PMH) determine medication needs at a client's initial evaluation, followed by monthly follow-up appointments to monitor progress and adjust treatment as needed.",
-      "Telehealth appointments are available Monday through Friday, 9:00 AM to 5:00 PM, with in-person appointments offered on select days each month at both our Baltimore City and Laurel (Prince George's County) offices.",
+      "Telehealth appointments are available Monday through Friday, 9:00 AM to 5:00 PM, with in-person appointments offered on select days each month at our Baltimore City, Laurel (Prince George's County), and Cockeysville (Baltimore County) offices.",
     ],
     bullets: [],
     heroImage: "/images/telehealth-video-call.jpg",

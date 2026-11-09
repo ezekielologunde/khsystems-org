@@ -75,6 +75,7 @@ export const footerLinkGroups = [
     links: [
       { label: "About Us", href: "/about" },
       { label: "Testimonials", href: "/testimonials" },
+      { label: "Our Clinicians", href: "/team" },
       { label: "Careers", href: "/careers" },
       { label: "Our Location", href: "/locations" },
       { label: "Calendar of Events", href: "/calendar" },
