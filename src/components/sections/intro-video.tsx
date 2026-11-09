@@ -4,7 +4,7 @@
  */
 export function IntroVideo() {
   return (
-    <div className="overflow-hidden rounded-3xl bg-secondary shadow-soft-lg">
+    <figure className="overflow-hidden rounded-3xl bg-secondary shadow-soft-lg">
       <video
         controls
         playsInline
@@ -16,6 +16,27 @@ export function IntroVideo() {
         <track kind="captions" src="/videos/khs-intro.vtt" srcLang="en" label="English" default />
         Your browser does not support video. Call 410-578-4340 to talk with our team.
       </video>
-    </div>
+      <figcaption className="px-4 py-3 text-xs text-secondary-foreground/80">
+        Music: &ldquo;Carefree&rdquo; by Kevin MacLeod (
+        <a
+          href="https://incompetech.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-white"
+        >
+          incompetech.com
+        </a>
+        ), licensed under{" "}
+        <a
+          href="https://creativecommons.org/licenses/by/4.0/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-white"
+        >
+          Creative Commons: By Attribution 4.0
+        </a>
+        .
+      </figcaption>
+    </figure>
   );
 }
